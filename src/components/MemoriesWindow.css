@@ -1,0 +1,160 @@
+.memories-window {
+  position: absolute;
+  width: 900px;
+  height: 650px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.memories-window.maximized {
+  width: 100vw !important;
+  height: calc(100vh - 25px) !important;
+  top: 25px !important;
+  left: 0 !important;
+  border-radius: 0;
+}
+
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 4px;
+  padding: 0;
+  overflow-y: auto;
+  height: 100%;
+  background: #000;
+  grid-auto-flow: dense; /* Fill gaps intelligently */
+}
+
+/* Instagram-style memory items */
+.memory-item {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  cursor: default;
+}
+
+/* Horizontal items - wider, cinematic 16:9 aspect ratio (2x1) */
+.memory-item.horizontal {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* Vertical items (1x2) */
+.memory-item.vertical {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+/* Square items (1x1) */
+.memory-item.square {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Hide mobile-only items on desktop */
+.memory-item.mobile-only {
+  display: none;
+}
+
+.memory-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-image,
+.memory-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Overlay for captions */
+.memory-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  padding: 20px 15px 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memory-item:hover .memory-overlay {
+  opacity: 1;
+}
+
+.memory-caption {
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.memory-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .memories-window {
+    width: 100vw !important;
+    height: calc(100vh - 25px) !important;
+    top: 25px !important;
+    left: 0 !important;
+    border-radius: 0;
+  }
+
+  .memories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+    gap: 3px;
+    grid-auto-flow: dense;
+  }
+
+  /* Show mobile-only items on tablets and phones */
+  .memory-item.mobile-only {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .memories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: 2px;
+    grid-auto-flow: dense;
+  }
+
+  .memory-caption {
+    font-size: 12px;
+  }
+
+  .memory-date {
+    font-size: 10px;
+  }
+
+  .memory-overlay {
+    padding: 15px 10px 10px;
+  }
+}

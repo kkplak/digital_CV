@@ -1,0 +1,119 @@
+.others-window {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.others-window.maximized {
+  width: 100vw !important;
+  height: calc(100vh - 25px) !important;
+  top: 25px !important;
+  left: 0 !important;
+  border-radius: 0;
+}
+
+.others-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.folder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  width: fit-content;
+  height: fit-content;
+}
+
+.folder-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.folder-icon {
+  width: 64px;
+  height: 45px;
+  background: linear-gradient(135deg, rgba(94, 156, 255, 0.95) 0%, rgba(74, 144, 226, 0.95) 100%);
+  border-radius: 0 4px 4px 4px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.folder-icon::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 24px;
+  height: 8px;
+  background: linear-gradient(135deg, rgba(94, 156, 255, 0.95) 0%, rgba(74, 144, 226, 0.95) 100%);
+  border-radius: 4px 4px 0 0;
+}
+
+.folder-icon.memories {
+  background: linear-gradient(135deg, rgba(217, 136, 153, 0.95) 0%, rgba(198, 95, 103, 0.95) 100%);
+}
+
+.folder-icon.memories::before {
+  background: linear-gradient(135deg, rgba(217, 136, 153, 0.95) 0%, rgba(198, 95, 103, 0.95) 100%);
+}
+
+.folder-name {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .others-window {
+    width: 100vw !important;
+    height: calc(100vh - 25px) !important;
+    top: 25px !important;
+    left: 0 !important;
+    border-radius: 0;
+  }
+
+  .others-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .others-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .folder-icon {
+    width: 56px;
+    height: 40px;
+  }
+
+  .folder-name {
+    font-size: 11px;
+  }
+}

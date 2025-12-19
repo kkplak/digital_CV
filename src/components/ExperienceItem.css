@@ -1,0 +1,150 @@
+.experience-item {
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.experience-header {
+  margin-bottom: 0.6rem;
+}
+
+.experience-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 0.1rem 0;
+  color: #000;
+  line-height: 1.3;
+}
+
+.experience-company {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-bottom: 0.05rem;
+  color: #000;
+  line-height: 1.3;
+}
+
+.experience-description {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 0.05rem;
+  color: #000;
+  line-height: 1.3;
+}
+
+.experience-meta {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.6rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.experience-period,
+.experience-location {
+  font-size: 0.75rem;
+}
+
+.meta-separator {
+  margin: 0 0.2rem;
+}
+
+.experience-bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style-type: disc;
+}
+
+.experience-bullets li {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+  color: #000;
+}
+
+.experience-bullets li::marker {
+  color: #000;
+  font-size: 0.7rem;
+}
+
+.experience-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+/* Sub-experience (nested roles under Sole Proprietorship) */
+.sub-experience-section {
+  margin-top: 0.75rem;
+}
+
+.sub-experience-header {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  color: #000;
+}
+
+.sub-experience-item {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.sub-experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.sub-experience-title-row {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.sub-experience-title {
+  font-weight: 700;
+}
+
+.sub-experience-company {
+  font-weight: 400;
+}
+
+.sub-experience-period {
+  font-weight: 400;
+  color: #666;
+}
+
+.sub-experience-separator,
+.sub-experience-separator-period {
+  font-weight: 400;
+}
+
+.sub-experience-bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style-type: disc;
+}
+
+.sub-experience-bullets li {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+  color: #000;
+}
+
+.sub-experience-bullets li::marker {
+  color: #000;
+  font-size: 0.7rem;
+}
+
+.sub-experience-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+@media print {
+  .experience-item {
+    margin-bottom: 1.2rem;
+  }
+  
+  .experience-bullets li {
+    font-size: 0.7rem;
+  }
+}

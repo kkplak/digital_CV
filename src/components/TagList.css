@@ -1,0 +1,28 @@
+.tag-list {
+  margin: 0;
+  padding: 0;
+  padding-left: 1.1rem;
+  list-style-type: disc;
+}
+
+.tag-item {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+  color: #000;
+}
+
+.tag-item::marker {
+  color: #000;
+  font-size: 0.7rem;
+}
+
+.tag-item:last-child {
+  margin-bottom: 0;
+}
+
+@media print {
+  .tag-item {
+    font-size: 0.75rem;
+  }
+}

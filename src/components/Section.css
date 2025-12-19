@@ -1,0 +1,31 @@
+.cv-section {
+  margin-bottom: 1.75rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+  color: #000;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.section-content {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.section-content {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+@media print {
+  .cv-section {
+    margin-bottom: 1.2rem;
+  }
+}
