@@ -6,7 +6,7 @@ import ExperienceItem from './ExperienceItem';
 import TagList from './TagList';
 import ContactInfo from './ContactInfo';
 
-export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized }) {
+export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 100, y: 80 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -47,7 +47,7 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized 
       )}
       <div 
         ref={windowRef}
-        className={`cv-window ${isMaximized ? 'maximized' : ''}`}
+        className={`cv-window ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`

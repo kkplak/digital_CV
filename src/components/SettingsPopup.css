@@ -2,9 +2,7 @@
   position: fixed;
   width: 420px;
   max-height: 80vh;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 
     0 0 0 0.5px rgba(255, 255, 255, 0.4),
@@ -15,6 +13,23 @@
   display: flex;
   flex-direction: column;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-popup.dark {
+  background: #28282d;
+  box-shadow: 
+    0 0 0 0.5px rgba(255, 255, 255, 0.1),
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.settings-popup.dark .window-titlebar {
+  background: rgba(50, 50, 55, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.settings-popup.dark .window-title {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 768px) {
@@ -29,9 +44,13 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.95);
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.settings-popup.dark .window-content {
+  background: rgba(30, 30, 35, 0.7);
 }
 
 .window-content::-webkit-scrollbar {
@@ -51,11 +70,11 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-.desktop.dark .window-content::-webkit-scrollbar-thumb {
+.settings-popup.dark .window-content::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.desktop.dark .window-content::-webkit-scrollbar-thumb:hover {
+.settings-popup.dark .window-content::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
@@ -78,6 +97,10 @@
   letter-spacing: 0.5px;
 }
 
+.settings-popup.dark .settings-section h4 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .user-profile {
   display: flex;
   align-items: center;
@@ -87,7 +110,7 @@
   border-radius: 12px;
 }
 
-.desktop.dark .user-profile {
+.settings-popup.dark .user-profile {
   background: rgba(60, 60, 65, 0.6);
 }
 
@@ -118,9 +141,17 @@
   color: rgba(0, 0, 0, 0.85);
 }
 
+.settings-popup.dark .user-name {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .user-role {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.55);
+}
+
+.settings-popup.dark .user-role {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .theme-toggle {
@@ -145,7 +176,7 @@
   gap: 8px;
 }
 
-.desktop.dark .theme-btn {
+.settings-popup.dark .theme-btn {
   background: rgba(60, 60, 65, 0.6);
   border-color: rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.7);
@@ -187,6 +218,11 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
+.wallpaper-option.selected {
+  border-color: rgba(0, 122, 255, 0.8);
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+}
+
 .wallpaper-name {
   position: absolute;
   bottom: 0;
@@ -204,69 +240,25 @@
   transition: opacity 0.2s;
 }
 
-.wallpaper-option:hover .wallpaper-name {
+.theme-info {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.wallpaper-option:hover .wallpaper-name,
+.wallpaper-option:hover .theme-info {
   opacity: 1;
 }
 
-/* Dark theme support */
-.desktop.dark .settings-popup {
-  background: rgba(40, 40, 45, 0.85);
-}
-
-.desktop.dark .settings-header {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.desktop.dark .settings-header h3 {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.desktop.dark .settings-close {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.desktop.dark .settings-close:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.desktop.dark .settings-section {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-.desktop.dark .settings-section h4 {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.desktop.dark .user-profile {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.desktop.dark .user-name {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.desktop.dark .user-role {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.desktop.dark .theme-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.desktop.dark .theme-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.desktop.dark .theme-btn.active {
-  background: rgba(0, 122, 255, 0.25);
-  border-color: rgba(0, 122, 255, 0.6);
-  color: rgba(100, 180, 255, 1);
-}
 /* Festive Themes Toggle */
 .festive-toggle {
   display: flex;
@@ -277,7 +269,7 @@
   border-radius: 10px;
 }
 
-.desktop.dark .festive-toggle {
+.settings-popup.dark .festive-toggle {
   background: rgba(60, 60, 65, 0.6);
 }
 
@@ -333,7 +325,7 @@ input:checked + .toggle-slider:before {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.desktop.dark .toggle-label {
+.settings-popup.dark .toggle-label {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -344,6 +336,10 @@ input:checked + .toggle-slider:before {
   line-height: 1.5;
 }
 
+.settings-popup.dark .festive-description {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 .appearance-description {
   margin: 12px 0 0 0;
   font-size: 12px;
@@ -351,11 +347,7 @@ input:checked + .toggle-slider:before {
   line-height: 1.5;
 }
 
-.desktop.dark .festive-description {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.desktop.dark .appearance-description {
+.settings-popup.dark .appearance-description {
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -370,7 +362,7 @@ input:checked + .toggle-slider:before {
   border: 1px solid rgba(255, 149, 0, 0.2);
 }
 
-.desktop.dark .dev-mode-info {
+.settings-popup.dark .dev-mode-info {
   background: rgba(255, 149, 0, 0.15);
   border-color: rgba(255, 149, 0, 0.3);
 }

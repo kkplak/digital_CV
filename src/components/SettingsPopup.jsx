@@ -4,7 +4,6 @@ import { holidays } from '../data/holidays';
 
 export default function SettingsPopup({ 
   onClose, 
-  onWallpaperChange, 
   onThemeChange, 
   currentTheme,
   festiveThemesEnabled,
@@ -19,13 +18,49 @@ export default function SettingsPopup({
   // Check if dev mode is enabled via URL parameter
   const isDevMode = new URLSearchParams(window.location.search).get('devtools') === 'true';
 
-  const wallpapers = [
-    { id: 1, name: 'Twilight', gradient: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%)' },
-    { id: 2, name: 'Ocean Breeze', gradient: 'linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%)' },
-    { id: 3, name: 'Rose Gold', gradient: 'linear-gradient(135deg, #ed6ea0 0%, #ec8c69 100%)' },
-    { id: 4, name: 'Emerald', gradient: 'linear-gradient(135deg, #134E5E 0%, #71B280 100%)' },
-    { id: 5, name: 'Night', gradient: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)' },
-    { id: 6, name: 'Northern Lights', gradient: 'linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #004e92 100%)' }
+  const themes = [
+    { 
+      id: 1, 
+      name: 'Pandora', 
+      wallpaper: 'url(https://wallpapercave.com/wp/bLxADvF.png) center/cover no-repeat',
+      fontColor: '#ffffff',
+      windowAppearance: 'light'
+    },
+    { 
+      id: 2, 
+      name: 'Forest', 
+      wallpaper: 'url(https://wallpapercave.com/wp/ROBntMb.jpg) center/cover no-repeat',
+      fontColor: '#ffffff',
+      windowAppearance: 'dark'
+    },
+    { 
+      id: 3, 
+      name: 'Bubble Gum', 
+      wallpaper: 'url(https://wallpapercave.com/wp/wp3144370.jpg)  center/cover no-repeat',
+      fontColor: '#ffffffff',
+      windowAppearance: 'light'
+    },
+    { 
+      id: 4, 
+      name: 'Solar Flare', 
+      wallpaper: 'url(https://wallpapercave.com/wp/lslLjbE.jpg)  center/cover no-repeat',
+      fontColor: '#ffffff',
+      windowAppearance: 'dark'
+    },
+    { 
+      id: 5, 
+      name: 'Night', 
+      wallpaper: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)  center/cover no-repeat',
+      fontColor: '#ffffff',
+      windowAppearance: 'dark'
+    },
+    { 
+      id: 6, 
+      name: 'Skittles', 
+      wallpaper: 'url(https://wallpapercave.com/wp/wp11455987.png)  center/cover no-repeat',
+      fontColor: '#ffffff',
+      windowAppearance: 'dark'
+    }
   ];
 
   const handleMouseDown = (e) => {
@@ -63,7 +98,7 @@ export default function SettingsPopup({
       )}
       <div 
         ref={windowRef}
-        className="settings-popup"
+        className={`settings-popup ${currentTheme?.windowAppearance || 'dark'}`}
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`
@@ -99,28 +134,6 @@ export default function SettingsPopup({
               <div className="user-role">Admin</div>
             </div>
           </div>
-        </div>
-
-        {/* Appearance Toggle */}
-        <div className="settings-section">
-          <h4>Appearance</h4>
-          <div className="theme-toggle">
-            <button 
-              className={`theme-btn ${currentTheme === 'light' ? 'active' : ''}`}
-              onClick={() => onThemeChange('light')}
-            >
-              ☀️ Light
-            </button>
-            <button 
-              className={`theme-btn ${currentTheme === 'dark' ? 'active' : ''}`}
-              onClick={() => onThemeChange('dark')}
-            >
-              🌙 Dark
-            </button>
-          </div>
-          <p className="appearance-description">
-            Choose between light and dark interface colors for windows and menus
-          </p>
         </div>
 
         {/* Festive Themes Toggle */}
@@ -173,19 +186,20 @@ export default function SettingsPopup({
           </div>
         )}
 
-        {/* Wallpaper Selection */}
+        {/* Theme Selection */}
         <div className="settings-section">
-          <h4>Wallpaper</h4>
+          <h4>Themes</h4>
           <div className="wallpaper-grid">
-            {wallpapers.map((wallpaper) => (
+            {themes.map((theme) => (
               <div
-                key={wallpaper.id}
-                className="wallpaper-option"
-                style={{ background: wallpaper.gradient }}
-                onClick={() => onWallpaperChange(wallpaper.gradient)}
-                title={wallpaper.name}
+                key={theme.id}
+                className={`wallpaper-option ${currentTheme?.id === theme.id ? 'selected' : ''}`}
+                style={{ background: theme.wallpaper }}
+                onClick={() => onThemeChange(theme)}
+                title={`${theme.name} (${theme.windowAppearance} windows)`}
               >
-                <div className="wallpaper-name">{wallpaper.name}</div>
+                <div className="wallpaper-name">{theme.name}</div>
+                <div className="theme-info">{theme.windowAppearance === 'light' ? '☀️' : '🌙'}</div>
               </div>
             ))}
           </div>

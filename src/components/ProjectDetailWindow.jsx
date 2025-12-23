@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import './ProjectDetailWindow.css';
 
-export default function ProjectDetailWindow({ project, onClose, onMinimize, onMaximize, isMaximized }) {
+export default function ProjectDetailWindow({ project, onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 200, y: 80 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -42,7 +42,7 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
       )}
       <div 
         ref={windowRef}
-        className={`project-detail-window ${isMaximized ? 'maximized' : ''}`}
+        className={`project-detail-window ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`

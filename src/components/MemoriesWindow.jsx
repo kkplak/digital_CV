@@ -43,7 +43,7 @@ export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaxi
       )}
       <div 
         ref={windowRef}
-        className={`memories-window ${theme} ${isMaximized ? 'maximized' : ''}`}
+        className={`memories-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`

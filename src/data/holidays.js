@@ -82,7 +82,7 @@ export const holidays = [
     name: 'May the 4th Be With You!',
     month: 5, // May
     day: 4,
-    wallpaper: 'url(https://images7.alphacoders.com/497/thumb-1920-497638.jpg) center/cover no-repeat',
+    wallpaper: 'url(https://images.squarespace-cdn.com/content/v1/5fbc4a62c2150e62cfcb09aa/448a0b27-fd96-4c22-b4f8-0aa81751a4aa/basic-star-wars-logo-wallpaper-1280x720-wallpaper.jpg) center/cover no-repeat',
     emoji: '⭐',
     appearance: 'dark',
     colors: {

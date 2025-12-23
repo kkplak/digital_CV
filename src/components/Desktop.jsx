@@ -20,8 +20,13 @@ export default function Desktop() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isProjectDetailMaximized, setIsProjectDetailMaximized] = useState(false);
-  const [wallpaper, setWallpaper] = useState('linear-gradient(135deg, #2c3e50 0%, #000000 100%)');
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState({
+    id: 5,
+    name: 'Night',
+    wallpaper: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)',
+    fontColor: '#ffffff',
+    windowAppearance: 'dark'
+  });
   const [festiveThemesEnabled, setFestiveThemesEnabled] = useState(true);
   const [currentHoliday, setCurrentHoliday] = useState(null);
   const [previewHoliday, setPreviewHoliday] = useState(null);
@@ -36,11 +41,14 @@ export default function Desktop() {
     setCurrentHoliday(activeHoliday);
     
     if (festiveThemesEnabled && activeHoliday) {
-      setWallpaper(activeHoliday.wallpaper);
-      // Apply holiday appearance (light or dark)
-      if (activeHoliday.appearance) {
-        setTheme(activeHoliday.appearance);
-      }
+      // Create a temporary theme object for the holiday
+      setTheme({
+        id: 'holiday',
+        name: activeHoliday.name,
+        wallpaper: activeHoliday.wallpaper,
+        fontColor: activeHoliday.folderNameColor || '#ffffff',
+        windowAppearance: activeHoliday.appearance || 'dark'
+      });
     }
   }, [festiveThemesEnabled, previewHoliday]);
 
@@ -177,10 +185,6 @@ export default function Desktop() {
     setIsSettingsOpen(false);
   };
 
-  const handleWallpaperChange = (newWallpaper) => {
-    setWallpaper(newWallpaper);
-  };
-
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
   };
@@ -191,11 +195,23 @@ export default function Desktop() {
     if (enabled) {
       const holiday = previewHoliday || getTodayHoliday();
       if (holiday) {
-        setWallpaper(holiday.wallpaper);
+        setTheme({
+          id: 'holiday',
+          name: holiday.name,
+          wallpaper: holiday.wallpaper,
+          fontColor: holiday.folderNameColor || '#ffffff',
+          windowAppearance: holiday.appearance || 'dark'
+        });
       }
     } else {
-      // When toggling off, revert to night wallpaper
-      setWallpaper('linear-gradient(135deg, #2c3e50 0%, #000000 100%)');
+      // When toggling off, revert to Night theme
+      setTheme({
+        id: 5,
+        name: 'Night',
+        wallpaper: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)',
+        fontColor: '#ffffff',
+        windowAppearance: 'dark'
+      });
     }
   };
 
@@ -238,16 +254,17 @@ export default function Desktop() {
 
   return (
     <div 
-      className={`desktop ${theme} ${festiveThemesEnabled && currentHoliday ? 'festive-mode' : ''}`}
+      className={`desktop ${theme.windowAppearance} ${festiveThemesEnabled && currentHoliday ? 'festive-mode' : ''}`}
       style={{
         '--holiday-navbar': currentHoliday?.colors?.navbar || 'rgba(255, 255, 255, 0.3)',
         '--holiday-navbar-border': currentHoliday?.colors?.navbarBorder || 'rgba(255, 255, 255, 0.2)',
         '--holiday-folder': currentHoliday?.colors?.folder || '#667eea',
-        '--holiday-dock': currentHoliday?.colors?.dock || 'rgba(255, 255, 255, 0.1)'
+        '--holiday-dock': currentHoliday?.colors?.dock || 'rgba(255, 255, 255, 0.1)',
+        '--desktop-font-color': theme.fontColor
       }}
     >
       {/* Wallpaper */}
-      <div className="desktop-wallpaper" style={{ background: wallpaper }}></div>
+      <div className="desktop-wallpaper" style={{ background: theme.wallpaper }}></div>
 
       {/* Mobile Holiday Greeting - shown outside menu bar for mobile visibility */}
       {currentHoliday && festiveThemesEnabled && (
@@ -364,6 +381,7 @@ export default function Desktop() {
           onMinimize={handleCVMinimize}
           onMaximize={handleCVMaximize}
           isMaximized={isCVMaximized}
+          theme={theme}
         />
       )}
 
@@ -375,6 +393,7 @@ export default function Desktop() {
           onMaximize={handleProjectsMaximize}
           isMaximized={isProjectsMaximized}
           onProjectClick={handleProjectClick}
+          theme={theme}
         />
       )}
 
@@ -409,6 +428,7 @@ export default function Desktop() {
           onMinimize={handleProjectDetailMinimize}
           onMaximize={handleProjectDetailMaximize}
           isMaximized={isProjectDetailMaximized}
+          theme={theme}
         />
       )}
 
@@ -416,7 +436,6 @@ export default function Desktop() {
       {isSettingsOpen && (
         <SettingsPopup 
           onClose={handleSettingsClose}
-          onWallpaperChange={handleWallpaperChange}
           onThemeChange={handleThemeChange}
           currentTheme={theme}
           festiveThemesEnabled={festiveThemesEnabled}

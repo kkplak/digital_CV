@@ -42,7 +42,7 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
       )}
       <div 
         ref={windowRef}
-        className={`others-window ${theme} ${isMaximized ? 'maximized' : ''}`}
+        className={`others-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`

@@ -22,7 +22,7 @@
   }
 }
 
-.desktop.dark .cv-window {
+.cv-window.dark {
   background: #28282d;
   box-shadow: 
     0 0 0 0.5px rgba(255, 255, 255, 0.1),
@@ -80,7 +80,7 @@
   user-select: none;
 }
 
-.desktop.dark .window-titlebar {
+.cv-window.dark .window-titlebar {
   background: rgba(50, 50, 55, 0.6);
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
@@ -129,7 +129,7 @@
   transform: translateX(-50%);
 }
 
-.desktop.dark .window-title {
+.cv-window.dark .window-title {
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -145,7 +145,7 @@
   background: rgba(255, 255, 255, 0.95);
 }
 
-.desktop.dark .window-content {
+.cv-window.dark .window-content {
   background: rgba(30, 30, 35, 0.7);
 }
 
@@ -169,15 +169,15 @@
   background-clip: padding-box;
 }
 
-.desktop.dark .window-content::-webkit-scrollbar-track {
+.cv-window.dark .window-content::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.02);
 }
 
-.desktop.dark .window-content::-webkit-scrollbar-thumb {
+.cv-window.dark .window-content::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.desktop.dark .window-content::-webkit-scrollbar-thumb:hover {
+.cv-window.dark .window-content::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
