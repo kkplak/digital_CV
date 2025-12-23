@@ -193,6 +193,9 @@ export default function Desktop() {
       if (holiday) {
         setWallpaper(holiday.wallpaper);
       }
+    } else {
+      // When toggling off, revert to night wallpaper
+      setWallpaper('linear-gradient(135deg, #2c3e50 0%, #000000 100%)');
     }
   };
 
