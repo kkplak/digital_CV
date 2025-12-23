@@ -1,11 +1,23 @@
 import { useState, useRef } from 'react';
 import './SettingsPopup.css';
+import { holidays } from '../data/holidays';
 
-export default function SettingsPopup({ onClose, onWallpaperChange, onThemeChange, currentTheme }) {
+export default function SettingsPopup({ 
+  onClose, 
+  onWallpaperChange, 
+  onThemeChange, 
+  currentTheme,
+  festiveThemesEnabled,
+  onFestiveThemesToggle,
+  onPreviewHoliday
+}) {
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: window.innerWidth / 2 - 210, y: window.innerHeight / 2 - 300 });
+  const [position, setPosition] = useState({ x: window.innerWidth / 2 - 202, y: window.innerHeight / 2 - 350 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  
+  // Check if dev mode is enabled via URL parameter
+  const isDevMode = new URLSearchParams(window.location.search).get('devtools') === 'true';
 
   const wallpapers = [
     { id: 1, name: 'Twilight', gradient: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%)' },
@@ -89,7 +101,7 @@ export default function SettingsPopup({ onClose, onWallpaperChange, onThemeChang
           </div>
         </div>
 
-        {/* Theme Toggle */}
+        {/* Appearance Toggle */}
         <div className="settings-section">
           <h4>Appearance</h4>
           <div className="theme-toggle">
@@ -97,16 +109,69 @@ export default function SettingsPopup({ onClose, onWallpaperChange, onThemeChang
               className={`theme-btn ${currentTheme === 'light' ? 'active' : ''}`}
               onClick={() => onThemeChange('light')}
             >
-              Light
+              ☀️ Light
             </button>
             <button 
               className={`theme-btn ${currentTheme === 'dark' ? 'active' : ''}`}
               onClick={() => onThemeChange('dark')}
             >
-              Dark
+              🌙 Dark
             </button>
           </div>
+          <p className="appearance-description">
+            Choose between light and dark interface colors for windows and menus
+          </p>
         </div>
+
+        {/* Festive Themes Toggle */}
+        <div className="settings-section">
+          <h4>Festive Themes</h4>
+          <div className="festive-toggle">
+            <label className="toggle-switch">
+              <input 
+                type="checkbox" 
+                checked={festiveThemesEnabled}
+                onChange={(e) => onFestiveThemesToggle(e.target.checked)}
+              />
+              <span className="toggle-slider"></span>
+            </label>
+            <span className="toggle-label">
+              Auto-switch to holiday themes
+            </span>
+          </div>
+          <p className="festive-description">
+            Automatically change wallpaper for holidays like Christmas, Halloween, Diwali, and more! 🎉
+          </p>
+          {isDevMode && (
+            <p className="dev-mode-info">
+              🔧 Developer mode active - Holiday preview available below
+            </p>
+          )}
+        </div>
+
+        {/* Holiday Preview - Dev Mode */}
+        {isDevMode && (
+          <div className="settings-section">
+            <h4>Preview Holiday Themes</h4>
+            <div className="holiday-preview-grid">
+              {holidays.map((holiday) => (
+                <div
+                  key={holiday.id}
+                  className="holiday-preview-option"
+                  style={{ background: holiday.wallpaper }}
+                  onClick={() => onPreviewHoliday(holiday)}
+                  title={holiday.name}
+                >
+                  <div className="holiday-preview-emoji">{holiday.emoji}</div>
+                  <div className="holiday-preview-name">{holiday.name}</div>
+                  <div className="holiday-preview-date">
+                    {holiday.month}/{holiday.day}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Wallpaper Selection */}
         <div className="settings-section">

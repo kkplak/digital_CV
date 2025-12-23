@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import './MemoriesWindow.css';
 import memories from '../data/memories';
 
-export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaximized }) {
+export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 300, y: 50 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -43,7 +43,7 @@ export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaxi
       )}
       <div 
         ref={windowRef}
-        className={`memories-window ${isMaximized ? 'maximized' : ''}`}
+        className={`memories-window ${theme} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`

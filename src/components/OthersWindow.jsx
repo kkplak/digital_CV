@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import './OthersWindow.css';
 
-export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximized, onMemoriesClick }) {
+export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximized, onMemoriesClick, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 180, y: 110 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -42,7 +42,7 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
       )}
       <div 
         ref={windowRef}
-        className={`others-window ${isMaximized ? 'maximized' : ''}`}
+        className={`others-window ${theme} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`
