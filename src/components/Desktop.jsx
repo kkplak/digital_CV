@@ -5,6 +5,7 @@ import ProjectsWindow from './ProjectsWindow';
 import ProjectDetailWindow from './ProjectDetailWindow';
 import SettingsPopup from './SettingsPopup';
 import MemoriesWindow from './MemoriesWindow';
+import TestimonialsWindow from './TestimonialsWindow';
 import OthersWindow from './OthersWindow';
 import { getTodayHoliday } from '../data/holidays';
 
@@ -13,10 +14,12 @@ export default function Desktop() {
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
   const [isMemoriesOpen, setIsMemoriesOpen] = useState(false);
+  const [isTestimonialsOpen, setIsTestimonialsOpen] = useState(false);
   const [isCVMaximized, setIsCVMaximized] = useState(false);
   const [isProjectsMaximized, setIsProjectsMaximized] = useState(false);
   const [isOthersMaximized, setIsOthersMaximized] = useState(false);
   const [isMemoriesMaximized, setIsMemoriesMaximized] = useState(false);
+  const [isTestimonialsMaximized, setIsTestimonialsMaximized] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isProjectDetailMaximized, setIsProjectDetailMaximized] = useState(false);
@@ -158,6 +161,35 @@ export default function Desktop() {
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
       setIsMemoriesMaximized(true);
+    }
+  };
+
+  const handleTestimonialsClick = () => {
+    setIsTestimonialsOpen(true);
+    // Auto-maximize on mobile
+    if (window.innerWidth <= 768) {
+      setIsTestimonialsMaximized(true);
+    }
+  };
+
+  const handleTestimonialsClose = () => {
+    setIsTestimonialsOpen(false);
+    setIsTestimonialsMaximized(false);
+  };
+
+  const handleTestimonialsMinimize = () => {
+    setIsTestimonialsOpen(false);
+  };
+
+  const handleTestimonialsMaximize = () => {
+    setIsTestimonialsMaximized(!isTestimonialsMaximized);
+  };
+
+  const handleTestimonialsRestore = () => {
+    setIsTestimonialsOpen(true);
+    // Auto-maximize on mobile
+    if (window.innerWidth <= 768) {
+      setIsTestimonialsMaximized(true);
     }
   };
 
@@ -405,6 +437,7 @@ export default function Desktop() {
           onMaximize={handleOthersMaximize}
           isMaximized={isOthersMaximized}
           onMemoriesClick={handleMemoriesClick}
+          onTestimonialsClick={handleTestimonialsClick}
           theme={theme}
         />
       )}
@@ -416,6 +449,17 @@ export default function Desktop() {
           onMinimize={handleMemoriesMinimize}
           onMaximize={handleMemoriesMaximize}
           isMaximized={isMemoriesMaximized}
+          theme={theme}
+        />
+      )}
+
+      {/* Testimonials Window */}
+      {isTestimonialsOpen && (
+        <TestimonialsWindow 
+          onClose={handleTestimonialsClose}
+          onMinimize={handleTestimonialsMinimize}
+          onMaximize={handleTestimonialsMaximize}
+          isMaximized={isTestimonialsMaximized}
           theme={theme}
         />
       )}

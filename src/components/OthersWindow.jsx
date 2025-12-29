@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import './OthersWindow.css';
 
-export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximized, onMemoriesClick, theme }) {
+export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximized, onMemoriesClick, onTestimonialsClick, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 180, y: 110 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -74,6 +74,14 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
             >
               <div className="folder-icon memories"></div>
               <div className="folder-name">Memories</div>
+            </div>
+            <div
+              className="folder-item"
+              onClick={onTestimonialsClick}
+              onDoubleClick={onTestimonialsClick}
+            >
+              <div className="folder-icon testimonials"></div>
+              <div className="folder-name">Testimonials</div>
             </div>
           </div>
         </div>
