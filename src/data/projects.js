@@ -1,4 +1,19 @@
 export const projects = [
+  //       {
+  //   id: 16,
+  //   name: "Super Mario Galaxy",
+  //   iconImage: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_500/ccb3e8ca3c296e21a8c933e8369031511589d0ef6b079cf5bb3667b09893482c/r8f90192da/logo",
+  //   description: "Super Mario Galaxy Movie Nintendo collaboration with McDonald's.",
+  //   date: "2026",
+  //   role: "Lead Technical Delivery",
+  //   details: "Delivered the technical execution of a global Happy Meal digital experience tied to the Super Mario Galaxy collaboration, ensuring performance, stability, and consistency across markets.",
+  //   focusAreas: ["Requirements Translation (Business → Tech)", "Agile Execution (JIRA)","Accessibility (WCAG)",  "End-to-End Delivery", "Programming", "Cross-functional Collaboration", "Global Launch Support", "Video Game Engine",],
+  //   // links: [{ label: "Play through of Super Mario Galaxy McDonald's collaboration game", url: "https://www.youtube.com/watch?v=oqWq9o5YpL0" }],
+  //   images: [
+  //       { url: "https://deadline.com/wp-content/uploads/2025/12/the-super-mario-galaxy-movie-princess-peach-mario.jpg?w=681&h=383&crop=1" },
+  //       { url: "https://i.ytimg.com/vi/VFsEBFVTArM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAup2kUqB4dLitsPBd01Z3ka_wmbQ" }
+  //   ]
+  // },
       {
     id: 1,
     name: "TinyTAN BTS",
@@ -44,7 +59,7 @@ export const projects = [
     ],
     images: [
         { url: "https://www.gulliversretailpark.ie/wp-content/uploads/wwwgulliversretailpark.ie-Mcdonalds.png" },
-        { url: "https://scontent.fpoz3-1.fna.fbcdn.net/v/t39.30808-6/517065268_1334884338055826_2904687792040813308_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=uG3SJW6n19cQ7kNvwHFd1Vr&_nc_oc=Adn05VDU2s0YvnSUGbZEQDw8-FBqluTYgOigL12p_lTTmhYVzbRh3ardCom8pOfr2X8&_nc_zt=23&_nc_ht=scontent.fpoz3-1.fna&_nc_gid=KpSbR1yWtpX4wpYOd7kJvA&oh=00_AfmLSpfKH5EOYfM065KRL2PtP-Xr9Kg_p83nYNRVgqAGzQ&oe=6949E87B" }
+        { url: "https://scontent.fgva4-1.fna.fbcdn.net/v/t39.30808-6/517065268_1334884338055826_2904687792040813308_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_ohc=vNMLmVSXk9YQ7kNvwEZt_VP&_nc_oc=AdmrpFGZw2OiYMrWrntT1QPXnNlZqJvkNqQ23xcrU_Z8bYBBhB7zRoTHk06e_QO2FZdi8MLfJ89niIeAVmjDnyjn&_nc_zt=23&_nc_ht=scontent.fgva4-1.fna&_nc_gid=qde_ijfnFVPqrcmWm_0Zgg&_nc_ss=8&oh=00_Aftybd2ujf6OdkmLdBYvFtmuYcPZU8UubhyW7pdGiHjTeA&oe=69A8D47B" }
     ]
   },
     {
@@ -58,7 +73,7 @@ export const projects = [
  focusAreas: ["Programming", "Technical Team lead", "Cross-functional Collaboration", "Requirements Documentation", "Design"],
     links: [{ label: "Project's Website", url: "https://tom-platformer.vercel.app/" }],
     images: [
-        { url: "https://media.licdn.com/dms/image/v2/D4D2DAQGqYYRYSSJX8Q/profile-treasury-image-shrink_1280_1280/B4DZWvUVhiHIAU-/0/1742403100751?e=1766692800&v=beta&t=Xhh30FfNjEFGMlXTmr2GE7DDttHzPpkMvCt5NYGLWlQ" },
+        { url: "https://media.licdn.com/dms/image/v2/D4D2DAQGqYYRYSSJX8Q/profile-treasury-image-shrink_1280_1280/B4DZWvUVhiHIAU-/0/1742403100751?e=1772899200&v=beta&t=JEuoM1pb2rgeuKDrLDYvoTUiUyeLwTwZ6XuVrMUHUYg" },
         { url: "/tom-gameplay.png" }
     ]
   },
@@ -90,8 +105,8 @@ export const projects = [
       { label: "McDonald's Happy Meal | Captain America: Brave New World Commercial (2024)", url: "https://www.youtube.com/watch?v=WbdujKzxBPc" }
     ],
     images: [
-        { url: "https://comicbookclublive.com/wp-content/uploads/2024/04/captain-america-brave-new-world-mcdonalds-app-jpg.webp" },
-        { url: "https://comicbookclublive.com/wp-content/uploads/2024/04/captain-america-brave-new-world-happy-meal-falcon-jpg.webp" }
+        { url: "https://noscoopsclub.com/wp-content/uploads/2024/05/featured-cap-2.png" },
+        { url: "https://popculturewonders.com/wp-content/uploads/may-2024-captain-america-happy-meal-toys-1024x576.webp" }
     ]
   },
    {
@@ -106,7 +121,7 @@ export const projects = [
     links: [{ label: "Protegos Website", url: "https://protegos.ch" }],
     images: [
         { url: "/protegos-pic.png" },
-        { url: "https://media.licdn.com/dms/image/v2/D4E2DAQGP-HEcf-ysqg/profile-treasury-image-shrink_800_800/B4EZszOoMWIQAY-/0/1766091033594?e=1766696400&v=beta&t=nlhIv62muxbv8zShH_SY23PY5J549nVXEJWy0z03yjo" }
+        { url: "https://media.licdn.com/dms/image/v2/D4E2DAQGP-HEcf-ysqg/profile-treasury-image-shrink_800_800/B4EZszOoMWIQAY-/0/1766091033594?e=1772899200&v=beta&t=GDHDcnmL1LPentLSySkcnP6F0o86veyjAd56JIWVUw0" }
     ]
   },
     {
@@ -120,7 +135,7 @@ export const projects = [
     focusAreas: ["Digital Strategy", "Web Design", "Multilingual Content", "Technical Delivery"],
     links: [{ label: "FAMA's Website", url: "https://famafilm.pl" }],
     images: [
-        { url: "https://media.licdn.com/dms/image/v2/D562DAQEk4NwWGtRE1A/profile-treasury-image-shrink_800_800/B56ZUoQqa4GQAc-/0/1740137212196?e=1766692800&v=beta&t=ZF1dS9aLCGXH4f89HE4ek1nCLySvBbi1Gbttp65ZdJU" }
+        { url: "https://media.licdn.com/dms/image/v2/D562DAQEk4NwWGtRE1A/profile-treasury-image-shrink_800_800/B56ZUoQqa4GQAc-/0/1740137212196?e=1772899200&v=beta&t=kC3rjPvZbmiWgEyAiI_bXxt8c25GTIcLMT94Ax7DYX0" }
     ]
   },
     {
@@ -134,7 +149,7 @@ export const projects = [
     focusAreas: ["WebGL", "JavaScript", "Three.js", "React", "Design"],
     links: [{ label: "Project's Website", url: "https://codeline-solutions.vercel.app" }],
     images: [
-        { url: "https://media.licdn.com/dms/image/v2/D4D2DAQE98sC9ypGZ4g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1737475726613?e=1766692800&v=beta&t=cgZ_1rRvhzpxV4cM2gJTIuIUkNEiSoOT21S3fkl_U-o" }
+        { url: "https://media.licdn.com/dms/image/v2/D4D2DAQE98sC9ypGZ4g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1737475726613?e=1772899200&v=beta&t=g1HMGHluGOJIy2CURee-xmp79HGoxglYNcriHhrrxUg" }
     ]
   },
       {

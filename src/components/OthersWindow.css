@@ -55,6 +55,13 @@
   overflow-y: auto;
   overflow-x: hidden;
   background: rgba(255, 255, 255, 0.95);
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .others-window .window-content {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 .others-window.dark .window-content {

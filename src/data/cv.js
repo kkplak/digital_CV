@@ -132,6 +132,12 @@ export const cvData = {
   ],
 
   education: [
+       {
+      degree: "German A2 Course",
+      institution: "ECAP",
+      period: "2026",
+          location: "Olten, Switzerland"
+    },
     {
       degree: "Certification in JavaScript, HTML5, CSS3 and Advanced Design",
       institution: "University of Michigan",
@@ -142,13 +148,13 @@ export const cvData = {
       degree: "Bachelor of Arts",
       institution: "Frankfurt University of Music and Performing Arts",
       period: "2018 — 2021",
-      location: "Germany"
+      location: "Frankfurt am Main, Germany"
     }
   ],
 
   hobbiesAndGoals: [
     "I stay curious about new technologies, love the challenge of solving tough problems, and recharge by spending time outdoors.",
-    "By end of 2027, I aim to deepen my understanding of SAP modules, strengthen my expertise in architectural design systems, and further solidify the bridge between technology and business."
+    // "By end of 2027, I aim to deepen my understanding of SAP modules, strengthen my expertise in architectural design systems, and further solidify the bridge between technology and business."
   ],
 
   areasOfExpertise: [
