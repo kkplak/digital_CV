@@ -4,9 +4,11 @@ import projects from '../data/projects';
 
 export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaximized, onProjectClick, theme }) {
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 150, y: 100 });
+  const [position, setPosition] = useState({ x: 130, y: 80 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const professionalProjects = projects.filter((project) => project.category !== 'personal');
+  const personalProjects = projects.filter((project) => project.category === 'personal');
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -71,24 +73,52 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
 
         {/* Window Content */}
         <div className="window-content">
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="project-file"
-                onClick={() => handleFileClick(project)}
-                title={project.description}
-              >
-                <div className="file-icon">
-                  {project.iconImage ? (
-                    <img src={project.iconImage} alt={project.name} />
-                  ) : (
-                    project.icon
-                  )}
-                </div>
-                <div className="file-name">{project.name}</div>
+          <div className="projects-groups">
+            <section className="projects-section">
+              <h3 className="projects-section-title">Professional</h3>
+              <div className="projects-grid">
+                {professionalProjects.map((project) => (
+                  <div
+                    key={`${project.id}-${project.name}`}
+                    className="project-file"
+                    onClick={() => handleFileClick(project)}
+                    title={project.description}
+                  >
+                    <div className="file-icon">
+                      {project.iconImage ? (
+                        <img src={project.iconImage} alt={project.name} />
+                      ) : (
+                        project.icon
+                      )}
+                    </div>
+                    <div className="file-name">{project.name}</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </section>
+
+            <section className="projects-section">
+              <h3 className="projects-section-title">Personal</h3>
+              <div className="projects-grid">
+                {personalProjects.map((project) => (
+                  <div
+                    key={`${project.id}-${project.name}`}
+                    className="project-file"
+                    onClick={() => handleFileClick(project)}
+                    title={project.description}
+                  >
+                    <div className="file-icon">
+                      {project.iconImage ? (
+                        <img src={project.iconImage} alt={project.name} />
+                      ) : (
+                        project.icon
+                      )}
+                    </div>
+                    <div className="file-name">{project.name}</div>
+                  </div>
+                ))}
+                </div>
+            </section>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const projects = [
   //   iconImage: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_500/ccb3e8ca3c296e21a8c933e8369031511589d0ef6b079cf5bb3667b09893482c/r8f90192da/logo",
   //   description: "Super Mario Galaxy Movie Nintendo collaboration with McDonald's.",
   //   date: "2026",
-  //   role: "Lead Technical Delivery",
+  //   role: "Frontend Developer / Lead Technical Delivery",
   //   details: "Delivered the technical execution of a global Happy Meal digital experience tied to the Super Mario Galaxy collaboration, ensuring performance, stability, and consistency across markets.",
   //   focusAreas: ["Requirements Translation (Business → Tech)", "Agile Execution (JIRA)","Accessibility (WCAG)",  "End-to-End Delivery", "Programming", "Cross-functional Collaboration", "Global Launch Support", "Video Game Engine",],
   //   // links: [{ label: "Play through of Super Mario Galaxy McDonald's collaboration game", url: "https://www.youtube.com/watch?v=oqWq9o5YpL0" }],
@@ -14,13 +14,42 @@ export const projects = [
   //       { url: "https://i.ytimg.com/vi/VFsEBFVTArM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAup2kUqB4dLitsPBd01Z3ka_wmbQ" }
   //   ]
   // },
+  {
+  id: 17,
+  name: "Web Accessibility Research",
+  iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Accessibility.svg/960px-Accessibility.svg.png",
+  description: "Researching and implementing accessibility features to broaden the reach of web applications.",
+  category: "personal",
+  date: "2023 - 2026",
+  role: "Frontend Developer",
+ details: "Conducted extensive accessibility research and testing across modern assistive technologies and mobile platforms.\n\nEvaluated interfaces using screen readers (VoiceOver, TalkBack), eye-tracking systems, voice control, closed captions, and other accessibility features used by people with disabilities.\n\nTested applications on both Android and iOS, including developer beta releases months before public launch, to understand how upcoming accessibility changes affect web behavior.\n\nIdentified edge cases between browser focus and screen reader virtual cursors, improved keyboard navigation, semantic structure, and ARIA usage, and validated compatibility with evolving assistive technology ecosystems.\n\nDocumented findings and translated them into practical development patterns that improve inclusive user experiences.",
+  focusAreas: [
+    "Assistive Technology Testing",
+    "VoiceOver & TalkBack",
+    "Eye-Tracking & Voice Control",
+    "WCAG Compliance",
+    "Keyboard Navigation",
+    "Focus Order",
+    "Closed Captions",
+    "Audio Descriptions",
+    "Semantic HTML & ARIA",
+    "Cross-Platform Accessibility (iOS & Android Betas)"
+  ],
+    links: [{ label: "Link to my accessibility playground", url: "https://codeline-a11y-demo.vercel.app" },
+         { label: " Official Web Content Accessibility Guidelines (WCAG) 2.1", url: "https://www.w3.org/TR/WCAG21/" },
+         { label: "iOS Eye Tracking Accessibility Feature from Apple Support", url: "https://www.youtube.com/watch?v=z8LimeLV_Kk" },],
+    images: [
+        { url: "/a11y1.png" },
+        { url: "/a11y2.png" }
+    ]
+},
       {
     id: 1,
     name: "TinyTAN BTS",
     iconImage: "/tinytan-logo.png",
     description: "BTS TinyTAN collaboration with McDonald's.",
     date: "2025",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "Delivered the technical execution of a global Happy Meal digital experience tied to the BTS TinyTAN collaboration, ensuring performance, stability, and consistency across markets.",
     focusAreas: ["Requirements Translation (Business → Tech)", "Agile Execution (JIRA)","Accessibility (WCAG)",  "End-to-End Delivery", "Programming", "Cross-functional Collaboration", "Global Launch Support"],
     links: [{ label: "Play through of BTS TinyTAN McDonald's collaboration game", url: "https://www.youtube.com/watch?v=oqWq9o5YpL0" }],
@@ -36,7 +65,7 @@ export const projects = [
     iconImage: "https://images.seeklogo.com/logo-png/21/2/playmobil-logo-png_seeklogo-214107.png",
     description: "Playmobil collaboration with McDonald's.",
     date: "2025",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "Led technical delivery for the Playmobil Happy Meal digital experience, coordinating implementation across regions and aligning with brand and campaign requirements.",
     focusAreas: ["Requirements Translation (Business → Tech)", "Agile Execution (JIRA)","Accessibility (WCAG)",  "End-to-End Delivery", "Programming", "Cross-functional Collaboration", "Global Launch Support"],
     links: [{ label: "Play through of Playmobil McDonald's collaboration game", url: "https://youtu.be/jK16_pGzknw?t=87" }],
@@ -51,7 +80,7 @@ export const projects = [
     iconImage: "/jurassic-logo.webp",
     description: "Jurassic World: Chaos Theory Happy Meal promotion.",
     date: "2024",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "Created immersive digital experiences for the Jurassic World: Chaos Theory Happy Meal digital experience, featuring interactive elements in 3D VR and AR environments.",
     focusAreas: ["Requirements Translation (Business → Tech)", "Agile Execution (JIRA)","Accessibility (WCAG)",  "End-to-End Delivery", "Programming", "AR/VR Development", "Cross-functional Collaboration"],
     links: [
@@ -67,6 +96,7 @@ export const projects = [
     name: "Platformer Game Concept",
     icon: "👾",
     description: "Web based platformer game concept",
+    category: "personal",
     date: "2024",
     role: "Creator & Developer",
     details: "Created, developed, and designed a unique platformer game concept featuring innovative mechanics and engaging level design.",
@@ -83,7 +113,7 @@ export const projects = [
     iconImage: "/multiversus-logo.svg",
     description: "Warner Bros. MultiVersus Happy Meal promotion.",
     date: "2024",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "McDonald's Happy Meal campaign featuring Warner Bros. MultiVersus collectibles and digital experience.",
    focusAreas: [ "Technical Ownership", "Requirements Translation (Business → Tech)","Accessibility (WCAG)", "Agile Execution (JIRA)",  "End-to-End Delivery", "Programming", "Cross-functional Collaboration", "Video Game Engine"],
     links: [{ label: "MultiVersus Wiki on collaboration with McDonald's Happy Meal featuring the mini game under \"Happy Meal Digital website minigame\" section", url: "https://multiversus.wiki.gg/wiki/McDonald%27s" }],
@@ -98,7 +128,7 @@ export const projects = [
     iconImage: "/captain-logo.png",
     description: "McDonald's Happy Meal campaign featuring Captain America: Brave New World collectibles and digital experience.",
     date: "2024",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "Delivered the digital experience supporting the Captain America: Brave New World Happy Meal campaign, ensuring smooth video based web game and campaign timelines.",
     focusAreas: [ "Technical Ownership","Requirements Translation (Business → Tech)","Accessibility (WCAG)", "Agile Execution (JIRA)",  "End-to-End Delivery","Programming", "Video Game Engine", "Cross-functional Collaboration"],
     links: [
@@ -115,7 +145,7 @@ export const projects = [
   iconImage: "/protegos-logo.png",
     description: "Digital platform for a Swiss insurance provider.",
     date: "2025",
-    role: "Digital Specialist",
+    role: "Frontend Developer / Digital Specialist",
     details: "Supported digital presence development and optimization, contributing to website structure, content clarity, and technical improvements.",
   focusAreas: ["Digital Strategy", "Web Design", "Multilingual Content"],
     links: [{ label: "Protegos Website", url: "https://protegos.ch" }],
@@ -130,7 +160,7 @@ export const projects = [
     icon: "🎬",   
     description: "Film and media arts production project.",
     date: "2024",
-    role: "Digital Specialist",
+    role: "Frontend Developer / Digital Specialist",
     details: "Co-defined digital strategy with business owners. Designed and built a multilingual website for a film production company.",
     focusAreas: ["Digital Strategy", "Web Design", "Multilingual Content", "Technical Delivery"],
     links: [{ label: "FAMA's Website", url: "https://famafilm.pl" }],
@@ -143,13 +173,15 @@ export const projects = [
     name: "Three.js Shaders Case Study",
     icon: "💻",
     description: "WebGL shader visualization case study.",
+    category: "personal",
     date: "2024",
-    role: "Software Engineer",
+    role: "Frontend Developer",
     details: "Developed WebGL-based visualization website demonstrating advanced web graphics capabilities.",
     focusAreas: ["WebGL", "JavaScript", "Three.js", "React", "Design"],
     links: [{ label: "Project's Website", url: "https://codeline-solutions.vercel.app" }],
     images: [
-        { url: "https://media.licdn.com/dms/image/v2/D4D2DAQE98sC9ypGZ4g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1737475726613?e=1772899200&v=beta&t=g1HMGHluGOJIy2CURee-xmp79HGoxglYNcriHhrrxUg" }
+        { url: "https://media.licdn.com/dms/image/v2/D4D2DAQE98sC9ypGZ4g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1737475726613?e=1772899200&v=beta&t=g1HMGHluGOJIy2CURee-xmp79HGoxglYNcriHhrrxUg" },
+         { url: "/shader2.png" }
     ]
   },
       {
@@ -158,7 +190,7 @@ export const projects = [
     iconImage: "/elemental-logo.png",
     description: "McDonald's Happy Meal campaign featuring Pixar's Elemental movie collectibles and digital experience.",
     date: "2023",
-    role: "Digital Specialist",
+    role: "Frontend Developer / Technical Delivery",
     details: "Contributed to the delivery of the Elemental Happy Meal digital experience, supporting interactive content and campaign execution across multiple regions.",
     focusAreas: ["Requirements Translation (Business → Tech)", "Agile Execution (JIRA)","Accessibility (WCAG)",  "End-to-End Delivery","Programming", "Cross-functional Collaboration", "Video Game Engine"],
     links: [{ label: "Elemental Happy Meal Toys Commercial", url: "https://www.youtube.com/watch?v=lVokK1dKIRg" }],
@@ -173,7 +205,7 @@ export const projects = [
     iconImage: "/adoptme-logo.png",
     description: "Adopt Me! partnership campaign with McDonald's Happy Meal.",
     date: "2023",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "Developed and supported a digital experience for the Roblox Adopt Me! Happy Meal partnership, aligning gameplay elements with brand and product launch requirements.",
     focusAreas: [ "Technical Ownership","Requirements Translation (Business → Tech)","Accessibility (WCAG)", "Agile Execution (JIRA)",  "End-to-End Delivery","Frontend Development", "Market Research", "Cross-functional Collaboration", "Video Game Engine"],
     links: [{ label: "Official McDonald’s product launch article", url: "https://www.mcdonalds.com.my/promotion/collect-cute-new-friends-with-adopt-me" }],
@@ -191,7 +223,7 @@ export const projects = [
     iconImage: "/sq-3.png",
     description: "McDonald's Happy Meal campaign featuring Squishmallows collectibles and digital experience.",
     date: "2023",
-    role: "Technical Delivery",
+    role: "Frontend Developer / Technical Delivery",
     details: "Delivered the digital product for McDonald's Squishmallows Happy Meal promotion, creating engaging experience across multiple locales.",
     focusAreas: ["Programming", "Cross-functional Collaboration","Accessibility (WCAG)", "Music Web Player"],
     links: [
@@ -268,14 +300,16 @@ export const projects = [
   },
       {
     id: 15,
-    name: "Codeline",
+    name: "Konrad's Digital Space",
     iconImage: "/codeline-logo.png",
     description: "Personal digital CV and portfolio website you are currently viewing, created using AI-assisted design and development workflows.",
+    category: "personal",
     date: "2025",
-    role: "Digital Specialist",
+    role: "Frontend Developer / Digital Specialist",
     details: "Designed and delivered a complete personal website within a single day by leveraging AI-assisted workflows for ideation, layout, and implementation. Defined visual direction, structured content, validated outputs, and iterated rapidly to achieve production-ready quality in a fraction of traditional development time.",
     focusAreas: ["Design Direction","Time saving through AI tools", "Web Development", "AI-Assisted Development"],
-  }
+  },
+
 ];
 
 export default projects;

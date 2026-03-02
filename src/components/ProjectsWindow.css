@@ -1,7 +1,7 @@
 .projects-window {
   position: fixed;
   width: 700px;
-  height: 550px;
+  height: 610px;
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
@@ -83,7 +83,28 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 20px;
-  padding: 30px;
+  padding: 16px 30px 30px;
+}
+
+.projects-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.projects-section-title {
+  margin: 0;
+  padding: 0 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.projects-window.dark .projects-section-title {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .project-file {

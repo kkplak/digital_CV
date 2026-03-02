@@ -8,7 +8,7 @@ import ContactInfo from './ContactInfo';
 
 export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 100, y: 80 });
+  const [position, setPosition] = useState({ x: 50, y: 40 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
 

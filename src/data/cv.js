@@ -9,7 +9,7 @@ export const cvData = {
     linkedin: "linkedin.com/in/kkplak",
     permit: "B Permit - CH",
     website: "codeline-solutions.vercel.app",
-    tagline: "Software Engineer and Entrepreneur",
+    tagline: "Frontend Developer / Digital Specialist",
   },
 
   about: "I am a digital innovator bridging technology, design, and business to craft inclusive, user-centric solutions. With a background that blends arts and technology, I bring both creative insight and software engineering expertise to the table. As a front-end developer and entrepreneur, I've led technical projects from concept to deployment, collaborating with cross-functional teams including creative, content, accessibility, and account teams to define requirements and guide implementation as a technical lead. I thrive at the intersection of product vision and technical execution, turning complex challenges into clear, actionable outcomes.",
@@ -23,14 +23,12 @@ export const cvData = {
       bullets: [
         "Operate a small-scale sole proprietorship providing B2B digital and advisory services.",
         "Handle day-to-day business operations, including invoicing, basic accounting, expense tracking, and tax-related documentation.",
-        "Prepare and maintain a business plan covering services, pricing, and operating costs.",
-        "Conduct practical market research to identify client needs and viable opportunities.",
         "Work directly with clients from initial discussions through delivery and follow-up.",
-        "Balance client work with administrative, legal, and operational responsibilities."
+        
       ],
       subExperience: [
         {
-          title: "Software Engineer",
+          title: "Frontend Developer",
           company: "tms, Chicago",
           period: "03.2023 — Present",
           description: "Clients and services provided",
@@ -46,18 +44,17 @@ export const cvData = {
           ]
         },
         {
-          title: "Digital Specialist",
+          title: "Frontend Developer",
           company: "Protegos (startup concept)",
           location: "Switzerland",
           period: "07.2024 — Present",
           bullets: [
             "Supporting founders of a Swiss insurance brokerage with branding, website structure, and content.",
-            "Performing market research on Swiss insurance, culture, and business practices.",
             "Helping translate business strategy into structured customer-facing systems."
           ]
         },
         {
-          title: "Digital Specialist",
+          title: "Frontend Developer",
           company: "FAMA",
           location: "Poland",
           period: "12.2024 — 03.2025",
@@ -69,14 +66,14 @@ export const cvData = {
       ]
     },
     {
-      title: "Front-end Developer",
+      title: "Frontend Developer",
       company: "Marotino",
       location: "Gdansk, Poland",
       period: "01.2022 — 03.2023",
       bullets: [
-        "Took on the role of Front-end Lead in a redesign project for a US client - FICO.",
+        "Took on the role of Frontend Lead in a redesign project for a US client - FICO.",
         "Maintained direct communication with the client to ensure the technical feasibility of UI/UX designs.",
-        "Accountable for front end programming tasks, design solutions, and workflow management in JIRA, including time estimation.",
+        "Accountable for frontend programming tasks, design solutions, and workflow management in JIRA, including time estimation.",
         "Responsible for structuring, troubleshooting, and creating new layouts for seamless integration with the Drupal environment."
       ]
     },
@@ -103,17 +100,17 @@ export const cvData = {
         "Acted as a first point of contact for customer communication via social platforms."
       ]
     },
-    {
-      title: "Administrative Assistant",
-      company: "HfMDK",
-      location: "Germany",
-      period: "09.2017 — 10.2019",
-      bullets: [
-        "Supported internal workflows and routine processes in a university environment",
-        "Handled data-related tasks such as time tracking and documentation",
-        "Assisted with coordination between staff, students, and events"
-      ]
-    },
+    // {
+    //   title: "Administrative Assistant",
+    //   company: "HfMDK",
+    //   location: "Germany",
+    //   period: "09.2017 — 10.2019",
+    //   bullets: [
+    //     "Supported internal workflows and routine processes in a university environment",
+    //     "Handled data-related tasks such as time tracking and documentation",
+    //     "Assisted with coordination between staff, students, and events"
+    //   ]
+    // },
     {
       title: "Creative",
       company: "Freelance",
@@ -158,35 +155,35 @@ export const cvData = {
   ],
 
   areasOfExpertise: [
-    "Project Coordination & Delivery",
-    "Creative Design",
-    "Social Media",
     "Web Development",
     "Digital Accessibility (WCAG)",
-    "Interactive Systems",
-    "Gaming",
-    "Quality Assurance",
+    "Project Coordination & Delivery",
     "Information Architecture, UI/UX",
+    "Interactive Systems",
+    "Creative Design",
+    "Quality Assurance",
+    "Gaming",
     "Photography & Videography"
   ],
 
   techStack: [
-    "Microsoft Office",
-    "HTML & CSS",
-    "JavaScript, TypeScript",
     "React.js",
+    "JavaScript, TypeScript",
+    "HTML & CSS",
     "AI tools",
     "Figma, FigJam, Miro",
     "Adobe Creative Cloud",
-    "JIRA & Confluence"
+    "JIRA & Confluence",
+    "Microsoft 365",
   ],
 
   softSkills: [
+    "Strong Attention to Detail",
+    "Resilience and Mental Toughness",
     "Professional Humility",
     "Ownership",
-    "Resilience and Mental Toughness",
     "Cognitive Flexibility",
-    "Strong Attention to Detail"
+   
   ],
 
   languages: [
