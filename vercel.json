@@ -1,0 +1,14 @@
+{
+    "redirects": [
+        {
+            "source": "/meeting",
+            "destination": "https://calendly.com/kkplak/new-meeting",
+            "permanent": false
+        },
+        {
+            "source": "/meeting/",
+            "destination": "https://calendly.com/kkplak/new-meeting",
+            "permanent": false
+        }
+    ]
+}
