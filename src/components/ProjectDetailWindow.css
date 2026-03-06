@@ -142,6 +142,20 @@
   font-weight: 500;
 }
 
+.project-type {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+}
+
+.project-detail-window.dark .project-type {
+  color: #9ca3af;
+}
+
+
 .project-content {
   padding: 2rem 2.5rem;
 }
@@ -170,21 +184,85 @@
   margin: 0;
 }
 
+.project-capabilities-section {
+  margin-bottom: 1.5rem;
+}
+
+.capability-groups {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+.capability-group {
+  border-radius: 8px;
+  padding: 0.65rem;
+}
+
+.capability-group h3 {
+  margin: 0 0 0.45rem 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.capability-group-tech {
+  background: #eef7f1;
+  border: 1px solid #c7e9d4;
+}
+
+.capability-group-tech h3 {
+  color: #155b3a;
+}
+
+.capability-group-focus {
+  background: #f2f5ff;
+  border: 1px solid #d8e0ff;
+}
+
+.capability-group-focus h3 {
+  color: #384a99;
+}
+
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .tech-tag {
   display: inline-block;
-  padding: 0.4rem 0.8rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  padding: 0.28rem 0.56rem;
+  background: #ffffff;
+  color: #2f3d84;
+  border: 1px solid #b9c8ff;
+  border-radius: 5px;
+  font-size: 0.76rem;
+  font-weight: 600;
 }
+
+.tech-stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-stack-tag {
+  display: inline-block;
+  padding: 0.28rem 0.52rem;
+  background: #f8fffb;
+  color: #0f5132;
+  border: 1px solid #9adbb6;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-shadow: 0 0 4px rgba(16, 185, 129, 0.14);
+}
+
 
 .project-links {
   display: flex;
@@ -252,3 +330,4 @@
   text-align: center;
   line-height: 1.4;
 }
+

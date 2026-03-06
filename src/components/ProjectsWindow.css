@@ -116,6 +116,12 @@
   padding: 12px;
   border-radius: 8px;
   transition: background 0.2s;
+  border: 0;
+  width: 100%;
+  text-align: inherit;
+  font: inherit;
+  color: inherit;
+  background: transparent;
 }
 
 .project-file:hover {
@@ -124,6 +130,11 @@
 
 .projects-window.dark .project-file:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.project-file:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
 
 .file-icon {

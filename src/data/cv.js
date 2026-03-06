@@ -8,61 +8,45 @@ export const cvData = {
     phone: "+41 77 291 25 04",
     linkedin: "linkedin.com/in/kkplak",
     permit: "B Permit - CH",
-    website: "codeline-solutions.vercel.app",
-    tagline: "Frontend Developer / Digital Specialist",
+    website: "konrads-digital-space.vercel.app",
+    tagline: "Frontend Developer",
   },
 
-  about: "I am a digital innovator bridging technology, design, and business to craft inclusive, user-centric solutions. With a background that blends arts and technology, I bring both creative insight and software engineering expertise to the table. As a front-end developer and entrepreneur, I've led technical projects from concept to deployment, collaborating with cross-functional teams including creative, content, accessibility, and account teams to define requirements and guide implementation as a technical lead. I thrive at the intersection of product vision and technical execution, turning complex challenges into clear, actionable outcomes.",
+  about: "Frontend developer specializing in accessible, high-quality web experiences. I bridge design and engineering to transform product and creative concepts into reliable, user-centric interfaces. With a background spanning both technology and the arts, I collaborate closely with creative, content, accessibility, and product teams to deliver projects from concept to launch, translating complex requirements into clean, maintainable frontend solutions.",
 
   experience: [
     {
-      title: "Sole Proprietorship Owner",
-      company: "codeline, Konrad Plak Web Development",
-      location: "Poland/Switzerland",
-      period: "02.2023 — Present",
+      title: "Frontend Developer",
+      company: "tms",
+      location: "Chicago, USA",
+      period: "03.2023 — present",
       bullets: [
-        "Operate a small-scale sole proprietorship providing B2B digital and advisory services.",
-        "Handle day-to-day business operations, including invoicing, basic accounting, expense tracking, and tax-related documentation.",
-        "Work directly with clients from initial discussions through delivery and follow-up.",
-        
-      ],
-      subExperience: [
-        {
-          title: "Frontend Developer",
-          company: "tms, Chicago",
-          period: "03.2023 — Present",
-          description: "Clients and services provided",
-          bullets: [
-            "Building engaging, accessible digital experiences for McDonald's marketing campaigns.",
-            "Leading small to mid-scale projects end-to-end, from concept through delivery.",
-            "Collaborating with cross-functional teams including Content, Copy-writing, Motion Design, Creative, QA, Accessibility, Digital Production, Business Analysts and Technology Director.",
-            "Prioritizing inclusive user experiences by thoughtfully integrating multimedia and accessibility (a11y) in front end design.",
-            "Developing new interactive web experiences and proposing original concepts to expand our creative toolkit.",
-            "Regularly conducting bi-weekly presentations of my work, presenting to various teams, including senior executives and directors.",
-            "Contributing to internal framework R&D and architecture discussions to support long-term platform improvements.",
-            "IPs: Squishmallows, Disney (Elemental), Marvel (Captain America), Universal (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)"
-          ]
-        },
-        {
-          title: "Frontend Developer",
-          company: "Protegos (startup concept)",
-          location: "Switzerland",
-          period: "07.2024 — Present",
-          bullets: [
-            "Supporting founders of a Swiss insurance brokerage with branding, website structure, and content.",
-            "Helping translate business strategy into structured customer-facing systems."
-          ]
-        },
-        {
-          title: "Frontend Developer",
-          company: "FAMA",
-          location: "Poland",
-          period: "12.2024 — 03.2025",
-          bullets: [
-            "Co-defined digital strategy with business owners.",
-            "Designed and built a multilingual website for a film production company."
-          ]
-        }
+        "Building interactive web experiences for McDonald's Happy Meal digital marketing campaigns.",
+        "Leading tech delivery of small to mid-scale projects.",
+        "Collaborating with cross-functional teams across: Content, Copy-writing, Creative, QA, Accessibility, Digital Production, Business Analysts and Technology Director.",
+        "Engineered a Gamepad API integration enabling browser games in client projects to support physical controllers on mobile devices.",
+        "Refactored a video-driven web game engine, improving performance and expanding gameplay capabilities through deep exploration of browser video mechanics.",
+        "Delivered interactive projects for major entertainment IPs including: Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)"
+      ]
+    },
+    {
+      title: "Frontend Developer",
+      company: "Protegos",
+      location: "Olten, Switzerland",
+      period: "07.2024 — 03.2026",
+      bullets: [
+        "Supporting a Swiss insurance brokerage agents with branding, website, and content.",
+        "Helping translate business strategy into structured customer-facing systems."
+      ]
+    },
+    {
+      title: "Frontend Developer",
+      company: "FAMA",
+      location: "Gdansk, Poland",
+      period: "12.2024 — 03.2025, and 02.2026 — 03.2026",
+      bullets: [
+        "Co-defined digital strategy with business owners.",
+        "Designed and built a multilingual website for a film production company."
       ]
     },
     {
@@ -99,64 +83,72 @@ export const cvData = {
         "Maintained organized media archives and content workflows.",
         "Acted as a first point of contact for customer communication via social platforms."
       ]
-    },
-    // {
-    //   title: "Administrative Assistant",
-    //   company: "HfMDK",
-    //   location: "Germany",
-    //   period: "09.2017 — 10.2019",
-    //   bullets: [
-    //     "Supported internal workflows and routine processes in a university environment",
-    //     "Handled data-related tasks such as time tracking and documentation",
-    //     "Assisted with coordination between staff, students, and events"
-    //   ]
-    // },
+    }
+  ],
+
+  personalProjects: [
     {
-      title: "Creative",
-      company: "Freelance",
-      location: "",
-      period: "2011 — 2021",
+      title: "Web Accessibility Research and Demo Website",
+      period: "03.2023 — present",
+      link: "codeline-a11y-demo.vercel.app",
       bullets: [
-        "Performing Artist / Movement Teacher",
-        "Performed on the most renowned global stages: Sadler's Wells Theatre (London), Oper Frankfurt, SOTA (Singapore) as well as So You Think You Can Dance Poland (TV), Cartoon Network (TV), Got to Dance (TV)",
-        "Prepared and taught body – mind movement classes for diverse age groups and skill levels",
-        "Independent Film Producer",
-        "Led and coordinated multiple independent film projects",
-        "Managed organizational and logistical aspects of production",
-        "Delivered completed works used in formal educational and festival contexts"
-      ]
+        "Extensive hands-on work with screen readers, keyboard navigation, and semantic HTML across development and production environments.",
+        "Continuously integrating the newest accessibility techniques into client projects.",
+        "Built a living demo playground to experiment with modern inclusive UI patterns."
+      ],
+      tech: ["React", "TypeScript", "WCAG 2.2", "WAI-ARIA", "VoiceOver", "Screen Reader", "Semantic HTML", "Keyboard A11Y"]
+    },
+    {
+      title: "AI Driven Web Development Workflow",
+      period: "12.2025",
+      link: "konrads-digital-space.vercel.app",
+      bullets: [
+        "Designed and launched a complete portfolio website in 48 hours using advanced AI development workflows.",
+        "Combined multiple AI tools to accelerate ideation, design, coding, and content creation.",
+        "Demonstrates practical AI-augmented web production."
+      ],
+      tech: ["React", "Vite", "GitHub Copilot", "GPT5.1-Codex", "Prompt Engineering"]
+    },
+    {
+      title: "Web Mobile Game Prototype",
+      period: "10.2024 — 12.2024",
+      link: "tom-platformer.vercel.app",
+      bullets: [
+        "Created a browser-based mobile platformer from concept to playable prototype.",
+        "Designed levels, gameplay mechanics, and character assets."
+      ],
+      tech: ["JavaScript", "React", "Tone.js", "Zustand", "JS AABB", "OOP"]
     }
   ],
 
   education: [
        {
-      degree: "German A2 Course",
+      degree: "Course German A2",
       institution: "ECAP",
-      period: "2026",
-          location: "Olten, Switzerland"
+      period: "02.2026 — 06.2026",
+      location: "Olten, Switzerland"
     },
     {
       degree: "Certification in JavaScript, HTML5, CSS3 and Advanced Design",
       institution: "University of Michigan",
       period: "2021",
-          location: "Remote"
+      location: "Remote"
     },
     {
       degree: "Bachelor of Arts",
       institution: "Frankfurt University of Music and Performing Arts",
       period: "2018 — 2021",
-      location: "Frankfurt am Main, Germany"
+      location: "Germany"
     }
   ],
 
   hobbiesAndGoals: [
-    "I stay curious about new technologies, love the challenge of solving tough problems, and recharge by spending time outdoors.",
-    // "By end of 2027, I aim to deepen my understanding of SAP modules, strengthen my expertise in architectural design systems, and further solidify the bridge between technology and business."
+    "I stay curious about new technologies and enjoy the challenge of solving tough problems. In my free time, I recharge by spending time outdoors, cycling, painting, cooking, and gaming."
   ],
 
   areasOfExpertise: [
     "Web Development",
-    "Digital Accessibility (WCAG)",
+    "Digital Accessibility",
     "Project Coordination & Delivery",
     "Information Architecture, UI/UX",
     "Interactive Systems",
@@ -170,7 +162,11 @@ export const cvData = {
     "React.js",
     "JavaScript, TypeScript",
     "HTML & CSS",
+    "WCAG 2.2",
+    "Vite",
+    "API",
     "AI tools",
+    "GIT",
     "Figma, FigJam, Miro",
     "Adobe Creative Cloud",
     "JIRA & Confluence",
@@ -210,8 +206,8 @@ export const cvData = {
       description: "My projects achieved record engagement, with one reaching 25 million views and another 11 million views, marking the highest engagement rates across client campaigns in 2024."
     },
     {
-      title: "Promoting Digital Inclusivity:",
-      description: "Applied the latest technologies to integrate accessibility (a11y) features, directly benefiting individuals with disabilities. My work ensured that more people could access and engage with digital content, helping to create a more inclusive online environment."
+      title: "Expanded Mobile Gaming Possibilities:",
+      description: "Engineered a custom integration using the Gamepad API that enables browser-based games to be played with physical game controllers on mobile devices, unlocking a console-like experience in environments typically limited to touch input."
     }
   ]
 };

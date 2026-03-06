@@ -3,14 +3,16 @@
 }
 
 .section-title {
+  display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.85rem;
   color: #000;
-  position: relative;
-  padding-bottom: 0;
+  background: #e6e6e8;
+  border-radius: 8px;
+  padding: 0.28rem 0.65rem;
 }
 
 .section-content {

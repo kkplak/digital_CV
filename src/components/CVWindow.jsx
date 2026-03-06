@@ -86,9 +86,9 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized,
        
                 <p className="cv-tagline">{cvData.contact.tagline}</p>
                 <p className="cv-location">{cvData.contact.location}</p>
-                {/* <a href={`https://${cvData.contact.website}`} target="_blank" rel="noopener noreferrer" className="cv-website">
+                <a href={`https://${cvData.contact.website}`} target="_blank" rel="noopener noreferrer" className="cv-website">
                   {cvData.contact.website}
-                </a> */}
+                </a>
               </div>
             </div>
 
@@ -146,6 +146,34 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized,
                 ))}
               </Section>
 
+              {cvData.personalProjects && cvData.personalProjects.length > 0 && (
+                <Section title="PERSONAL PROJECTS">
+                  {cvData.personalProjects.map((project, index) => (
+                    <div key={index} className="personal-project-item">
+                      <div className="personal-project-title">{project.title}</div>
+                      <div className="personal-project-period">{project.period}</div>
+                      {project.link && (
+                        <a href={`https://${project.link}`} target="_blank" rel="noopener noreferrer" className="personal-project-link">
+                          {project.link}
+                        </a>
+                      )}
+                      {project.bullets && project.bullets.length > 0 && (
+                        <ul className="personal-project-bullets">
+                          {project.bullets.map((bullet, bulletIndex) => (
+                            <li key={bulletIndex}>{bullet}</li>
+                          ))}
+                        </ul>
+                      )}
+                      {project.tech && project.tech.length > 0 && (
+                        <div className="personal-project-tech">
+                          <span className="personal-project-tech-label">Tech:</span> {project.tech.join(', ')}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </Section>
+              )}
+
               {/* Personal Achievements Section */}
               <Section title="PERSONAL ACHIEVEMENTS">
                 <ul className="achievements-list">
@@ -194,7 +222,7 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized,
               </Section>
 
               {/* Hobbies and Goals Section */}
-              <Section title="HOBBIES AND GOALS">
+              <Section title="HOBBIES">
                 {cvData.hobbiesAndGoals.map((item, index) => (
                   <p key={index} className="hobbies-text">{item}</p>
                 ))}

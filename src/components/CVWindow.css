@@ -120,6 +120,24 @@
   background: #28C840;
 }
 
+@media (max-width: 768px) {
+  .window-controls {
+    gap: 6px;
+  }
+
+  .control-btn {
+    width: 12px;
+    height: 12px;
+    padding: 8px;
+    border-radius: 999px;
+    background-clip: content-box;
+  }
+
+  .window-controls-spacer {
+    width: 96px;
+  }
+}
+
 .window-title {
   font-size: 13px;
   font-weight: 500;
@@ -201,8 +219,8 @@
   grid-template-columns: 280px 1fr;
   padding: 2.5rem 2.5rem 2rem;
   background: white;
-  align-items: start;
-  gap: 2rem;
+  align-items: end;
+  gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -242,9 +260,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  padding-top: 0.5rem;
+  padding-top: 0;
   position: relative;
   line-height: 1.3;
+  align-self: end;
 }
 
 @media (max-width: 768px) {
@@ -285,7 +304,7 @@
 .cv-company {
   font-size: 2.5rem;
   font-weight: 200;
-  color: #000;
+  color: #00000030;
   margin: 0;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -345,7 +364,7 @@
 
 .cv-website {
   font-size: 1rem;
-  color: #1a73e8;
+  color: #3b68a4;
   text-decoration: none;
   display: inline-block;
   margin-bottom: 0;
@@ -389,7 +408,7 @@
 }
 
 .detail-item a:hover {
-  color: #1a73e8;
+  color: #3b68a4;
   text-decoration: underline;
 }
 
@@ -547,4 +566,57 @@
   font-size: 0.75rem;
   color: #666;
   line-height: 1.5;
+}
+
+.personal-project-item {
+  margin-bottom: 1rem;
+}
+
+.personal-project-item:last-child {
+  margin-bottom: 0;
+}
+
+.personal-project-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.1rem;
+}
+
+.personal-project-period {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.1rem;
+}
+
+.personal-project-link {
+  font-size: 0.75rem;
+  color: #3b68a4;
+  text-decoration: underline;
+}
+
+.personal-project-bullets {
+  margin: 0.35rem 0 0.3rem;
+  padding-left: 1.1rem;
+}
+
+.personal-project-bullets li {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 0.25rem;
+}
+
+.personal-project-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.personal-project-tech {
+  font-size: 0.75rem;
+  color: #5d3d88;
+  line-height: 1.4;
+}
+
+.personal-project-tech-label {
+  font-weight: 700;
 }

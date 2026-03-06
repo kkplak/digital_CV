@@ -78,9 +78,10 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
               <h3 className="projects-section-title">Professional</h3>
               <div className="projects-grid">
                 {professionalProjects.map((project) => (
-                  <div
+                  <button
                     key={`${project.id}-${project.name}`}
                     className="project-file"
+                    type="button"
                     onClick={() => handleFileClick(project)}
                     title={project.description}
                   >
@@ -92,7 +93,7 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
                       )}
                     </div>
                     <div className="file-name">{project.name}</div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </section>
@@ -101,9 +102,10 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
               <h3 className="projects-section-title">Personal</h3>
               <div className="projects-grid">
                 {personalProjects.map((project) => (
-                  <div
+                  <button
                     key={`${project.id}-${project.name}`}
                     className="project-file"
+                    type="button"
                     onClick={() => handleFileClick(project)}
                     title={project.description}
                   >
@@ -115,7 +117,7 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
                       )}
                     </div>
                     <div className="file-name">{project.name}</div>
-                  </div>
+                  </button>
                 ))}
                 </div>
             </section>

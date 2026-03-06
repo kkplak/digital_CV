@@ -6,6 +6,39 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
   const [position, setPosition] = useState({ x: 210, y: 90 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const techStackItems = project.techStack || project.focusAreas || [];
+  const projectSummary = project.details || project.description;
+
+  const getProjectType = () => {
+    if (project.projectType) return project.projectType;
+
+    const searchableText = [project.name, project.description, project.details, project.role]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+
+    if (searchableText.includes('happy meal') || searchableText.includes("mcdonald's")) {
+      return "Happy Meal McDonald's Mobile Game";
+    }
+
+    if (searchableText.includes('film') || searchableText.includes('short film')) {
+      return 'Short Film Project';
+    }
+
+    if (searchableText.includes('quality assurance') || searchableText.includes('qa')) {
+      return 'Game QA Project';
+    }
+
+    if (searchableText.includes('website') || searchableText.includes('web')) {
+      return project.category === 'personal' ? 'Personal Website Project' : 'Company Website';
+    }
+
+    if (searchableText.includes('game') || searchableText.includes('webgl') || searchableText.includes('shader')) {
+      return project.category === 'personal' ? 'Personal Game Project' : 'Interactive Game Project';
+    }
+
+    return project.category === 'personal' ? 'Personal Project' : 'Digital Project';
+  };
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -79,34 +112,46 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
                 <h1 className="project-title">{project.name}</h1>
                 {project.date && <div className="project-date">{project.date}</div>}
                 {project.role && <div className="project-role">{project.role}</div>}
+                <div className="project-type">{getProjectType()}</div>
               </div>
             </div>
 
             <div className="project-content">
-              {project.description && (
+              {projectSummary && (
                 <div className="project-section">
-                  <h2>Description</h2>
-                  <p>{project.description}</p>
+                  <h2>Summary</h2>
+                  <p>{projectSummary}</p>
                 </div>
               )}
 
-              {project.details && (
-                <div className="project-section">
-                  <h2>Details</h2>
-                  <p>{project.details}</p>
-                </div>
-              )}
+              {(Array.isArray(techStackItems) && techStackItems.length > 0) || (project.focusAreas && project.focusAreas.length > 0) ? (
+                <div className="project-section project-capabilities-section">
+                  <h2>Overview</h2>
+                  <div className="capability-groups">
+                    {project.focusAreas && project.focusAreas.length > 0 && (
+                      <div className="capability-group capability-group-focus">
+                        <h3>Focus Areas</h3>
+                        <div className="tech-tags">
+                          {project.focusAreas.map((tech, index) => (
+                            <span key={index} className="tech-tag">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-              {project.focusAreas && project.focusAreas.length > 0 && (
-                <div className="project-section">
-                  <h2>Focus Areas</h2>
-                  <div className="tech-tags">
-                    {project.focusAreas.map((tech, index) => (
-                      <span key={index} className="tech-tag">{tech}</span>
-                    ))}
+                    {Array.isArray(techStackItems) && techStackItems.length > 0 && (
+                      <div className="capability-group capability-group-tech">
+                        <h3>Tech Stack</h3>
+                        <div className="tech-stack-tags">
+                          {techStackItems.map((tech, index) => (
+                            <span key={index} className="tech-stack-tag">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
+              ) : null}
 
               {project.images && project.images.length > 0 && (
                 <div className="project-section">
