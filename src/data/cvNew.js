@@ -1,7 +1,8 @@
 export const cvNewData = {
   name: "Konrad Plak",
-  title: "Frontend Developer",
+  title: "Front-end Developer",
   experience: "5 years",
+  summary: "Front-end developer with 5 years of experience building interactive and game-driven web experiences for global brands including McDonald's, Nintendo, Disney and Marvel. Specialized in React, TypeScript and WCAG 2.2 AA/AAA standards.",
 
   contact: {
     location: "Olten, Switzerland",
@@ -17,10 +18,10 @@ export const cvNewData = {
     {
       title: "Frontend Developer",
       company: "tms",
-      companyFull: "tms — McDonald's Happy Meal Digital Team",
-      period: "03.2023 — present",
+      companyFull: "tms - McDonald's Happy Meal Digital Team",
+      period: "03.2023 - present",
       bullets: [
-        "Delivered 8 web experiences for: Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)",
+        "Delivered 8 web experiences reaching over 100 million views for: Nintendo (Super Mario Galaxy), Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)",
         "Led technical delivery of small to mid-scale projects.",
         "Engineered Game-pad API integration enabling browser-based games to support physical controllers on mobile devices.",
         "Refactored a core video-driven web game engine, restructuring its architecture to improve performance, stability, and maintainability.",
@@ -34,8 +35,8 @@ export const cvNewData = {
     {
       title: "Frontend Developer",
       company: "Protegos",
-      companyFull: "Protegos",
-      period: "07.2024 — 03.2026",
+      companyFull: "Protegos, contract",
+      period: "07.2024 - 03.2026",
       bullets: [
         "Supported a Swiss insurance brokerage agents with branding, website, and content.",
         "Helped translate business strategy into structured customer-facing systems."
@@ -45,8 +46,8 @@ export const cvNewData = {
     {
       title: "Frontend Developer",
       company: "FAMA",
-      companyFull: "FAMA",
-      period: "07.2024 — 03.2026",
+      companyFull: "FAMA, contract",
+      period: "07.2024 - 03.2026",
       bullets: [
         "Co-defined digital strategy with business owners.",
         "Designed and built a multilingual website for a film production company."
@@ -57,7 +58,7 @@ export const cvNewData = {
       title: "Frontend Developer",
       company: "Marotino",
       companyFull: "Marotino",
-      period: "01.2022 — 03.2023",
+      period: "01.2022 - 03.2023",
       bullets: [
         "Developed reusable React components for the Menusso.com platform.",
         "Seconded by Speednet to lead frontend template development for a redesign project for US client FICO.",
@@ -104,16 +105,16 @@ export const cvNewData = {
       period: "2026"
     },
     {
-      degree: "Web Development — JavaScript, HTML5, CSS3 and Responsive Design",
+      degree: "Web Development - JavaScript, HTML5, CSS3 and Responsive Design",
       institution: "University of Michigan",
       location: "Remote",
-      period: "2021 — 2022"
+      period: "2021 - 2022"
     },
     {
       degree: "Bachelor of Arts",
       institution: "HfMDK",
       location: "Frankfurt am Main, Germany",
-      period: "2018 — 2021"
+      period: "2018 - 2021"
     }
   ]
 };

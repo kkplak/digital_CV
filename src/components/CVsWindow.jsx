@@ -69,7 +69,7 @@ export default function CVsWindow({
           <div className="cvs-grid">
             <div className="cvs-file-item" onClick={onOpenNewCV} onDoubleClick={onOpenNewCV}>
               <div className="cvs-file-icon pdf"></div>
-              <div className="cvs-file-name">CV_new_16.03.pdf</div>
+              <div className="cvs-file-name">CV Konrad Plak Frontend 03.26.pdf</div>
             </div>
              <div className="cvs-file-item" onClick={onOpenOldCV} onDoubleClick={onOpenOldCV}>
               <div className="cvs-file-icon pdf"></div>

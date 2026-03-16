@@ -24,8 +24,8 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
 
   const d = cvNewData;
 
-  const emphasisRegex = /(Nintendo|Super Mario Galaxy|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/gi;
-  const emphasisCheckRegex = /(Nintendo|Super Mario Galaxy|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/i;
+  const emphasisRegex = /(Nintendo|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/gi;
+  const emphasisCheckRegex = /(Nintendo|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/i;
 
   const renderWithEmphasis = (text) => {
     const parts = text.split(emphasisRegex);
@@ -70,9 +70,13 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
             {/* Header */}
             <div className="cvnew-header">
               <h1 className="cvnew-name">{d.name}</h1>
-              <p className="cvnew-title-line">
-                {d.title} <span className="cvnew-separator">|</span> Experience: {d.experience}
-              </p>
+              {d.summary ? (
+                <p className="cvnew-title-line">{d.summary}</p>
+              ) : (
+                <p className="cvnew-title-line">
+                  {d.title} <span className="cvnew-separator">|</span> Experience: {d.experience}
+                </p>
+              )}
               <p className="cvnew-contact-line">
                 {d.contact.location}
                 <span className="cvnew-separator"> | </span>
@@ -109,9 +113,11 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
                       <li key={bIdx}>{renderWithEmphasis(bullet)}</li>
                     ))}
                   </ul>
-                  <p className="cvnew-exp-tech">
-                    <span className="cvnew-tech-label">Tech:</span> {exp.tech}
-                  </p>
+                  {exp.tech && (
+                    <p className="cvnew-exp-tech">
+                      <span className="cvnew-tech-label">Tech:</span> {exp.tech}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
