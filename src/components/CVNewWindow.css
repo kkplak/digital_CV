@@ -1,0 +1,456 @@
+/* ─── Window Shell ─────────────────────────────────────────────────── */
+.cvnew-window {
+  position: fixed;
+  width: 800px;
+  height: 85vh;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.4),
+    0 25px 50px rgba(0, 0, 0, 0.18),
+    0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  contain: layout style paint;
+}
+
+.cvnew-window.dark {
+  background: #28282d;
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.1),
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cvnew-window.maximized {
+  width: calc(100vw - 16px) !important;
+  height: calc(100vh - 44px) !important;
+  left: 8px !important;
+  top: 36px !important;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .cvnew-window {
+    width: 100vw !important;
+    height: calc(100vh - 25px) !important;
+    left: 0 !important;
+    top: 25px !important;
+    border-radius: 0 !important;
+    z-index: 999;
+  }
+  .cvnew-window.maximized {
+    width: 100vw !important;
+    height: calc(100vh - 25px) !important;
+    left: 0 !important;
+    top: 25px !important;
+  }
+}
+
+.cvnew-drag-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  cursor: grabbing;
+}
+
+/* ─── Title Bar ────────────────────────────────────────────────────── */
+.cvnew-titlebar {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  cursor: grab;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.cvnew-titlebar:active { cursor: grabbing; }
+
+.cvnew-window.dark .cvnew-titlebar {
+  background: rgba(50, 50, 55, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.cvnew-window-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cvnew-window.dark .cvnew-window-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Scrollable Content ───────────────────────────────────────────── */
+.cvnew-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-overflow-scrolling: touch;
+  padding: 0.9rem 0.9rem 1.2rem;
+}
+
+.cvnew-window.dark .cvnew-content {
+  background: rgba(30, 30, 35, 0.7);
+}
+
+@media (max-width: 768px) {
+  .cvnew-content {
+    padding: 0.55rem 0.55rem calc(0.8rem + env(safe-area-inset-bottom));
+  }
+}
+
+.cvnew-content::-webkit-scrollbar { width: 10px; }
+.cvnew-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); }
+.cvnew-content::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.cvnew-content::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); background-clip: padding-box; }
+
+.cvnew-window.dark .cvnew-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
+.cvnew-window.dark .cvnew-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); background-clip: padding-box; }
+.cvnew-window.dark .cvnew-content::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); background-clip: padding-box; }
+
+/* ─── Document ─────────────────────────────────────────────────────── */
+.cvnew-document {
+  max-width: 750px;
+  margin: 0.35rem auto;
+  padding: 0 0 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #1a1a1a;
+  background: #ffffff;
+  min-height: 100%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .cvnew-document {
+    padding: 0 0 1rem;
+  }
+}
+
+/* ─── Header ───────────────────────────────────────────────────────── */
+.cvnew-header {
+  margin-bottom: 0;
+  padding: 1.35rem 1.5rem 1.1rem;
+  background: #03174b;
+}
+
+@media (max-width: 768px) {
+  .cvnew-header {
+    padding: 1.1rem 1rem 0.95rem;
+  }
+}
+
+.cvnew-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+  color: #f5f7ff;
+  line-height: 1.1;
+}
+
+.cvnew-title-line {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0.1rem 0 0.45rem;
+  color: rgba(245, 248, 255, 0.92);
+  line-height: 1.3;
+}
+
+.cvnew-contact-line {
+  font-size: 12px;
+  margin: 0 0 0.25rem;
+  color: rgba(226, 232, 255, 0.9);
+  padding-right: 0.25rem;
+}
+
+.cvnew-contact-line a,
+.cvnew-links-line a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid currentColor;
+}
+
+.cvnew-contact-line a:hover,
+.cvnew-links-line a:hover { opacity: 0.7; }
+
+.cvnew-links-line {
+  font-size: 12px;
+  margin: 0;
+  color: rgba(216, 225, 255, 0.95);
+  font-weight: 500;
+  padding-right: 0.25rem;
+}
+
+.cvnew-separator {
+  color: rgba(179, 195, 255, 0.8);
+}
+
+/* header text is already white in base rules — no dark-mode override needed */
+
+/* ─── Section ──────────────────────────────────────────────────────── */
+.cvnew-section {
+  margin: 0 0 0.7rem;
+}
+
+.cvnew-section + .cvnew-section {
+  margin-top: 0.35rem;
+  border-top: none;
+  padding-top: 0;
+}
+
+.cvnew-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+  padding: 0.32rem 1.2rem 0.42rem;
+  color: #111;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e4e4e4;
+  line-height: 1.2;
+}
+
+.cvnew-window.dark .cvnew-section-title { color: #111; }
+
+/* Keep EXPERIENCE heading flush with the first experience row */
+.cvnew-header + .cvnew-section .cvnew-section-title {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.cvnew-section-divider {
+  display: none;
+}
+
+/* paper is always white — keep dark divider */
+.cvnew-window.dark .cvnew-section-divider { background: #1a1a1a; }
+
+/* ─── Experience ───────────────────────────────────────────────────── */
+.cvnew-exp-item {
+  margin: 0;
+  padding: 0 0 0.5rem;
+  border-bottom: none;
+}
+
+.cvnew-exp-item:last-child {
+  border-bottom: none;
+}
+
+.cvnew-exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0;
+  padding: 0.42rem 1.2rem;
+  background: #ebebeb;
+  border-bottom: none;
+}
+
+.cvnew-exp-role {
+  font-weight: 700;
+  font-size: 13px;
+  color: #111;
+}
+
+.cvnew-window.dark .cvnew-exp-role { color: #111; }
+
+.cvnew-exp-company {
+  font-weight: 400;
+  font-size: 13px;
+  color: #333;
+}
+
+.cvnew-window.dark .cvnew-exp-company { color: #333; }
+
+.cvnew-exp-period {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cvnew-window.dark .cvnew-exp-period { color: #666; }
+
+.cvnew-exp-bullets {
+  margin: 0.3rem 0 0.28rem 0;
+  padding: 0 1.2rem 0 2rem;
+  list-style: disc;
+}
+
+.cvnew-exp-bullets li {
+  margin-bottom: 0.12rem;
+  color: #333;
+  font-size: 12px;
+  line-height: 1.35;
+  padding: 0;
+}
+
+.cvnew-exp-bullets li strong {
+  font-weight: 700;
+  color: #151515;
+}
+
+.cvnew-window.dark .cvnew-exp-bullets li { color: #333; }
+
+.cvnew-exp-tech {
+  font-size: 10.5px;
+  color: #575592;
+  margin: 0;
+  padding: 0 1.2rem;
+}
+
+.cvnew-window.dark .cvnew-exp-tech { color: #575592; }
+
+.cvnew-tech-label {
+  font-weight: 600;
+  color: #575592;
+}
+
+.cvnew-window.dark .cvnew-tech-label { color: #575592; }
+
+/* ─── Skills ───────────────────────────────────────────────────────── */
+.cvnew-skill-row {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+  padding: 0.22rem 1.2rem;
+}
+
+.cvnew-window.dark .cvnew-skill-row { color: #333; }
+
+.cvnew-skill-category {
+  font-weight: 700;
+  color: #111;
+}
+
+.cvnew-window.dark .cvnew-skill-category { color: #111; }
+
+/* ─── Soft Skills ──────────────────────────────────────────────────── */
+.cvnew-soft-skills {
+  font-size: 12px;
+  color: #333;
+  margin: 0;
+  padding: 0.22rem 1.2rem;
+  line-height: 1.5;
+}
+
+.cvnew-window.dark .cvnew-soft-skills { color: #333; }
+
+/* ─── Languages ────────────────────────────────────────────────────── */
+.cvnew-languages {
+  font-size: 12px;
+  color: #333;
+  margin: 0;
+  padding: 0.22rem 1.2rem;
+  line-height: 1.5;
+}
+
+.cvnew-window.dark .cvnew-languages { color: #333; }
+
+/* ─── Education ────────────────────────────────────────────────────── */
+.cvnew-edu-item {
+  margin-bottom: 0;
+  padding: 0.38rem 1.2rem;
+  border-bottom: none;
+}
+
+.cvnew-edu-item:last-child { margin-bottom: 0; }
+
+.cvnew-edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.cvnew-edu-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cvnew-edu-degree {
+  font-weight: 700;
+  font-size: 13px;
+  color: #111;
+}
+
+.cvnew-window.dark .cvnew-edu-degree { color: #111; }
+
+.cvnew-edu-institution {
+  font-size: 12px;
+  color: #555;
+}
+
+.cvnew-window.dark .cvnew-edu-institution { color: #555; }
+
+.cvnew-edu-period {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .cvnew-name {
+    font-size: 18px;
+  }
+
+  .cvnew-title-line {
+    font-size: 12px;
+  }
+
+  .cvnew-section-title {
+    font-size: 10px;
+  }
+
+  .cvnew-exp-bullets li,
+  .cvnew-skill-row,
+  .cvnew-soft-skills,
+  .cvnew-languages,
+  .cvnew-edu-institution,
+  .cvnew-edu-period {
+    font-size: 11px;
+  }
+
+  .cvnew-exp-role,
+  .cvnew-exp-company,
+  .cvnew-edu-degree {
+    font-size: 12px;
+  }
+
+  .cvnew-exp-tech {
+    font-size: 9.5px;
+  }
+}
+
+.cvnew-window.dark .cvnew-edu-period { color: #666; }

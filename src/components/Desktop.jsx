@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './Desktop.css';
 import CVWindow from './CVWindow';
+import CVNewWindow from './CVNewWindow';
+import CVsWindow from './CVsWindow';
 import ProjectsWindow from './ProjectsWindow';
 import ProjectDetailWindow from './ProjectDetailWindow';
 import SettingsPopup from './SettingsPopup';
@@ -11,6 +13,10 @@ import { getTodayHoliday } from '../data/holidays';
 
 export default function Desktop() {
   const [isCVOpen, setIsCVOpen] = useState(false);
+  const [isCVNewOpen, setIsCVNewOpen] = useState(false);
+  const [isCVsOpen, setIsCVsOpen] = useState(false);
+  const [isCVsMaximized, setIsCVsMaximized] = useState(false);
+  const [isCVNewMaximized, setIsCVNewMaximized] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
   const [isMemoriesOpen, setIsMemoriesOpen] = useState(false);
@@ -72,6 +78,13 @@ export default function Desktop() {
     }
   };
 
+  const handleCVsDoubleClick = () => {
+    setIsCVsOpen(true);
+    if (window.innerWidth <= 768) {
+      setIsCVsMaximized(true);
+    }
+  };
+
   const handleProjectsDoubleClick = () => {
     setIsProjectsOpen(true);
     // Auto-maximize on mobile
@@ -100,6 +113,19 @@ export default function Desktop() {
 
   const handleCVMaximize = () => {
     setIsCVMaximized(!isCVMaximized);
+  };
+
+  const handleCVsClose = () => {
+    setIsCVsOpen(false);
+    setIsCVsMaximized(false);
+  };
+
+  const handleCVsMinimize = () => {
+    setIsCVsOpen(false);
+  };
+
+  const handleCVsMaximize = () => {
+    setIsCVsMaximized(!isCVsMaximized);
   };
 
   const handleProjectsMaximize = () => {
@@ -193,13 +219,26 @@ export default function Desktop() {
     }
   };
 
-  const handleCVRestore = () => {
-    setIsCVOpen(true);
-    // Auto-maximize on mobile
+  const handleCVsRestore = () => {
+    setIsCVsOpen(true);
     if (window.innerWidth <= 768) {
-      setIsCVMaximized(true);
+      setIsCVsMaximized(true);
     }
   };
+
+  const handleCVNewDoubleClick = () => {
+    setIsCVNewOpen(true);
+    if (window.innerWidth <= 768) setIsCVNewMaximized(true);
+  };
+
+  const handleCVNewClose = () => {
+    setIsCVNewOpen(false);
+    setIsCVNewMaximized(false);
+  };
+
+  const handleCVNewMinimize = () => setIsCVNewOpen(false);
+
+  const handleCVNewMaximize = () => setIsCVNewMaximized(!isCVNewMaximized);
 
   const handleProjectsRestore = () => {
     setIsProjectsOpen(true);
@@ -349,8 +388,8 @@ export default function Desktop() {
       <div className="desktop-icons">
         <div 
           className="desktop-icon"
-          onClick={handleCVDoubleClick}
-          onDoubleClick={handleCVDoubleClick}
+          onClick={handleCVsDoubleClick}
+          onDoubleClick={handleCVsDoubleClick}
         >
           <div 
             className="icon-folder"
@@ -364,7 +403,7 @@ export default function Desktop() {
             style={festiveThemesEnabled && currentHoliday?.folderNameColor ? {
               color: currentHoliday.folderNameColor
             } : {}}
-          >CV_Konrad_Plak</div>
+          >CV's</div>
         </div>
         <div 
           className="desktop-icon"
@@ -405,6 +444,30 @@ export default function Desktop() {
           >Others</div>
         </div>
       </div>
+
+      {/* CVs Folder Window */}
+      {isCVsOpen && (
+        <CVsWindow
+          onClose={handleCVsClose}
+          onMinimize={handleCVsMinimize}
+          onMaximize={handleCVsMaximize}
+          isMaximized={isCVsMaximized}
+          onOpenOldCV={handleCVDoubleClick}
+          onOpenNewCV={handleCVNewDoubleClick}
+          theme={theme}
+        />
+      )}
+
+      {/* CV new Window */}
+      {isCVNewOpen && (
+        <CVNewWindow
+          onClose={handleCVNewClose}
+          onMinimize={handleCVNewMinimize}
+          onMaximize={handleCVNewMaximize}
+          isMaximized={isCVNewMaximized}
+          theme={theme}
+        />
+      )}
 
       {/* CV Window */}
       {isCVOpen && (
@@ -511,9 +574,9 @@ export default function Desktop() {
           ></div> */}
           <div className="dock-divider"></div>
           <div 
-            className={`dock-item folder ${!isCVOpen ? 'minimized' : ''}`}
-            onClick={!isCVOpen ? handleCVRestore : undefined}
-            title="CV_Konrad_Plak"
+            className={`dock-item folder ${!isCVsOpen ? 'minimized' : ''}`}
+            onClick={!isCVsOpen ? handleCVsRestore : undefined}
+            title="CV's"
             style={festiveThemesEnabled && currentHoliday ? {
               background: currentHoliday.colors.folder,
               filter: 'brightness(1.1) saturate(1.2)'

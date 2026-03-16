@@ -1,12 +1,41 @@
 export const memories = [
-  {
-    id: 1,
+      {
+    id: 3,
     type: 'video',
-    url: '/memories/movie-9.mp4',
-    thumbnail: '/memories/movie-9.mp4',
-    caption: 'Brienzer Rothorn Switzerland',
+    url: '/memories/movie-3.mp4',
+    thumbnail: '/memories/movie-3.mp4',
+    caption: 'Warsaw Poland',
     date: '2025',
+    orientation: 'vertical'
+  },
+
+
+    {
+    id: 18,
+    type: 'video',
+    url: '/memories/movie-13.mp4',
+    thumbnail: '/memories/movie-13.mp4',
+    caption: ' UNESCO Biosphere Entlebuch Switzerland',
+    date: '2026',
     orientation: 'horizontal' 
+  },    {
+    id: 19,
+    type: 'video',
+    url: '/memories/movie-12.mp4',
+    thumbnail: '/memories/movie-12.mp4',
+    caption: 'Weggis Switzerland',
+    date: '2026',
+    orientation: 'horizontal' 
+  },
+
+ {
+    id: 5,
+    type: 'video',
+    url: '/memories/movie-6.mp4',
+    thumbnail: '/memories/movie-6.mp4',
+    caption: 'Piz Gloria Switzerland',
+    date: '2025',
+    orientation: 'horizontal'
   },
   {
     id: 2,
@@ -17,14 +46,14 @@ export const memories = [
     date: '2025',
     orientation: 'vertical'
   },
-    {
-    id: 3,
-    type: 'video',
-    url: '/memories/movie-3.mp4',
-    thumbnail: '/memories/movie-3.mp4',
-    caption: 'Warsaw Poland',
-    date: '2025',
-    orientation: 'vertical'
+      {
+    id: 17,
+    type: 'image',
+    url: '/memories/pic-8.png',
+    thumbnail: '/memories/pic-8.png',
+    caption: 'Avove the clouds',
+    date: '2026',
+    orientation: 'vertical' 
   },
   {
     id: 4,
@@ -44,14 +73,15 @@ export const memories = [
     date: '2024',
     orientation: 'square'
   },
-  {
-    id: 5,
+ 
+    {
+    id: 1,
     type: 'video',
-    url: '/memories/movie-6.mp4',
-    thumbnail: '/memories/movie-6.mp4',
-    caption: 'Piz Gloria Switzerland',
+    url: '/memories/movie-9.mp4',
+    thumbnail: '/memories/movie-9.mp4',
+    caption: 'Brienzer Rothorn Switzerland',
     date: '2025',
-    orientation: 'horizontal'
+    orientation: 'horizontal' 
   },
   {
     id: 6,
@@ -71,6 +101,15 @@ export const memories = [
     date: '2023',
     orientation: 'horizontal'
   },
+      {
+    id:7,
+    type: 'image',
+    url: '/memories/pic-6.png',
+    thumbnail: '/memories/pic-6.png',
+    caption: 'Frontalpstock Switzerland',
+    date: '2024',
+    orientation: 'vertical'
+  },
     {
     id: 8,
     type: 'video',
@@ -80,15 +119,7 @@ export const memories = [
     date: '2024',
     orientation: 'horizontal'
   },
-    {
-    id:7,
-    type: 'image',
-    url: '/memories/pic-6.png',
-    thumbnail: '/memories/pic-6.png',
-    caption: 'Frontalpstock Switzerland',
-    date: '2024',
-    orientation: 'vertical'
-  },
+
       {
     id: 8,
     type: 'video',

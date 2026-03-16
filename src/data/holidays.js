@@ -108,22 +108,22 @@ export const holidays = [
       dock: 'rgba(26, 26, 46, 0.4)'
     }
   },
-  {
-    id: 'pi-day',
-    name: 'Happy Pi Day!',
-    month: 3, // March
-    day: 14,
-    wallpaper: 'url(https://wallpapercave.com/wp/wp5914417.jpg) center/cover no-repeat',
-    emoji: '🥧',
-    appearance: 'dark',
-    folderNameColor: '#ffffffff',
-    colors: {
-      navbar: 'rgba(0, 0, 0, 0.4)',
-      navbarBorder: 'rgba(0, 255, 21, 1)',
-      folder: '#00ff00ff',
-      dock: 'rgba(0, 0, 0, 0.25)'
-    }
-  },
+  // {
+  //   id: 'pi-day',
+  //   name: 'Happy Pi Day!',
+  //   month: 3, // March
+  //   day: 14,
+  //   wallpaper: 'url(https://wallpapercave.com/wp/wp5914417.jpg) center/cover no-repeat',
+  //   emoji: '🥧',
+  //   appearance: 'dark',
+  //   folderNameColor: '#ffffffff',
+  //   colors: {
+  //     navbar: 'rgba(0, 0, 0, 0.4)',
+  //     navbarBorder: 'rgba(0, 255, 21, 1)',
+  //     folder: '#00ff00ff',
+  //     dock: 'rgba(0, 0, 0, 0.25)'
+  //   }
+  // },
   {
     id: 'world-emoji-day',
     name: 'World Emoji Day!',

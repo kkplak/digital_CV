@@ -306,7 +306,7 @@ export const projects = [
     ],
     images: [
       {
-        url: "https://media.licdn.com/dms/image/v2/D4D2DAQGqYYRYSSJX8Q/profile-treasury-image-shrink_1280_1280/B4DZWvUVhiHIAU-/0/1742403100751?e=1772899200&v=beta&t=JEuoM1pb2rgeuKDrLDYvoTUiUyeLwTwZ6XuVrMUHUYg",
+        url: "/tomjerry1.png",
       },
       { url: "/tom-gameplay.png" },
     ],
@@ -462,7 +462,7 @@ export const projects = [
   {
     id: 9,
     name: "Three.js Shaders Case Study",
-    icon: "💻",
+    icon: "🎨",
     description: "WebGL shader visualization case study.",
     projectType: "Creative WebGL Website",
     category: "personal",
@@ -485,7 +485,7 @@ export const projects = [
     ],
     images: [
       {
-        url: "/threejs1.png",
+        url: "/shader1.png",
       },
       { url: "/shader2.png" },
     ],
@@ -664,7 +664,9 @@ export const projects = [
     links: [{ label: "FICO Website", url: "https://www.fico.com/" }],
     images: [
       {
-        url: "https://pickmybot.com/wp-content/uploads/2025/07/fico_com_pricing.png",
+        url: "/fico-1.png",
+      },  {
+        url: "/fico-2.png",
       },
     ],
   },
