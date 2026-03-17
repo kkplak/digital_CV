@@ -9,7 +9,7 @@ import SettingsPopup from './SettingsPopup';
 import MemoriesWindow from './MemoriesWindow';
 import TestimonialsWindow from './TestimonialsWindow';
 import OthersWindow from './OthersWindow';
-import { getTodayHoliday } from '../data/holidays';
+// import { getTodayHoliday } from '../data/holidays'; // Festive themes functionality disabled
 
 export default function Desktop() {
   const [isCVOpen, setIsCVOpen] = useState(false);
@@ -30,36 +30,37 @@ export default function Desktop() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isProjectDetailMaximized, setIsProjectDetailMaximized] = useState(false);
   const [theme, setTheme] = useState({
-    id: 5,
-    name: 'Night',
-    wallpaper: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)',
+    id: 1,
+    name: 'Earth Day',
+    wallpaper: 'url(https://images.unsplash.com/photo-1661705969607-cde73828023d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWFydGglMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D) center/cover no-repeat',
     fontColor: '#ffffff',
-    windowAppearance: 'dark'
+    windowAppearance: 'dark',
+
   });
-  const [festiveThemesEnabled, setFestiveThemesEnabled] = useState(true);
-  const [currentHoliday, setCurrentHoliday] = useState(null);
-  const [previewHoliday, setPreviewHoliday] = useState(null);
+  // const [festiveThemesEnabled, setFestiveThemesEnabled] = useState(true);
+  // const [currentHoliday, setCurrentHoliday] = useState(null);
+  // const [previewHoliday, setPreviewHoliday] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  // Check for holiday and apply festive theme
-  useEffect(() => {
-    const holiday = getTodayHoliday();
-    
-    // Use preview holiday if set (dev mode), otherwise use actual holiday
-    const activeHoliday = previewHoliday || holiday;
-    setCurrentHoliday(activeHoliday);
-    
-    if (festiveThemesEnabled && activeHoliday) {
-      // Create a temporary theme object for the holiday
-      setTheme({
-        id: 'holiday',
-        name: activeHoliday.name,
-        wallpaper: activeHoliday.wallpaper,
-        fontColor: activeHoliday.folderNameColor || '#ffffff',
-        windowAppearance: activeHoliday.appearance || 'dark'
-      });
-    }
-  }, [festiveThemesEnabled, previewHoliday]);
+  // Check for holiday and apply festive theme - DISABLED
+  // useEffect(() => {
+  //   const holiday = getTodayHoliday();
+  //   
+  //   // Use preview holiday if set (dev mode), otherwise use actual holiday
+  //   const activeHoliday = previewHoliday || holiday;
+  //   setCurrentHoliday(activeHoliday);
+  //   
+  //   if (festiveThemesEnabled && activeHoliday) {
+  //     // Create a temporary theme object for the holiday
+  //     setTheme({
+  //       id: 'holiday',
+  //       name: activeHoliday.name,
+  //       wallpaper: activeHoliday.wallpaper,
+  //       fontColor: activeHoliday.folderNameColor || '#ffffff',
+  //       windowAppearance: activeHoliday.appearance || 'dark'
+  //     });
+  //   }
+  // }, [festiveThemesEnabled, previewHoliday]);
 
   // Update time every minute
   useEffect(() => {
@@ -260,39 +261,39 @@ export default function Desktop() {
     setTheme(newTheme);
   };
 
-  const handleFestiveThemesToggle = (enabled) => {
-    setFestiveThemesEnabled(enabled);
-    
-    if (enabled) {
-      const holiday = previewHoliday || getTodayHoliday();
-      if (holiday) {
-        setTheme({
-          id: 'holiday',
-          name: holiday.name,
-          wallpaper: holiday.wallpaper,
-          fontColor: holiday.folderNameColor || '#ffffff',
-          windowAppearance: holiday.appearance || 'dark'
-        });
-      }
-    } else {
-      // When toggling off, revert to Night theme
-      setTheme({
-        id: 5,
-        name: 'Night',
-        wallpaper: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)',
-        fontColor: '#ffffff',
-        windowAppearance: 'dark'
-      });
-    }
-  };
-
-  const handlePreviewHoliday = (holiday) => {
-    setPreviewHoliday(holiday);
-    // Auto-enable festive themes when previewing
-    if (!festiveThemesEnabled) {
-      setFestiveThemesEnabled(true);
-    }
-  };
+  // const handleFestiveThemesToggle = (enabled) => {
+  //   setFestiveThemesEnabled(enabled);
+  //   
+  //   if (enabled) {
+  //     const holiday = previewHoliday || getTodayHoliday();
+  //     if (holiday) {
+  //       setTheme({
+  //         id: 'holiday',
+  //         name: holiday.name,
+  //         wallpaper: holiday.wallpaper,
+  //         fontColor: holiday.folderNameColor || '#ffffff',
+  //         windowAppearance: holiday.appearance || 'dark'
+  //       });
+  //     }
+  //   } else {
+  //     // When toggling off, revert to Night theme
+  //     setTheme({
+  //       id: 5,
+  //       name: 'Night',
+  //       wallpaper: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)',
+  //       fontColor: '#ffffff',
+  //       windowAppearance: 'dark'
+  //     });
+  //   }
+  // };
+  //
+  // const handlePreviewHoliday = (holiday) => {
+  //   setPreviewHoliday(holiday);
+  //   // Auto-enable festive themes when previewing
+  //   if (!festiveThemesEnabled) {
+  //     setFestiveThemesEnabled(true);
+  //   }
+  // };
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -315,44 +316,47 @@ export default function Desktop() {
     setIsProjectDetailMaximized(!isProjectDetailMaximized);
   };
 
-  // Debug: Log state changes
-  console.log('Desktop State:', {
-    festiveThemesEnabled,
-    currentHoliday: currentHoliday?.name,
-    previewHoliday: previewHoliday?.name,
-    hasFestiveClass: festiveThemesEnabled && currentHoliday
-  });
+  // Debug: Log state changes - DISABLED
+  // const activeColors = (festiveThemesEnabled && currentHoliday?.colors) || theme.colors || null;
+  const activeColors = theme.colors || null;
+  
+  // console.log('Desktop State:', {
+  //   festiveThemesEnabled,
+  //   currentHoliday: currentHoliday?.name,
+  //   previewHoliday: previewHoliday?.name,
+  //   hasFestiveClass: (festiveThemesEnabled && currentHoliday) || Boolean(theme.colors)
+  // });
 
   return (
     <div 
-      className={`desktop ${theme.windowAppearance} ${festiveThemesEnabled && currentHoliday ? 'festive-mode' : ''}`}
+      className={`desktop ${theme.windowAppearance} ${theme.colors ? 'festive-mode' : ''}`}
       style={{
-        '--holiday-navbar': currentHoliday?.colors?.navbar || 'rgba(255, 255, 255, 0.3)',
-        '--holiday-navbar-border': currentHoliday?.colors?.navbarBorder || 'rgba(255, 255, 255, 0.2)',
-        '--holiday-folder': currentHoliday?.colors?.folder || '#667eea',
-        '--holiday-dock': currentHoliday?.colors?.dock || 'rgba(255, 255, 255, 0.1)',
+        '--holiday-navbar': activeColors?.navbar || 'rgba(255, 255, 255, 0.3)',
+        '--holiday-navbar-border': activeColors?.navbarBorder || 'rgba(255, 255, 255, 0.2)',
+        '--holiday-folder': activeColors?.folder || '#667eea',
+        '--holiday-dock': activeColors?.dock || 'rgba(255, 255, 255, 0.1)',
         '--desktop-font-color': theme.fontColor
       }}
     >
       {/* Wallpaper */}
       <div className="desktop-wallpaper" style={{ background: theme.wallpaper }}></div>
 
-      {/* Mobile Holiday Greeting - shown outside menu bar for mobile visibility */}
-      {currentHoliday && festiveThemesEnabled && (
+      {/* Mobile Holiday Greeting - DISABLED */}
+      {/* {currentHoliday && festiveThemesEnabled && (
         <div className="menu-holiday mobile-holiday">
           <span className="holiday-emoji">{currentHoliday.emoji}</span>
           <span className="holiday-name">{currentHoliday.name}</span>
           {previewHoliday && <span className="dev-badge">DEV</span>}
         </div>
-      )}
+      )} */}
 
       {/* Menu Bar */}
       <div className="menu-bar" style={
-        festiveThemesEnabled && currentHoliday ? {
-          background: currentHoliday.colors.navbar,
-          borderBottomColor: currentHoliday.colors.navbarBorder
+        activeColors ? {
+          background: activeColors.navbar,
+          borderBottomColor: activeColors.navbarBorder
         } : {}
-      }>
+      }> {/* Festive mode colors disabled in favor of normal theme colors */}
         <div className="menu-bar-left">
           <div className="apple-logo"></div>
           <div className="menu-item">Archive</div>
@@ -361,13 +365,14 @@ export default function Desktop() {
           <div className="menu-item">View</div>
         </div>
         <div className="menu-bar-right">
-          {currentHoliday && festiveThemesEnabled && (
+          {/* Holiday Greeting - DISABLED */}
+          {/* {currentHoliday && festiveThemesEnabled && (
             <div className="menu-holiday">
               <span className="holiday-emoji">{currentHoliday.emoji}</span>
               <span className="holiday-name">{currentHoliday.name}</span>
               {previewHoliday && <span className="dev-badge">DEV</span>}
             </div>
-          )}
+          )} */}
           <div className="menu-time">
             {currentTime.toLocaleTimeString('en-US', { 
               hour: 'numeric', 
@@ -393,16 +398,13 @@ export default function Desktop() {
         >
           <div 
             className="icon-folder"
-            style={festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.folder,
+            style={activeColors ? {
+              background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></div>
           <div 
             className="icon-label"
-            style={festiveThemesEnabled && currentHoliday?.folderNameColor ? {
-              color: currentHoliday.folderNameColor
-            } : {}}
           >CV's</div>
         </div>
         <div 
@@ -412,16 +414,13 @@ export default function Desktop() {
         >
           <div 
             className="icon-folder projects"
-            style={festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.folder,
+            style={activeColors ? {
+              background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></div>
           <div 
             className="icon-label"
-            style={festiveThemesEnabled && currentHoliday?.folderNameColor ? {
-              color: currentHoliday.folderNameColor
-            } : {}}
           >Projects</div>
         </div>
         <div 
@@ -431,16 +430,13 @@ export default function Desktop() {
         >
           <div 
             className="icon-folder others"
-            style={festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.folder,
+            style={activeColors ? {
+              background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></div>
           <div 
             className="icon-label"
-            style={festiveThemesEnabled && currentHoliday?.folderNameColor ? {
-              color: currentHoliday.folderNameColor
-            } : {}}
           >Others</div>
         </div>
       </div>
@@ -545,9 +541,9 @@ export default function Desktop() {
           onClose={handleSettingsClose}
           onThemeChange={handleThemeChange}
           currentTheme={theme}
-          festiveThemesEnabled={festiveThemesEnabled}
-          onFestiveThemesToggle={handleFestiveThemesToggle}
-          onPreviewHoliday={handlePreviewHoliday}
+          // festiveThemesEnabled={festiveThemesEnabled}
+          // onFestiveThemesToggle={handleFestiveThemesToggle}
+          // onPreviewHoliday={handlePreviewHoliday}
         />
       )}
 
@@ -556,10 +552,10 @@ export default function Desktop() {
         <div 
           className="dock"
           style={
-            festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.dock,
+            activeColors ? {
+              background: activeColors.dock,
               backdropFilter: 'blur(30px) saturate(180%)',
-              borderColor: currentHoliday.colors.navbarBorder
+              borderColor: activeColors.navbarBorder
             } : {}
           }
         >
@@ -577,8 +573,8 @@ export default function Desktop() {
             className={`dock-item folder ${!isCVsOpen ? 'minimized' : ''}`}
             onClick={!isCVsOpen ? handleCVsRestore : undefined}
             title="CV's"
-            style={festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.folder,
+            style={activeColors ? {
+              background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></div>
@@ -586,8 +582,8 @@ export default function Desktop() {
             className={`dock-item folder projects ${!isProjectsOpen ? 'minimized' : ''}`}
             onClick={!isProjectsOpen ? handleProjectsRestore : undefined}
             title="Projects"
-            style={festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.folder,
+            style={activeColors ? {
+              background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></div>
@@ -595,8 +591,8 @@ export default function Desktop() {
             className={`dock-item folder others ${!isOthersOpen ? 'minimized' : ''}`}
             onClick={!isOthersOpen ? handleOthersRestore : undefined}
             title="Others"
-            style={festiveThemesEnabled && currentHoliday ? {
-              background: currentHoliday.colors.folder,
+            style={activeColors ? {
+              background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></div>

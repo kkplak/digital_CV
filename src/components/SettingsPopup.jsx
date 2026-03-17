@@ -1,14 +1,14 @@
 import { useState, useRef } from 'react';
 import './SettingsPopup.css';
-import { holidays } from '../data/holidays';
+// import { holidays } from '../data/holidays'; // Festive themes functionality disabled
 
 export default function SettingsPopup({ 
   onClose, 
   onThemeChange, 
-  currentTheme,
-  festiveThemesEnabled,
-  onFestiveThemesToggle,
-  onPreviewHoliday
+  currentTheme
+  // festiveThemesEnabled,
+  // onFestiveThemesToggle,
+  // onPreviewHoliday
 }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: window.innerWidth / 2 - 202, y: window.innerHeight / 2 - 350 });
@@ -21,10 +21,16 @@ export default function SettingsPopup({
   const themes = [
     { 
       id: 1, 
-      name: 'Pandora', 
-      wallpaper: 'url(https://wallpapercave.com/wp/bLxADvF.png) center/cover no-repeat',
+      name: 'Earth', 
+      wallpaper: 'url(https://images.unsplash.com/photo-1661705969607-cde73828023d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWFydGglMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D) center/cover no-repeat',
       fontColor: '#ffffff',
-      windowAppearance: 'light'
+      windowAppearance: 'dark',
+      // colors: {
+      //   navbar: 'rgba(0, 0, 0, 0.18)',
+      //   navbarBorder: 'rgba(3, 3, 3, 0.3)',
+      //   folder: '#86a279ff',
+      //   dock: 'rgba(49, 38, 177, 0.25)'
+      // }
     },
     { 
       id: 2, 
@@ -35,17 +41,29 @@ export default function SettingsPopup({
     },
     { 
       id: 3, 
-      name: 'Bubble Gum', 
-      wallpaper: 'url(https://wallpapercave.com/wp/wp3144370.jpg)  center/cover no-repeat',
+      name: 'Back to the Future', 
+      wallpaper: 'url(https://www.pixelstalk.net/wp-content/uploads/2016/07/Back-To-The-Future-Backgrounds-For-Desktop.jpg) center/cover no-repeat',
       fontColor: '#ffffffff',
-      windowAppearance: 'light'
+      windowAppearance: 'dark',
+      colors: {
+        navbar: 'rgba(61, 61, 61, 1)',
+        navbarBorder: 'rgba(255, 255, 255, 1)',
+        folder: '#4d4d4dff',
+        dock: 'rgba(43, 43, 43, 0.36)'
+      }
     },
     { 
       id: 4, 
-      name: 'Solar Flare', 
-      wallpaper: 'url(https://wallpapercave.com/wp/lslLjbE.jpg)  center/cover no-repeat',
+      name: 'Snow', 
+      wallpaper: 'url(https://4kwallpapers.com/images/walls/thumbs_3t/25387.jpg)  center/cover no-repeat',
       fontColor: '#ffffff',
-      windowAppearance: 'dark'
+      windowAppearance: 'light',
+           colors: {
+        navbar: 'rgba(43, 87, 134, 0.11)',
+        navbarBorder: 'rgba(255, 255, 255, 0)',
+        folder: 'rgb(198, 198, 198)',
+        dock: 'rgba(43, 43, 43, 0.36)'
+      }
     },
     { 
       id: 5, 
@@ -136,7 +154,8 @@ export default function SettingsPopup({
           </div>
         </div>
 
-        {/* Festive Themes Toggle */}
+        {/* Festive Themes Toggle and Holiday Preview - DISABLED */}
+        {/* 
         <div className="settings-section">
           <h4>Festive Themes</h4>
           <div className="festive-toggle">
@@ -162,7 +181,6 @@ export default function SettingsPopup({
           )}
         </div>
 
-        {/* Holiday Preview - Dev Mode */}
         {isDevMode && (
           <div className="settings-section">
             <h4>Preview Holiday Themes</h4>
@@ -185,6 +203,7 @@ export default function SettingsPopup({
             </div>
           </div>
         )}
+        */}
 
         {/* Theme Selection */}
         <div className="settings-section">

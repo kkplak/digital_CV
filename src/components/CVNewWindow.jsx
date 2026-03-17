@@ -24,8 +24,8 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
 
   const d = cvNewData;
 
-  const emphasisRegex = /(Nintendo|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/gi;
-  const emphasisCheckRegex = /(Nintendo|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/i;
+  const emphasisRegex = /(Nintendo|Super Mario Galaxy|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/gi;
+  const emphasisCheckRegex = /(Nintendo|Super Mario Galaxy|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/i;
 
   const renderWithEmphasis = (text) => {
     const parts = text.split(emphasisRegex);
