@@ -1,58 +1,58 @@
 export const projects = [
-  // {
-  //   id: 1,
-  //   name: "Nintendo Super Mario Galaxy",
-  //   iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/960px-Mario_Series_Logo.svg.png",
-  //   description: "Super Mario Galaxy collaboration with McDonald's.",
-  //   projectType: "Digital Experience",
-  //   date: "2026",
-  //   role: "Frontend Developer / Lead Technical Delivery",
-  //   details:
-  //     "Delivered the technical execution of a global Happy Meal digital experience tied to the Super Mario Galaxy collaboration, ensuring performance, stability, and consistency across markets.",
-  //   focusAreas: [
-  //     "Video Game Engine",
-  //     "Requirements Translation (Business → Tech)",
-  //     "Quality Assurance",
-  //     "Agile Execution",
-  //     "Accessibility",
-  //     "Internationalization",
-  //     "End-to-End Delivery",
-  //     "Programming",
-  //     "Cross-functional Collaboration",
-  //     "Global Launch",
-  //   ],
-  //   techStack: [
-  //     "TypeScript",
-  //     "React 18",
-  //     "Vite 6",
-  //     "HTML",
-  //     "CSS",
-  //     "WCAG 2.2",
-  //     "Tone.js",
-  //     "pnpm",
-  //     "zustand",
-  //     "framer-motion",
-  //     "lottie",
-  //     "JSON",
-  //     "GIT",
-  //     "JIRA",
-  //     "Figma",
-  //   ],
-  //   links: [
-  //     {
-  //       label: "Offical movie trailer",
-  //       url: "https://www.youtube.com/watch?v=SA9ohTuGl4Q",
-  //     },
-  //   ],
-  //   images: [
-  //     {
-  //       url: "https://www.nintendo.co.jp/corporate/release/en/2026/img_260125/mv.webp",
-  //     },
-  //     {
-  //       url: "https://nintendoeverything.com/wp-content/uploads/Mario-Galaxy-Movie-Yoshi.jpg",
-  //     },
-  //   ],
-  // },
+  {
+    id: 1,
+    name: "Nintendo Super Mario Galaxy",
+    iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/960px-Mario_Series_Logo.svg.png",
+    description: "Super Mario Galaxy collaboration with McDonald's.",
+    projectType: "Digital Experience",
+    date: "2026",
+    role: "Frontend Developer / Lead Technical Delivery",
+    details:
+      "Delivered the technical execution of a global Happy Meal digital experience tied to the Super Mario Galaxy collaboration, ensuring performance, stability, and consistency across markets.",
+    focusAreas: [
+      "Video Game Engine",
+      "Requirements Translation (Business → Tech)",
+      "Quality Assurance",
+      "Agile Execution",
+      "Accessibility",
+      "Internationalization",
+      "End-to-End Delivery",
+      "Programming",
+      "Cross-functional Collaboration",
+      "Global Launch",
+    ],
+    techStack: [
+      "TypeScript",
+      "React 18",
+      "Vite 6",
+      "HTML",
+      "CSS",
+      "WCAG 2.2",
+      "Tone.js",
+      "pnpm",
+      "zustand",
+      "framer-motion",
+      "lottie",
+      "JSON",
+      "GIT",
+      "JIRA",
+      "Figma",
+    ],
+    links: [
+      {
+        label: "Offical movie trailer",
+        url: "https://www.youtube.com/watch?v=SA9ohTuGl4Q",
+      },
+    ],
+    images: [
+      {
+        url: "https://www.nintendo.co.jp/corporate/release/en/2026/img_260125/mv.webp",
+      },
+      {
+        url: "https://nintenduo.com/wp-content/uploads/2026/03/Happy-Meal-Mario-Galaxy-Pelicula-Espana.avif",
+      },
+    ],
+  },
   {
     id: 17,
     name: "Web Accessibility Research",
@@ -107,7 +107,7 @@ export const projects = [
   {
     id: 1,
     name: "TinyTAN BTS",
-    iconImage: "/tinytan-logo.png",
+    iconImage: "https://www.freepnglogos.com/uploads/bts-logo-png/bts-logo-pin-kuba-szczesiak-png-bts-bts-tattoos-0.png",
     description: "BTS TinyTAN collaboration with McDonald's.",
     projectType: "Web Mobile Game",
     date: "2025",
@@ -364,7 +364,7 @@ export const projects = [
   {
     id: 6,
     name: "Captain America: Brave New World",
-    iconImage: "/captain-logo.png",
+    iconImage: "https://www.pngall.com/wp-content/uploads/2016/05/Captain-America-PNG-HD.png",
     description:
       "McDonald's Happy Meal campaign featuring Captain America: Brave New World collectibles and digital experience.",
     projectType: "Web Mobile Game",
