@@ -125,8 +125,8 @@ export const memories = [
     type: 'video',
     url: '/memories/movie-7.mp4',
     thumbnail: '/memories/movie-7.mp4',
-    caption: '7-lakes-hike Switzerland',
-    date: '2024',
+    caption: 'Papiliorama Switzerland',
+    date: '2026',
     orientation: 'horizontal'
   },
     {
