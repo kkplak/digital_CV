@@ -405,7 +405,7 @@ export default function Desktop() {
           ></div>
           <div 
             className="icon-label"
-          >CV's</div>
+          >CV</div>
         </div>
         <div 
           className="desktop-icon"

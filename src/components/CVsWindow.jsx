@@ -61,7 +61,7 @@ export default function CVsWindow({
             <button className="control-btn minimize" onClick={onMinimize}></button>
             <button className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">CV&apos;s</div>
+          <div className="window-title">CV</div>
           <div className="window-controls-spacer"></div>
         </div>
 
@@ -69,12 +69,12 @@ export default function CVsWindow({
           <div className="cvs-grid">
             <div className="cvs-file-item" onClick={onOpenNewCV} onDoubleClick={onOpenNewCV}>
               <div className="cvs-file-icon pdf"></div>
-              <div className="cvs-file-name">CV Konrad Plak Frontend 03.26.pdf</div>
+              <div className="cvs-file-name">CV_Konrad_Plak.pdf</div>
             </div>
-             <div className="cvs-file-item" onClick={onOpenOldCV} onDoubleClick={onOpenOldCV}>
+       {/*       <div className="cvs-file-item" onClick={onOpenOldCV} onDoubleClick={onOpenOldCV}>
               <div className="cvs-file-icon pdf"></div>
               <div className="cvs-file-name">CV_old.pdf</div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

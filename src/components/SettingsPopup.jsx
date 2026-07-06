@@ -145,7 +145,7 @@ export default function SettingsPopup({
           <h4>User Profile</h4>
           <div className="user-profile">
             <div className="user-avatar">
-              <img src="/profilowe.png" alt="Profile" />
+              <img src="/profilowe1.jpeg" alt="Profile" />
             </div>
             <div className="user-info">
               <div className="user-name">Konrad Plak</div>
