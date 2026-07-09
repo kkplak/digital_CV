@@ -8,6 +8,15 @@ export const testimonials = [
   //   date: "January 2026",
   //   linkedIn: "https://www.linkedin.com/in/james-gambrell-4618a9b?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAIW-UkBuH_TIXbo1B6h4E-uv3QwK4tXlQ8&lipi=urn%3Ali%3Apage%3Acompanies_company_people_index%3B6575c97b-1d1f-4fae-b07a-058ce196bea6"
   // },
+    {
+    id: 1,
+    name: "Krzysztof Sosnowski",
+    title: "Client",
+    company: "FAMA",
+    quote: "Konrad is a master of his craft. Working with him was incredibly smooth. Every request was completed quickly, often with even better solutions than I had expected. He has a great eye for design and understands visual requirements perfectly. Even after the website was delivered, he's still available for support whenever I need changes. I'm very happy with the result and highly recommend working with him.",
+    date: "June 2026",
+    profileImage: "./profile-unisex.png",
+    },
   {
     id: 2,
     name: "Mariia Atrasevych",
