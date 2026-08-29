@@ -8,6 +8,7 @@ import ProjectDetailWindow from './ProjectDetailWindow';
 import SettingsPopup from './SettingsPopup';
 import MemoriesWindow from './MemoriesWindow';
 import TestimonialsWindow from './TestimonialsWindow';
+import AchievementsWindow from './AchievementsWindow';
 import OthersWindow from './OthersWindow';
 // import { getTodayHoliday } from '../data/holidays'; // Festive themes functionality disabled
 
@@ -21,11 +22,13 @@ export default function Desktop() {
   const [isOthersOpen, setIsOthersOpen] = useState(false);
   const [isMemoriesOpen, setIsMemoriesOpen] = useState(false);
   const [isTestimonialsOpen, setIsTestimonialsOpen] = useState(false);
+  const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
   const [isCVMaximized, setIsCVMaximized] = useState(false);
   const [isProjectsMaximized, setIsProjectsMaximized] = useState(false);
   const [isOthersMaximized, setIsOthersMaximized] = useState(false);
   const [isMemoriesMaximized, setIsMemoriesMaximized] = useState(false);
   const [isTestimonialsMaximized, setIsTestimonialsMaximized] = useState(false);
+  const [isAchievementsMaximized, setIsAchievementsMaximized] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isProjectDetailMaximized, setIsProjectDetailMaximized] = useState(false);
@@ -218,6 +221,27 @@ export default function Desktop() {
     if (window.innerWidth <= 768) {
       setIsTestimonialsMaximized(true);
     }
+  };
+
+  const handleAchievementsClick = () => {
+    setIsAchievementsOpen(true);
+    // Auto-maximize on mobile
+    if (window.innerWidth <= 768) {
+      setIsAchievementsMaximized(true);
+    }
+  };
+
+  const handleAchievementsClose = () => {
+    setIsAchievementsOpen(false);
+    setIsAchievementsMaximized(false);
+  };
+
+  const handleAchievementsMinimize = () => {
+    setIsAchievementsOpen(false);
+  };
+
+  const handleAchievementsMaximize = () => {
+    setIsAchievementsMaximized(!isAchievementsMaximized);
   };
 
   const handleCVsRestore = () => {
@@ -497,6 +521,7 @@ export default function Desktop() {
           isMaximized={isOthersMaximized}
           onMemoriesClick={handleMemoriesClick}
           onTestimonialsClick={handleTestimonialsClick}
+          onAchievementsClick={handleAchievementsClick}
           theme={theme}
         />
       )}
@@ -519,6 +544,17 @@ export default function Desktop() {
           onMinimize={handleTestimonialsMinimize}
           onMaximize={handleTestimonialsMaximize}
           isMaximized={isTestimonialsMaximized}
+          theme={theme}
+        />
+      )}
+
+      {/* Achievements Window */}
+      {isAchievementsOpen && (
+        <AchievementsWindow
+          onClose={handleAchievementsClose}
+          onMinimize={handleAchievementsMinimize}
+          onMaximize={handleAchievementsMaximize}
+          isMaximized={isAchievementsMaximized}
           theme={theme}
         />
       )}

@@ -135,6 +135,14 @@
   background: linear-gradient(135deg, rgba(150, 111, 214, 0.95) 0%, rgba(120, 81, 169, 0.95) 100%);
 }
 
+.folder-icon.achievements {
+  background: linear-gradient(135deg, rgba(240, 178, 96, 0.95) 0%, rgba(214, 143, 47, 0.95) 100%);
+}
+
+.folder-icon.achievements::before {
+  background: linear-gradient(135deg, rgba(240, 178, 96, 0.95) 0%, rgba(214, 143, 47, 0.95) 100%);
+}
+
 .folder-name {
   font-size: 12px;
   color: white;
