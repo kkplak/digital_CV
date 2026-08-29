@@ -176,6 +176,34 @@ export const memories = [
     orientation: 'vertical',
     mobileOnly: true
   }
+  ,
+  {
+    id: 20,
+    type: 'video',
+    url: '/memories/movie-15.mp4',
+    thumbnail: '/memories/movie-15.mp4',
+    caption: 'Blausee Switzerland',
+    date: '2026',
+    orientation: 'vertical'
+  },
+  {
+    id: 21,
+    type: 'video',
+    url: '/memories/movie-14.mp4',
+    thumbnail: '/memories/movie-14.mp4',
+    caption: 'Bergistübel Switzerland',
+    date: '2026',
+    orientation: 'horizontal'
+  },
+  {
+    id: 22,
+    type: 'video',
+    url: '/memories/movie-16.mp4',
+    thumbnail: '/memories/movie-16.mp4',
+    caption: 'Niederhorn Switzerland',
+    date: '2026',
+    orientation: 'horizontal'
+  }
 ];
 
 export default memories;

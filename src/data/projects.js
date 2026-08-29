@@ -62,6 +62,7 @@ export const projects = [
       "Researching and implementing accessibility features to broaden the reach of web applications.",
     projectType: "Accessibility Research Website",
     category: "personal",
+    portfolioCategories: ["engineering", "specialist"],
     date: "2023 - 2026",
     role: "Frontend Developer",
     details:
@@ -273,6 +274,7 @@ export const projects = [
     description: "Web based platformer game concept",
     projectType: "Personal Web Game",
     category: "personal",
+    portfolioCategories: ["engineering", "design"],
     date: "2024",
     role: "Creator & Developer",
     details:
@@ -420,6 +422,7 @@ export const projects = [
     iconImage: "/myhealth-logo.png",
     description: "Website rebuild, brand collateral, and digital marketing materials for a health services business.",
     projectType: "Website & Digital Marketing",
+    portfolioCategories: ["engineering", "design"],
     date: "2026",
     role: "Frontend Developer / Digital Specialist / UI Designer",
     details:
@@ -459,6 +462,7 @@ export const projects = [
     icon: "🎬",
     description: "Film and media arts production project.",
     projectType: "Website",
+    portfolioCategories: ["engineering", "design"],
     date: "2024",
     role: "Frontend Developer / Digital Specialist",
     details:
@@ -485,6 +489,7 @@ export const projects = [
     description: "WebGL shader visualization case study.",
     projectType: "Creative WebGL Website",
     category: "personal",
+    portfolioCategories: ["engineering", "design"],
     date: "2024",
     role: "Frontend Developer",
     details:
@@ -790,6 +795,7 @@ export const projects = [
       "Personal digital CV and portfolio website you are currently viewing, created using AI-assisted design and development workflows.",
     projectType: "Personal Portfolio Website",
     category: "personal",
+    portfolioCategories: ["engineering", "design"],
     date: "2026",
     role: "Frontend Developer / Digital Specialist",
     details:
