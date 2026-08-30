@@ -136,7 +136,7 @@ export default function ChallengeDetailWindow({ challenge, onClose, onMinimize, 
               </div>
             </div>
 
-            <div className="challenge-detail-content">
+            {/* <div className="challenge-detail-content">
               {challenge.keyTakeaway && (
                 <blockquote className="challenge-detail-quote">{challenge.keyTakeaway}</blockquote>
               )}
@@ -188,7 +188,7 @@ export default function ChallengeDetailWindow({ challenge, onClose, onMinimize, 
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

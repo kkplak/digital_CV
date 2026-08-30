@@ -83,14 +83,14 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
               <div className="folder-icon testimonials"></div>
               <div className="folder-name">Testimonials</div>
             </div>
-            {/* <div
+            <div
               className="folder-item"
               onClick={onChallengesClick}
               onDoubleClick={onChallengesClick}
             >
               <div className="folder-icon challenges"></div>
-              <div className="folder-name">Challenges</div>
-            </div> */}
+              <div className="folder-name">Challenges (wip)</div>
+            </div>
           </div>
         </div>
       </div>
