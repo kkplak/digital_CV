@@ -3,6 +3,7 @@ import './Desktop.css';
 import CVWindow from './CVWindow';
 import CVNewWindow from './CVNewWindow';
 import CVsWindow from './CVsWindow';
+import cvItSupportData from '../data/cvItSupport';
 import ProjectsWindow from './ProjectsWindow';
 import ProjectDetailWindow from './ProjectDetailWindow';
 import SettingsPopup from './SettingsPopup';
@@ -15,9 +16,13 @@ import OthersWindow from './OthersWindow';
 export default function Desktop() {
   const [isCVOpen, setIsCVOpen] = useState(false);
   const [isCVNewOpen, setIsCVNewOpen] = useState(false);
+  const [isCVItSupportOpen, setIsCVItSupportOpen] = useState(false);
   const [isCVsOpen, setIsCVsOpen] = useState(false);
+  const [isITSupportCVsOpen, setIsITSupportCVsOpen] = useState(false);
   const [isCVsMaximized, setIsCVsMaximized] = useState(false);
+  const [isITSupportCVsMaximized, setIsITSupportCVsMaximized] = useState(false);
   const [isCVNewMaximized, setIsCVNewMaximized] = useState(false);
+  const [isCVItSupportMaximized, setIsCVItSupportMaximized] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
   const [isMemoriesOpen, setIsMemoriesOpen] = useState(false);
@@ -89,6 +94,13 @@ export default function Desktop() {
     }
   };
 
+  const handleITSupportCVsDoubleClick = () => {
+    setIsITSupportCVsOpen(true);
+    if (window.innerWidth <= 768) {
+      setIsITSupportCVsMaximized(true);
+    }
+  };
+
   const handleProjectsDoubleClick = () => {
     setIsProjectsOpen(true);
     // Auto-maximize on mobile
@@ -131,6 +143,15 @@ export default function Desktop() {
   const handleCVsMaximize = () => {
     setIsCVsMaximized(!isCVsMaximized);
   };
+
+  const handleITSupportCVsClose = () => {
+    setIsITSupportCVsOpen(false);
+    setIsITSupportCVsMaximized(false);
+  };
+
+  const handleITSupportCVsMinimize = () => setIsITSupportCVsOpen(false);
+
+  const handleITSupportCVsMaximize = () => setIsITSupportCVsMaximized(!isITSupportCVsMaximized);
 
   const handleProjectsMaximize = () => {
     setIsProjectsMaximized(!isProjectsMaximized);
@@ -264,6 +285,20 @@ export default function Desktop() {
   const handleCVNewMinimize = () => setIsCVNewOpen(false);
 
   const handleCVNewMaximize = () => setIsCVNewMaximized(!isCVNewMaximized);
+
+  const handleCVItSupportDoubleClick = () => {
+    setIsCVItSupportOpen(true);
+    if (window.innerWidth <= 768) setIsCVItSupportMaximized(true);
+  };
+
+  const handleCVItSupportClose = () => {
+    setIsCVItSupportOpen(false);
+    setIsCVItSupportMaximized(false);
+  };
+
+  const handleCVItSupportMinimize = () => setIsCVItSupportOpen(false);
+
+  const handleCVItSupportMaximize = () => setIsCVItSupportMaximized(!isCVItSupportMaximized);
 
   const handleProjectsRestore = () => {
     setIsProjectsOpen(true);
@@ -472,8 +507,22 @@ export default function Desktop() {
           onMinimize={handleCVsMinimize}
           onMaximize={handleCVsMaximize}
           isMaximized={isCVsMaximized}
-          onOpenOldCV={handleCVDoubleClick}
-          onOpenNewCV={handleCVNewDoubleClick}
+          items={[
+            { name: 'CV_Konrad_Plak.pdf', onOpen: handleCVNewDoubleClick },
+            { name: 'CV Stretch - IT Support', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
+          ]}
+          theme={theme}
+        />
+      )}
+
+      {isITSupportCVsOpen && (
+        <CVsWindow
+          onClose={handleITSupportCVsClose}
+          onMinimize={handleITSupportCVsMinimize}
+          onMaximize={handleITSupportCVsMaximize}
+          isMaximized={isITSupportCVsMaximized}
+          title="CV Stretch - IT Support"
+          items={[{ name: 'CV_Konrad_Plak_IT_Support.pdf', onOpen: handleCVItSupportDoubleClick }]}
           theme={theme}
         />
       )}
@@ -486,6 +535,19 @@ export default function Desktop() {
           onMaximize={handleCVNewMaximize}
           isMaximized={isCVNewMaximized}
           theme={theme}
+        />
+      )}
+
+      {isCVItSupportOpen && (
+        <CVNewWindow
+          onClose={handleCVItSupportClose}
+          onMinimize={handleCVItSupportMinimize}
+          onMaximize={handleCVItSupportMaximize}
+          isMaximized={isCVItSupportMaximized}
+          theme={theme}
+          data={cvItSupportData}
+          fileName="CV_Konrad_Plak_IT_Support.pdf"
+          variant="cvnew-it-support"
         />
       )}
 

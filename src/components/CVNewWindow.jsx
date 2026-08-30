@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import './CVNewWindow.css';
 import cvNewData from '../data/cvNew';
 
-export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximized, theme }) {
+export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximized, theme, data = cvNewData, fileName = 'CV_Konrad_Plak.pdf', variant = '' }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 80, y: 60 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -22,7 +22,7 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
 
   const handleMouseUp = () => setIsDragging(false);
 
-  const d = cvNewData;
+  const d = data;
 
   const emphasisRegex = /(Nintendo|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/gi;
   const emphasisCheckRegex = /(Nintendo|Squishmallows|Disney|Marvel|Universal Pictures|Playmobil|TinyTAN|Roblox|Game-pad API integration|video-driven web game engine|control customization system|Mentored|Technology Director|FICO|workflow management)/i;
@@ -47,7 +47,7 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
       )}
       <div
         ref={windowRef}
-        className={`cvnew-window ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
+        className={`cvnew-window ${variant} ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? { left: `${position.x}px`, top: `${position.y}px` } : {}}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -59,7 +59,7 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
             <button className="control-btn minimize" onClick={onMinimize}></button>
             <button className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="cvnew-window-title">CV_Konrad_Plak_new.pdf</div>
+          <div className="cvnew-window-title">{fileName}</div>
           <div className="window-controls-spacer"></div>
         </div>
 
@@ -135,24 +135,28 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
             </div>
 
             {/* Soft Skills */}
-            <div className="cvnew-section">
-              <h2 className="cvnew-section-title">SOFT SKILLS</h2>
-              <div className="cvnew-section-divider"></div>
-              <p className="cvnew-soft-skills">{d.softSkills}</p>
-            </div>
+            {d.softSkills && (
+              <div className="cvnew-section">
+                <h2 className="cvnew-section-title">SOFT SKILLS</h2>
+                <div className="cvnew-section-divider"></div>
+                <p className="cvnew-soft-skills">{d.softSkills}</p>
+              </div>
+            )}
 
             {/* Languages */}
-            <div className="cvnew-section">
-              <h2 className="cvnew-section-title">LANGUAGES</h2>
-              <div className="cvnew-section-divider"></div>
-              <p className="cvnew-languages">
-                {d.languages.map((l, idx) => (
-                  <span key={idx}>
-                    {l.language} — {l.level}{idx < d.languages.length - 1 ? ', ' : ''}
-                  </span>
-                ))}
-              </p>
-            </div>
+            {d.languages && (
+              <div className="cvnew-section">
+                <h2 className="cvnew-section-title">LANGUAGES</h2>
+                <div className="cvnew-section-divider"></div>
+                <p className="cvnew-languages">
+                  {d.languages.map((l, idx) => (
+                    <span key={idx}>
+                      {l.language} — {l.level}{idx < d.languages.length - 1 ? ', ' : ''}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            )}
 
             {/* Education */}
             <div className="cvnew-section">

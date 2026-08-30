@@ -157,6 +157,10 @@
   background: #03174b;
 }
 
+.cvnew-it-support .cvnew-header {
+  background: #24456d;
+}
+
 @media (max-width: 768px) {
   .cvnew-header {
     padding: 1.1rem 1rem 0.95rem;
@@ -272,6 +276,10 @@
   padding: 0.42rem 1.2rem;
   background: #ebebeb;
   border-bottom: none;
+}
+
+.cvnew-it-support .cvnew-exp-header {
+  background: #e1e2e6;
 }
 
 .cvnew-exp-role {

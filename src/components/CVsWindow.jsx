@@ -6,8 +6,8 @@ export default function CVsWindow({
   onMinimize,
   onMaximize,
   isMaximized,
-  onOpenOldCV,
-  onOpenNewCV,
+  title = 'CV',
+  items,
   theme,
 }) {
   const [isDragging, setIsDragging] = useState(false);
@@ -61,20 +61,23 @@ export default function CVsWindow({
             <button className="control-btn minimize" onClick={onMinimize}></button>
             <button className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">CV</div>
+          <div className="window-title">{title}</div>
           <div className="window-controls-spacer"></div>
         </div>
 
         <div className="window-content">
           <div className="cvs-grid">
-            <div className="cvs-file-item" onClick={onOpenNewCV} onDoubleClick={onOpenNewCV}>
-              <div className="cvs-file-icon pdf"></div>
-              <div className="cvs-file-name">CV_Konrad_Plak.pdf</div>
-            </div>
-       {/*       <div className="cvs-file-item" onClick={onOpenOldCV} onDoubleClick={onOpenOldCV}>
-              <div className="cvs-file-icon pdf"></div>
-              <div className="cvs-file-name">CV_old.pdf</div>
-            </div> */}
+            {items.map((item) => (
+              <div
+                key={item.name}
+                className="cvs-file-item"
+                onClick={item.onOpen}
+                onDoubleClick={item.onOpen}
+              >
+                <div className={`cvs-file-icon ${item.type || 'pdf'}`}></div>
+                <div className="cvs-file-name">{item.name}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
