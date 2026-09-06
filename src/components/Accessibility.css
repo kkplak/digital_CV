@@ -1,0 +1,27 @@
+/* Accessibility only: retain the original wallpaper, palette, geometry and type. */
+.a11y-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+button.desktop-icon,button.folder-item,button.cvs-file-item{appearance:none;background:transparent;border:0;font:inherit;color:inherit;text-align:inherit}
+button.dock-item{appearance:none;border:0;padding:0;font:inherit}
+button.wallpaper-option{appearance:none;padding:0;font:inherit;color:inherit}
+.desktop :focus-visible{outline:2px solid #166fc1;outline-offset:4px}
+.desktop.dark :focus-visible{outline-color:#a6d8ff}
+.desktop [data-window-title]:focus-visible{outline-offset:3px;border-radius:2px}
+.desktop [data-window-title]{max-width:calc(100% - 190px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.desktop .window-controls{gap:12px;flex-shrink:0}
+.desktop .control-btn{position:relative;overflow:visible}
+.desktop .control-btn::after{content:'';position:absolute;inset:-6px;border-radius:50%}
+.desktop .control-btn:focus-visible{outline-offset:6px}
+.desktop .control-btn:disabled{cursor:default}
+.desktop-icons:focus-within,.dock-container:focus-within{z-index:10002}
+/* The original Settings icon is masked; draw its focus ring on the dock instead. */
+.dock:has(.finder:focus-visible){outline:2px solid #a6d8ff;outline-offset:4px}
+.desktop .window-titlebar,.desktop .cvnew-titlebar{flex-shrink:0}
+.desktop .drag-overlay,.desktop .cvnew-drag-overlay{z-index:500}
+.memory-toggle{position:absolute;bottom:8px;right:8px;z-index:2;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:transparent;color:#fffffff2;filter:drop-shadow(0 1px 2px #000000cc);padding:0;cursor:pointer;opacity:0}
+.memory-content:hover .memory-toggle,.memory-content:focus-within .memory-toggle,.memory-toggle.is-paused{opacity:1}
+.memory-overlay{pointer-events:none}
+@media(max-width:768px){.desktop .control-btn{width:12px;height:12px;padding:0;background-clip:border-box}.desktop .window-controls{gap:20px}.desktop .control-btn::after{inset:-10px}.desktop .control-btn:focus-visible{outline-offset:9px}.memory-toggle{width:28px;height:28px}}
+@media(prefers-reduced-motion:reduce){.desktop *,.desktop *::before,.desktop *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(forced-colors:active){.desktop-icon,.dock-item,.folder-item,.cvs-file-item,.control-btn{outline:1px solid ButtonText}.control-btn{forced-color-adjust:none}}
+.wallpaper-option:focus-visible .wallpaper-name,.wallpaper-option:focus-visible .theme-info{opacity:1}
+@media(forced-colors:active){.dock-item{mask:none!important;-webkit-mask:none!important;background:ButtonFace!important;color:ButtonText}.dock-item::after{content:attr(aria-label)!important;position:static!important;display:block;width:auto!important;height:auto!important;transform:none!important;background:none!important;font-size:11px}.icon-folder,.folder-icon,.cvs-file-icon{outline:1px solid ButtonText}}

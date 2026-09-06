@@ -5,7 +5,6 @@ export default function ExperienceItem({
   company, 
   location, 
   period, 
-  description,
   bullets,
   subExperience
 }) {

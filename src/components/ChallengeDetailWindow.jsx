@@ -1,5 +1,8 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './ChallengeDetailWindow.css';
+import './ChallengeWorkInProgress.css';
+import GamepadDemo from './GamepadDemo';
 import { challengesSection } from '../data/challenges';
 
 const KEYWORDS = [
@@ -64,7 +67,9 @@ export default function ChallengeDetailWindow({ challenge, onClose, onMinimize, 
   const [position, setPosition] = useState({ x: 210, y: 90 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
   const accent = challenge.accent || '#8a8a92';
+  const isWorkInProgress = challenge.isWorkInProgress !== false;
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -101,6 +106,7 @@ export default function ChallengeDetailWindow({ challenge, onClose, onMinimize, 
       )}
       <div
         ref={windowRef}
+        {...windowProps}
         className={`challenge-detail-window ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -116,11 +122,11 @@ export default function ChallengeDetailWindow({ challenge, onClose, onMinimize, 
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + challenge.title} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + challenge.title} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + challenge.title} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">{challenge.title}</div>
+          <div {...titleProps} className="window-title">{challenge.title}</div>
           <div className="window-controls-spacer"></div>
         </div>
 
@@ -136,59 +142,71 @@ export default function ChallengeDetailWindow({ challenge, onClose, onMinimize, 
               </div>
             </div>
 
-            {/* <div className="challenge-detail-content">
-              {challenge.keyTakeaway && (
-                <blockquote className="challenge-detail-quote">{challenge.keyTakeaway}</blockquote>
+            <div className={isWorkInProgress ? 'challenge-preview is-work-in-progress' : 'challenge-preview'}>
+              {isWorkInProgress && (
+                <div className="challenge-wip-notice" role="note">
+                  <strong>Work in progress</strong>
+                  <p>I’m still preparing the details of this challenge.</p>
+                </div>
               )}
+              <div className="challenge-preview-content" inert={isWorkInProgress} aria-hidden={isWorkInProgress ? true : undefined}>
+                {challenge.id === 4 && <GamepadDemo key={challenge.id} />}
 
-              <div className="challenge-detail-section">
-                <h2>{challengesSection.labels.challenge}</h2>
-                <p>{challenge.challenge}</p>
-              </div>
+                <div className="challenge-detail-content">
+                  {challenge.keyTakeaway && (
+                    <blockquote className="challenge-detail-quote">{challenge.keyTakeaway}</blockquote>
+                  )}
 
-              <div className="challenge-detail-section">
-                <h2>{challengesSection.labels.thoughtProcess}</h2>
-                <p>{challenge.thoughtProcess}</p>
-              </div>
-
-              {challenge.codeSnippet && (
-                <div className="challenge-detail-section">
-                  <h2>Code</h2>
-                  <div className="challenge-code-window">
-                    <div className="challenge-code-titlebar">
-                      <span className="challenge-code-dot red"></span>
-                      <span className="challenge-code-dot yellow"></span>
-                      <span className="challenge-code-dot green"></span>
-                      <span className="challenge-code-lang">{challenge.codeLanguage || 'js'}</span>
-                    </div>
-                    <pre className="challenge-code">
-                      <code className={`language-${challenge.codeLanguage || 'js'}`}>
-                        {highlightCode(challenge.codeSnippet)}
-                      </code>
-                    </pre>
+                  <div className="challenge-detail-section">
+                    <h2>{challengesSection.labels.challenge}</h2>
+                    <p>{challenge.challenge}</p>
                   </div>
-                  {challenge.codeCaption && (
-                    <p className="challenge-code-caption">{challenge.codeCaption}</p>
+
+                  <div className="challenge-detail-section">
+                    <h2>{challengesSection.labels.thoughtProcess}</h2>
+                    <p>{challenge.thoughtProcess}</p>
+                  </div>
+
+                  {challenge.codeSnippet && (
+                    <div className="challenge-detail-section">
+                      <h2>Code</h2>
+                      <div className="challenge-code-window">
+                        <div className="challenge-code-titlebar">
+                          <span className="challenge-code-dot red"></span>
+                          <span className="challenge-code-dot yellow"></span>
+                          <span className="challenge-code-dot green"></span>
+                          <span className="challenge-code-lang">{challenge.codeLanguage || 'js'}</span>
+                        </div>
+                        <pre className="challenge-code">
+                          <code className={`language-${challenge.codeLanguage || 'js'}`}>
+                            {highlightCode(challenge.codeSnippet)}
+                          </code>
+                        </pre>
+                      </div>
+                      {challenge.codeCaption && (
+                        <p className="challenge-code-caption">{challenge.codeCaption}</p>
+                      )}
+                    </div>
+                  )}
+
+                  <div className="challenge-detail-section">
+                    <h2>{challengesSection.labels.achievement}</h2>
+                    <p>{challenge.achievement}</p>
+                  </div>
+
+                  {Array.isArray(challenge.focusAreas) && challenge.focusAreas.length > 0 && (
+                    <div className="challenge-detail-section">
+                      <h2>Focus Areas</h2>
+                      <div className="challenge-focus-areas">
+                        {challenge.focusAreas.map((area) => (
+                          <span key={area} className="challenge-focus-chip">{area}</span>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
-              )}
-
-              <div className="challenge-detail-section">
-                <h2>{challengesSection.labels.achievement}</h2>
-                <p>{challenge.achievement}</p>
               </div>
-
-              {Array.isArray(challenge.focusAreas) && challenge.focusAreas.length > 0 && (
-                <div className="challenge-detail-section">
-                  <h2>Focus Areas</h2>
-                  <div className="challenge-focus-areas">
-                    {challenge.focusAreas.map((area) => (
-                      <span key={area} className="challenge-focus-chip">{area}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

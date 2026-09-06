@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './ChallengesWindow.css';
 import challenges from '../data/challenges';
@@ -7,6 +8,7 @@ export default function ChallengesWindow({ onClose, onMinimize, onMaximize, isMa
   const [position, setPosition] = useState({ x: 340, y: 90 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -43,6 +45,7 @@ export default function ChallengesWindow({ onClose, onMinimize, onMaximize, isMa
       )}
       <div
         ref={windowRef}
+        {...windowProps}
         className={`challenges-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -57,11 +60,11 @@ export default function ChallengesWindow({ onClose, onMinimize, onMaximize, isMa
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + 'Challenges'} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + 'Challenges'} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + 'Challenges'} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">Challenges</div>
+          <div {...titleProps} className="window-title">Challenges</div>
           <div className="window-controls-spacer"></div>
         </div>
 

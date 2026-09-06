@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './OthersWindow.css';
 
@@ -6,6 +7,7 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
   const [position, setPosition] = useState({ x: 180, y: 110 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -42,6 +44,7 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
       )}
       <div 
         ref={windowRef}
+        {...windowProps}
         className={`others-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -56,41 +59,38 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + 'Others'} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + 'Others'} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + 'Others'} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">Others</div>
+          <div {...titleProps} className="window-title">Others</div>
           <div className="window-controls-spacer"></div>
         </div>
 
         {/* Window Content */}
         <div className="window-content">
           <div className="others-grid">
-            <div
+            <button type="button"
               className="folder-item"
               onClick={onMemoriesClick}
-              onDoubleClick={onMemoriesClick}
             >
-              <div className="folder-icon memories"></div>
-              <div className="folder-name">Memories</div>
-            </div>
-            <div
+              <span className="folder-icon memories"></span>
+              <span className="folder-name">Memories</span>
+            </button>
+            <button type="button"
               className="folder-item"
               onClick={onTestimonialsClick}
-              onDoubleClick={onTestimonialsClick}
             >
-              <div className="folder-icon testimonials"></div>
-              <div className="folder-name">Testimonials</div>
-            </div>
-            <div
+              <span className="folder-icon testimonials"></span>
+              <span className="folder-name">Testimonials</span>
+            </button>
+            <button type="button"
               className="folder-item"
               onClick={onChallengesClick}
-              onDoubleClick={onChallengesClick}
             >
-              <div className="folder-icon challenges"></div>
-              <div className="folder-name">Challenges (wip)</div>
-            </div>
+              <span className="folder-icon challenges"></span>
+              <span className="folder-name">Challenges (wip)</span>
+            </button>
           </div>
         </div>
       </div>

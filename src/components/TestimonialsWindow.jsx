@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './TestimonialsWindow.css';
 import testimonials from '../data/testimonials';
@@ -7,6 +8,7 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
   const [position, setPosition] = useState({ x: 320, y: 70 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -43,6 +45,7 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
       )}
       <div 
         ref={windowRef}
+        {...windowProps}
         className={`testimonials-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -57,11 +60,11 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + 'Testimonials'} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + 'Testimonials'} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + 'Testimonials'} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">Testimonials</div>
+          <div {...titleProps} className="window-title">Testimonials</div>
           <div className="window-controls-spacer"></div>
         </div>
 
@@ -93,6 +96,7 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="linkedin-link"
+                      aria-label={`View ${testimonial.name} on LinkedIn`}
                       title="View LinkedIn Profile"
                     >
                       <img src="/linkedin.png" alt="LinkedIn" />

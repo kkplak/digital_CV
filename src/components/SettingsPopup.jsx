@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './SettingsPopup.css';
 // import { holidays } from '../data/holidays'; // Festive themes functionality disabled
@@ -14,9 +15,8 @@ export default function SettingsPopup({
   const [position, setPosition] = useState({ x: window.innerWidth / 2 - 202, y: window.innerHeight / 2 - 350 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, setPosition });
   
-  // Check if dev mode is enabled via URL parameter
-  const isDevMode = new URLSearchParams(window.location.search).get('devtools') === 'true';
 
   const themes = [
     { 
@@ -116,6 +116,7 @@ export default function SettingsPopup({
       )}
       <div 
         ref={windowRef}
+        {...windowProps}
         className={`settings-popup ${currentTheme?.windowAppearance || 'dark'}`}
         style={{
           left: `${position.x}px`,
@@ -130,11 +131,11 @@ export default function SettingsPopup({
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onClose}></button>
-            <button className="control-btn maximize"></button>
+            <button type="button" aria-label={"Close " + 'Settings'} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + 'Settings'} title="Minimize" className="control-btn minimize" onClick={onClose}></button>
+            <button type="button" disabled aria-label="Maximize Settings unavailable" className="control-btn maximize"></button>
           </div>
-          <div className="window-title">Settings</div>
+          <div {...titleProps} className="window-title">Settings</div>
           <div className="window-controls-spacer"></div>
         </div>
 
@@ -210,16 +211,18 @@ export default function SettingsPopup({
           <h4>Themes</h4>
           <div className="wallpaper-grid">
             {themes.map((theme) => (
-              <div
+              <button type="button"
                 key={theme.id}
                 className={`wallpaper-option ${currentTheme?.id === theme.id ? 'selected' : ''}`}
                 style={{ background: theme.wallpaper }}
                 onClick={() => onThemeChange(theme)}
                 title={`${theme.name} (${theme.windowAppearance} windows)`}
+                aria-label={theme.name}
+                aria-pressed={currentTheme?.id === theme.id}
               >
-                <div className="wallpaper-name">{theme.name}</div>
-                <div className="theme-info">{theme.windowAppearance === 'light' ? '☀️' : '🌙'}</div>
-              </div>
+                <span className="wallpaper-name">{theme.name}</span>
+                <span className="theme-info">{theme.windowAppearance === 'light' ? '☀️' : '🌙'}</span>
+              </button>
             ))}
           </div>
         </div>

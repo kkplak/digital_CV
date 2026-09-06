@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './CVWindow.css';
 import cvData from '../data/cv';
@@ -11,6 +12,7 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized,
   const [position, setPosition] = useState({ x: 50, y: 40 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -47,6 +49,7 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized,
       )}
       <div 
         ref={windowRef}
+        {...windowProps}
         className={`cv-window ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -61,11 +64,11 @@ export default function CVWindow({ onClose, onMinimize, onMaximize, isMaximized,
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + 'CV'} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + 'CV'} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + 'CV'} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">CV_Konrad_Plak.pdf</div>
+          <div {...titleProps} className="window-title">CV_Konrad_Plak.pdf</div>
           <div className="window-controls-spacer"></div>
         </div>
 

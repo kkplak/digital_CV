@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Desktop.css';
+import { focusWindow } from '../hooks/useWindowAccessibility';
 import CVWindow from './CVWindow';
 import CVNewWindow from './CVNewWindow';
 import CVsWindow from './CVsWindow';
@@ -82,15 +83,9 @@ export default function Desktop() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleCVDoubleClick = () => {
-    setIsCVOpen(true);
-    // Auto-maximize on mobile
-    if (window.innerWidth <= 768) {
-      setIsCVMaximized(true);
-    }
-  };
 
   const handleCVsDoubleClick = () => {
+    focusWindow('.cvs-window');
     setIsCVsOpen(true);
     if (window.innerWidth <= 768) {
       setIsCVsMaximized(true);
@@ -98,6 +93,7 @@ export default function Desktop() {
   };
 
   const handleITSupportCVsDoubleClick = () => {
+    focusWindow('.cvs-window:last-of-type');
     setIsITSupportCVsOpen(true);
     if (window.innerWidth <= 768) {
       setIsITSupportCVsMaximized(true);
@@ -105,6 +101,7 @@ export default function Desktop() {
   };
 
   const handleProjectsDoubleClick = () => {
+    focusWindow('.projects-window');
     setIsProjectsOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -161,6 +158,7 @@ export default function Desktop() {
   };
 
   const handleOthersDoubleClick = () => {
+    focusWindow('.others-window');
     setIsOthersOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -182,6 +180,7 @@ export default function Desktop() {
   };
 
   const handleOthersRestore = () => {
+    focusWindow('.others-window');
     setIsOthersOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -190,6 +189,7 @@ export default function Desktop() {
   };
 
   const handleMemoriesClick = () => {
+    focusWindow('.memories-window');
     setIsMemoriesOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -210,15 +210,9 @@ export default function Desktop() {
     setIsMemoriesMaximized(!isMemoriesMaximized);
   };
 
-  const handleMemoriesRestore = () => {
-    setIsMemoriesOpen(true);
-    // Auto-maximize on mobile
-    if (window.innerWidth <= 768) {
-      setIsMemoriesMaximized(true);
-    }
-  };
 
   const handleTestimonialsClick = () => {
+    focusWindow('.testimonials-window');
     setIsTestimonialsOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -239,15 +233,9 @@ export default function Desktop() {
     setIsTestimonialsMaximized(!isTestimonialsMaximized);
   };
 
-  const handleTestimonialsRestore = () => {
-    setIsTestimonialsOpen(true);
-    // Auto-maximize on mobile
-    if (window.innerWidth <= 768) {
-      setIsTestimonialsMaximized(true);
-    }
-  };
 
   const handleChallengesClick = () => {
+    focusWindow('.challenges-window');
     setIsChallengesOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -269,6 +257,7 @@ export default function Desktop() {
   };
 
   const handleChallengeClick = (challenge) => {
+    focusWindow('.challenge-detail-window');
     setSelectedChallenge(challenge);
     if (window.innerWidth <= 768) {
       setIsChallengeDetailMaximized(true);
@@ -289,6 +278,7 @@ export default function Desktop() {
   };
 
   const handleCVsRestore = () => {
+    focusWindow('.cvs-window');
     setIsCVsOpen(true);
     if (window.innerWidth <= 768) {
       setIsCVsMaximized(true);
@@ -296,6 +286,7 @@ export default function Desktop() {
   };
 
   const handleCVNewDoubleClick = () => {
+    focusWindow('.cvnew-window:not(.cvnew-it-support)');
     setIsCVNewOpen(true);
     if (window.innerWidth <= 768) setIsCVNewMaximized(true);
   };
@@ -310,6 +301,7 @@ export default function Desktop() {
   const handleCVNewMaximize = () => setIsCVNewMaximized(!isCVNewMaximized);
 
   const handleCVItSupportDoubleClick = () => {
+    focusWindow('.cvnew-it-support');
     setIsCVItSupportOpen(true);
     if (window.innerWidth <= 768) setIsCVItSupportMaximized(true);
   };
@@ -324,6 +316,7 @@ export default function Desktop() {
   const handleCVItSupportMaximize = () => setIsCVItSupportMaximized(!isCVItSupportMaximized);
 
   const handleProjectsRestore = () => {
+    focusWindow('.projects-window');
     setIsProjectsOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -332,6 +325,7 @@ export default function Desktop() {
   };
 
   const handleArchiveClick = () => {
+    focusWindow('.settings-popup');
     setIsSettingsOpen(true);
   };
 
@@ -378,6 +372,7 @@ export default function Desktop() {
   // };
 
   const handleProjectClick = (project) => {
+    focusWindow('.project-detail-window');
     setSelectedProject(project);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -411,6 +406,7 @@ export default function Desktop() {
 
   return (
     <div 
+      role="main"
       className={`desktop ${theme.windowAppearance} ${theme.colors ? 'festive-mode' : ''}`}
       style={{
         '--holiday-navbar': activeColors?.navbar || 'rgba(255, 255, 255, 0.3)',
@@ -420,8 +416,9 @@ export default function Desktop() {
         '--desktop-font-color': theme.fontColor
       }}
     >
+      <p id="window-keyboard-help" className="a11y-only">Escape closes the window. On a desktop, focus the title and use arrow keys to move it; Home returns it on screen.</p>
       {/* Wallpaper */}
-      <div className="desktop-wallpaper" style={{ background: theme.wallpaper }}></div>
+      <div aria-hidden="true" className="desktop-wallpaper" style={{ background: theme.wallpaper }}></div>
 
       {/* Mobile Holiday Greeting - DISABLED */}
       {/* {currentHoliday && festiveThemesEnabled && (
@@ -439,7 +436,7 @@ export default function Desktop() {
           borderBottomColor: activeColors.navbarBorder
         } : {}
       }> {/* Festive mode colors disabled in favor of normal theme colors */}
-        <div className="menu-bar-left">
+        <div className="menu-bar-left" aria-hidden="true">
           <div className="apple-logo"></div>
           <div className="menu-item">Archive</div>
           <div className="menu-item">File</div>
@@ -472,56 +469,53 @@ export default function Desktop() {
       </div>
 
       {/* Desktop Icons */}
-      <div className="desktop-icons">
-        <div 
+      <nav className="desktop-icons" aria-label="Desktop folders">
+        <button type="button" 
           className="desktop-icon"
           onClick={handleCVsDoubleClick}
-          onDoubleClick={handleCVsDoubleClick}
         >
-          <div 
+          <span 
             className="icon-folder"
             style={activeColors ? {
               background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
-          ></div>
-          <div 
+          ></span>
+          <span 
             className="icon-label"
-          >CV</div>
-        </div>
-        <div 
+          >CV</span>
+        </button>
+        <button type="button" 
           className="desktop-icon"
           onClick={handleProjectsDoubleClick}
-          onDoubleClick={handleProjectsDoubleClick}
         >
-          <div 
+          <span 
             className="icon-folder projects"
             style={activeColors ? {
               background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
-          ></div>
-          <div 
+          ></span>
+          <span 
             className="icon-label"
-          >Projects</div>
-        </div>
-        <div 
+          >Projects</span>
+        </button>
+        <button type="button" 
           className="desktop-icon"
           onClick={handleOthersDoubleClick}
-          onDoubleClick={handleOthersDoubleClick}
         >
-          <div 
+          <span 
             className="icon-folder others"
             style={activeColors ? {
               background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
-          ></div>
-          <div 
+          ></span>
+          <span 
             className="icon-label"
-          >Others</div>
-        </div>
-      </div>
+          >Others</span>
+        </button>
+      </nav>
 
       {/* CVs Folder Window */}
       {isCVsOpen && (
@@ -531,8 +525,8 @@ export default function Desktop() {
           onMaximize={handleCVsMaximize}
           isMaximized={isCVsMaximized}
           items={[
-            { name: 'CV_Konrad_Plak.pdf', onOpen: handleCVNewDoubleClick },
-            { name: 'CV Stretch - IT Support', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
+            { name: 'CV Frontend Dev.pdf', onOpen: handleCVNewDoubleClick },
+            { name: 'Technical Consultant', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
           ]}
           theme={theme}
         />
@@ -682,7 +676,7 @@ export default function Desktop() {
       )}
 
       {/* Dock */}
-      <div className="dock-container">
+      <div className="dock-container" role="navigation" aria-label="Dock">
         <div 
           className="dock"
           style={
@@ -693,43 +687,43 @@ export default function Desktop() {
             } : {}
           }
         >
-          <div 
-            className="dock-item finder"
+          <button type="button" 
+            className="dock-item finder" aria-label="Settings" title="Settings"
             onClick={handleArchiveClick}
-          ></div>
+          ></button>
             {/* <div 
             className="dock-item linkedin"
             onClick={() => window.open('https://www.linkedin.com/in/kkplak', '_blank')}
             title="LinkedIn"
           ></div> */}
           <div className="dock-divider"></div>
-          <div 
+          <button type="button" 
             className={`dock-item folder ${!isCVsOpen ? 'minimized' : ''}`}
-            onClick={!isCVsOpen ? handleCVsRestore : undefined}
-            title="CV's"
+            onClick={handleCVsRestore}
+            aria-label="CV" title="CV's"
             style={activeColors ? {
               background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
-          ></div>
-          <div 
+          ></button>
+          <button type="button" 
             className={`dock-item folder projects ${!isProjectsOpen ? 'minimized' : ''}`}
-            onClick={!isProjectsOpen ? handleProjectsRestore : undefined}
-            title="Projects"
+            onClick={handleProjectsRestore}
+            aria-label="Projects" title="Projects"
             style={activeColors ? {
               background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
-          ></div>
-          <div 
+          ></button>
+          <button type="button" 
             className={`dock-item folder others ${!isOthersOpen ? 'minimized' : ''}`}
-            onClick={!isOthersOpen ? handleOthersRestore : undefined}
-            title="Others"
+            onClick={handleOthersRestore}
+            aria-label="Others" title="Others"
             style={activeColors ? {
               background: activeColors.folder,
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
-          ></div>
+          ></button>
    
         </div>
       </div>

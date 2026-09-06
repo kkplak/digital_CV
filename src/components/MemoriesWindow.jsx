@@ -1,12 +1,15 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './MemoriesWindow.css';
 import memories from '../data/memories';
+import MemoryVideo from './MemoryVideo';
 
 export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 300, y: 50 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -43,6 +46,7 @@ export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaxi
       )}
       <div 
         ref={windowRef}
+        {...windowProps}
         className={`memories-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -57,11 +61,11 @@ export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaxi
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + 'Memories'} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + 'Memories'} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + 'Memories'} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">Memories</div>
+          <div {...titleProps} className="window-title">Memories</div>
           <div className="window-controls-spacer"></div>
         </div>
 
@@ -75,14 +79,7 @@ export default function MemoriesWindow({ onClose, onMinimize, onMaximize, isMaxi
               >
                 <div className="memory-content">
                   {media.type === 'video' ? (
-                    <video
-                      src={media.url}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="memory-video"
-                    />
+                    <MemoryVideo media={media} />
                   ) : (
                     <img src={media.url} alt={media.caption} className="memory-image" />
                   )}

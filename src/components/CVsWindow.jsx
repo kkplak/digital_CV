@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './CVsWindow.css';
 
@@ -14,6 +15,7 @@ export default function CVsWindow({
   const [position, setPosition] = useState({ x: 120, y: 80 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -50,6 +52,7 @@ export default function CVsWindow({
       )}
       <div
         ref={windowRef}
+        {...windowProps}
         className={`cvs-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? { left: `${position.x}px`, top: `${position.y}px` } : {}}
         onMouseMove={handleMouseMove}
@@ -57,26 +60,25 @@ export default function CVsWindow({
       >
         <div className="window-titlebar" onMouseDown={handleMouseDown}>
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + title} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + title} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + title} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">{title}</div>
+          <div {...titleProps} className="window-title">{title}</div>
           <div className="window-controls-spacer"></div>
         </div>
 
         <div className="window-content">
           <div className="cvs-grid">
             {items.map((item) => (
-              <div
+              <button type="button"
                 key={item.name}
                 className="cvs-file-item"
                 onClick={item.onOpen}
-                onDoubleClick={item.onOpen}
               >
-                <div className={`cvs-file-icon ${item.type || 'pdf'}`}></div>
-                <div className="cvs-file-name">{item.name}</div>
-              </div>
+                <span className={`cvs-file-icon ${item.type || 'pdf'}`}></span>
+                <span className="cvs-file-name">{item.name}</span>
+              </button>
             ))}
           </div>
         </div>

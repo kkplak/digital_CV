@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './CVNewWindow.css';
 import cvNewData from '../data/cvNew';
@@ -7,6 +8,7 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
   const [position, setPosition] = useState({ x: 80, y: 60 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
 
   const handleMouseDown = (e) => {
     if (isMaximized || e.target.closest('.window-controls')) return;
@@ -47,6 +49,7 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
       )}
       <div
         ref={windowRef}
+        {...windowProps}
         className={`cvnew-window ${variant} ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? { left: `${position.x}px`, top: `${position.y}px` } : {}}
         onMouseMove={handleMouseMove}
@@ -55,11 +58,11 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
         {/* Title Bar */}
         <div className="cvnew-titlebar" onMouseDown={handleMouseDown}>
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + fileName} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + fileName} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + fileName} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="cvnew-window-title">{fileName}</div>
+          <div {...titleProps} className="cvnew-window-title">{fileName}</div>
           <div className="window-controls-spacer"></div>
         </div>
 

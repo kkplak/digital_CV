@@ -1,3 +1,4 @@
+import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './ProjectDetailWindow.css';
 
@@ -6,6 +7,7 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
   const [position, setPosition] = useState({ x: 210, y: 90 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
   const techStackItems = project.techStack || project.focusAreas || [];
   const projectSummary = project.details || project.description;
 
@@ -75,6 +77,7 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
       )}
       <div 
         ref={windowRef}
+        {...windowProps}
         className={`project-detail-window ${isMaximized ? 'maximized' : ''} ${theme?.windowAppearance || 'dark'}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
@@ -89,11 +92,11 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button className="control-btn close" onClick={onClose}></button>
-            <button className="control-btn minimize" onClick={onMinimize}></button>
-            <button className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + project.name} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + project.name} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + project.name} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div className="window-title">{project.name}</div>
+          <div {...titleProps} className="window-title">{project.name}</div>
           <div className="window-controls-spacer"></div>
         </div>
 
