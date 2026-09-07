@@ -525,8 +525,8 @@ export default function Desktop() {
           onMaximize={handleCVsMaximize}
           isMaximized={isCVsMaximized}
           items={[
-            { name: 'CV Frontend Dev.pdf', onOpen: handleCVNewDoubleClick },
-            { name: 'Technical Consultant', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
+            { name: 'CV_Konrad_Plak.pdf', onOpen: handleCVNewDoubleClick },
+            { name: 'CV Stretch - IT Support', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
           ]}
           theme={theme}
         />

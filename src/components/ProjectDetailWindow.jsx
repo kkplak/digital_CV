@@ -1,6 +1,7 @@
 import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './ProjectDetailWindow.css';
+import ProjectGallery, { ProjectImage } from './ProjectGallery';
 
 export default function ProjectDetailWindow({ project, onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
@@ -8,7 +9,10 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
   const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
-  const techStackItems = project.techStack || project.focusAreas || [];
+  const techStackItems = Array.isArray(project.techStack) ? [...new Set(project.techStack)] : [];
+  const focusAreas = Array.isArray(project.focusAreas) ? project.focusAreas : [];
+  const images = Array.isArray(project.images) ? project.images.filter(image => image.url) : [];
+  const links = Array.isArray(project.links) ? project.links.filter(link => link.url) : [];
   const projectSummary = project.details || project.description;
 
   const getProjectType = () => {
@@ -100,102 +104,42 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
           <div className="window-controls-spacer"></div>
         </div>
 
-        {/* Window Content */}
+        {/* Project document */}
         <div className="window-content">
-          <div className="project-document">
-            <div className="project-header">
-              <div className="project-icon-large">
-                {project.iconImage ? (
-                  <img src={project.iconImage} alt={project.name} />
-                ) : (
-                  project.icon
-                )}
+          <article className="project-document">
+            <header className="project-header" style={{ '--project-icon-image': project.iconImage ? `url(${JSON.stringify(project.iconImage)})` : 'none' }}>
+              <div className="project-identity">
+                <div className="project-icon-large" aria-hidden="true">
+                  <ProjectImage key={`${project.name}-${project.iconImage}`} src={project.iconImage} alt="" loading="eager" fallback={project.icon || project.name.slice(0, 2)} />
+                </div>
+                <div className="project-info">
+                  <div className="project-file-meta"><span className="project-type">{getProjectType()}</span>{project.date && <><span className="project-meta-divider" aria-hidden="true" /><span className="project-date">{project.date}</span></>}</div>
+                  <h1 className="project-title">{project.name}</h1>
+                  {project.role && <p className="project-role"><span>My role</span>{project.role}</p>}
+                </div>
               </div>
-              <div className="project-info">
-                <h1 className="project-title">{project.name}</h1>
-                {project.date && <div className="project-date">{project.date}</div>}
-                {project.role && <div className="project-role">{project.role}</div>}
-                <div className="project-type">{getProjectType()}</div>
-              </div>
-            </div>
+              {links.length > 0 && <div className="project-links" role="group" aria-label="Project links">
+                {links.map((link, index) => (
+                  <a key={`${link.url}-${index}`} href={link.url} target="_blank" rel="noopener noreferrer" className="project-link">
+                    <svg className="project-link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                      <path d="M6.5 3.5H4A1.5 1.5 0 0 0 2.5 5v7A1.5 1.5 0 0 0 4 13.5h7a1.5 1.5 0 0 0 1.5-1.5V9.5M9 2.5h4.5V7M13 3 7.5 8.5" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="project-link-label">{link.label?.trim() || link.url}</span>
+                    <span className="a11y-only"> (opens in a new tab)</span>
+                  </a>
+                ))}
+              </div>}
+            </header>
 
             <div className="project-content">
-              {projectSummary && (
-                <div className="project-section">
-                  <h2>Summary</h2>
-                  <p>{projectSummary}</p>
-                </div>
-              )}
-
-              {(Array.isArray(techStackItems) && techStackItems.length > 0) || (project.focusAreas && project.focusAreas.length > 0) ? (
-                <div className="project-section project-capabilities-section">
-                  <h2>Overview</h2>
-                  <div className="capability-groups">
-                    {project.focusAreas && project.focusAreas.length > 0 && (
-                      <div className="capability-group capability-group-focus">
-                        <h3>Focus Areas</h3>
-                        <div className="tech-tags">
-                          {project.focusAreas.map((tech, index) => (
-                            <span key={index} className="tech-tag">{tech}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {Array.isArray(techStackItems) && techStackItems.length > 0 && (
-                      <div className="capability-group capability-group-tech">
-                        <h3>Tech Stack</h3>
-                        <div className="tech-stack-tags">
-                          {techStackItems.map((tech, index) => (
-                            <span key={index} className="tech-stack-tag">{tech}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ) : null}
-
-              {project.images && project.images.length > 0 && (
-                <div className="project-section">
-                  <h2>Gallery</h2>
-                  <div className="project-gallery">
-                    {project.images.map((image, index) => (
-                      <div key={index} className="gallery-item">
-                        <img 
-                          src={image.url} 
-                          alt={image.caption || `Project image ${index + 1}`}
-                          className={`gallery-image ${image.isVertical ? 'vertical' : ''}`}
-                        />
-                        {image.caption && (
-                          <p className="gallery-caption">{image.caption}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {project.links && project.links.length > 0 && (
-                <div className="project-section">
-                  <h2>Links</h2>
-                  <div className="project-links">
-                    {project.links.map((link, index) => (
-                      <a 
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                      >
-                        {link.label || link.url}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
+              {projectSummary && <section className="project-section project-summary"><h2>About the project</h2>{projectSummary.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</section>}
+              {(focusAreas.length > 0 || techStackItems.length > 0) && <aside className="project-inspector" aria-label="Project focus and tools">
+                {focusAreas.length > 0 && <section className="project-inspector-section project-focus-panel"><h2>Focus areas</h2><ul className="project-focus-list">{focusAreas.map((area, index) => <li key={`${area}-${index}`}>{area}</li>)}</ul></section>}
+                {techStackItems.length > 0 && <section className="project-inspector-section project-tools-panel"><h2>Tech & tools</h2><ul className="project-tool-list">{techStackItems.map(tool => <li key={tool}>{tool}</li>)}</ul></section>}
+              </aside>}
+              {images.length > 0 && <ProjectGallery key={project.name} images={images} projectName={project.name} />}
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </>

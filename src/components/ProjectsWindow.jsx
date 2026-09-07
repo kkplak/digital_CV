@@ -160,13 +160,6 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
             </aside>
 
             <div className="projects-files-pane">
-              <nav className="projects-location-bar" aria-label="Project folder location">
-                <span className="projects-location-icon"><CollectionIcon /></span>
-                <ol>
-                  <li>{activeCategory === 'all' ? <span aria-current="page">Projects</span> : <button type="button" onClick={() => selectCategory('all')}>Projects</button>}</li>
-                  {activeCategory !== 'all' && <li><svg className="projects-path-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg><span aria-current="page" title={currentCategory.label}>{currentCategory.shortLabel}</span></li>}
-                </ol>
-              </nav>
               <section ref={filesRef} id={filesId} className="projects-section" aria-label={currentCategory.label}>
               <div className="projects-grid">
                 {visibleProjects.map((project) => (
@@ -189,7 +182,7 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
                 ))}
               </div>
               </section>
-              <div className="projects-status-bar" role="status" aria-live="polite" aria-atomic="true"><span className="a11y-only">{currentCategory.label}: </span>{visibleProjects.length} {visibleProjects.length === 1 ? 'item' : 'items'}</div>
+              <div className="a11y-only" role="status" aria-live="polite" aria-atomic="true">{currentCategory.label}: {visibleProjects.length} {visibleProjects.length === 1 ? 'item' : 'items'}</div>
             </div>
           </div>
         </div>
