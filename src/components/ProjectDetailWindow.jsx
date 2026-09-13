@@ -1,7 +1,21 @@
 import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './ProjectDetailWindow.css';
-import ProjectGallery, { ProjectImage } from './ProjectGallery';
+import { ProjectImage } from './ProjectGallery';
+import ProjectStory from './ProjectStory';
+import { getProjectStory } from '../data/projectStories';
+
+// Maps a tech/tool name to a syntax-highlight-style colour tone for the code panel.
+const TECH_TONES = [
+  [/typescript|\bts\b/i, 'blue'],
+  [/javascript|\bjs\b|json/i, 'yellow'],
+  [/react|vue|angular/i, 'cyan'],
+  [/vite|webpack|rollup|esbuild|pnpm|npm/i, 'purple'],
+  [/html/i, 'orange'],
+  [/css|sass|scss/i, 'pink'],
+  [/git|jira/i, 'red'],
+];
+const getTechTone = (name) => TECH_TONES.find(([pattern]) => pattern.test(name))?.[1] || 'green';
 
 export default function ProjectDetailWindow({ project, onClose, onMinimize, onMaximize, isMaximized, theme }) {
   const [isDragging, setIsDragging] = useState(false);
@@ -13,7 +27,7 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
   const focusAreas = Array.isArray(project.focusAreas) ? project.focusAreas : [];
   const images = Array.isArray(project.images) ? project.images.filter(image => image.url) : [];
   const links = Array.isArray(project.links) ? project.links.filter(link => link.url) : [];
-  const projectSummary = project.details || project.description;
+  const story = getProjectStory(project);
 
   const getProjectType = () => {
     if (project.projectType) return project.projectType;
@@ -106,7 +120,7 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
 
         {/* Project document */}
         <div className="window-content">
-          <article className="project-document">
+          <article className={`project-document project-layout-${story.layout}`}>
             <header className="project-header" style={{ '--project-icon-image': project.iconImage ? `url(${JSON.stringify(project.iconImage)})` : 'none' }}>
               <div className="project-identity">
                 <div className="project-icon-large" aria-hidden="true">
@@ -132,12 +146,14 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
             </header>
 
             <div className="project-content">
-              {projectSummary && <section className="project-section project-summary"><h2>About the project</h2>{projectSummary.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</section>}
-              {(focusAreas.length > 0 || techStackItems.length > 0) && <aside className="project-inspector" aria-label="Project focus and tools">
-                {focusAreas.length > 0 && <section className="project-inspector-section project-focus-panel"><h2>Focus areas</h2><ul className="project-focus-list">{focusAreas.map((area, index) => <li key={`${area}-${index}`}>{area}</li>)}</ul></section>}
-                {techStackItems.length > 0 && <section className="project-inspector-section project-tools-panel"><h2>Tech & tools</h2><ul className="project-tool-list">{techStackItems.map(tool => <li key={tool}>{tool}</li>)}</ul></section>}
-              </aside>}
-              {images.length > 0 && <ProjectGallery key={project.name} images={images} projectName={project.name} />}
+              <ProjectStory project={project} story={story} images={images} />
+              {(focusAreas.length > 0 || techStackItems.length > 0) && <footer className="project-notes">
+                {focusAreas.length > 0 && <section className="project-inspector-section project-focus-panel"><h2>Focus areas</h2><ul className="project-focus-list" role="list">{focusAreas.map((area, index) => <li key={`${area}-${index}`}>{area}</li>)}</ul></section>}
+                {techStackItems.length > 0 && <section className="project-inspector-section project-tools-panel">
+                  <h2>Tech & tools</h2>
+                  <ul className="project-tool-list" role="list">{techStackItems.map(tool => <li key={tool} data-tone={getTechTone(tool)}>{tool}</li>)}</ul>
+                </section>}
+              </footer>}
             </div>
           </article>
         </div>

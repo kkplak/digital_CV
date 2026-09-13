@@ -6,18 +6,17 @@ export function ProjectImage({ src, alt = '', className = '', loading = 'lazy', 
   return <img className={className} src={src} alt={alt} loading={loading} decoding="async" onError={() => setFailed(true)} />;
 }
 
-export default function ProjectGallery({ images, projectName }) {
+// Images sit at their natural size, on their own row — never sharing a line with text.
+export function FlowingImages({ images, projectName, startIndex = 0 }) {
+  if (!images.length) return null;
   return (
-    <section className="project-gallery-section" aria-label={`${projectName} previews`}>
-      <div className="project-gallery-grid">
-        {images.map((item, index) => (
-          <figure key={`${item.url}-${index}`} className="project-gallery-viewer">
-            <div className={`project-gallery-stage ${item.isVertical ? 'is-vertical' : ''}`}>
-              <ProjectImage src={item.url} alt={item.caption || `${projectName}, image ${index + 1}`} className="project-gallery-image" />
-            </div>
-          </figure>
-        ))}
-      </div>
-    </section>
+    <div className="project-flow-gallery">
+      {images.map((item, index) => (
+        <figure key={`${item.url}-${index}`} className={`project-flow-figure ${item.isVertical ? 'is-vertical' : ''}`}>
+          <ProjectImage src={item.url} alt={item.caption || `${projectName}, image ${startIndex + index + 1}`} className="project-flow-image" />
+          {item.caption && <figcaption>{item.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
   );
 }
