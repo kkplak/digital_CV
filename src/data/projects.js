@@ -221,6 +221,7 @@ export const projects = [
     projectType: "Web Mobile Game",
     date: "2024",
     role: "Frontend Developer / Technical Delivery",
+    video: { url: "/JurrasicAD.mp4" },
     details:
       "Created immersive digital experiences for the Jurassic World: Chaos Theory Happy Meal digital experience, featuring interactive elements in 3D VR and AR environments.",
     focusAreas: [
