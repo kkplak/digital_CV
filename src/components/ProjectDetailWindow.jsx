@@ -132,26 +132,29 @@ export default function ProjectDetailWindow({ project, onClose, onMinimize, onMa
                   {project.role && <p className="project-role"><span>My role</span>{project.role}</p>}
                 </div>
               </div>
-              {links.length > 0 && <div className="project-links" role="group" aria-label="Project links">
-                {links.map((link, index) => (
-                  <a key={`${link.url}-${index}`} href={link.url} target="_blank" rel="noopener noreferrer" className="project-link">
-                    <svg className="project-link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                      <path d="M6.5 3.5H4A1.5 1.5 0 0 0 2.5 5v7A1.5 1.5 0 0 0 4 13.5h7a1.5 1.5 0 0 0 1.5-1.5V9.5M9 2.5h4.5V7M13 3 7.5 8.5" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <span className="project-link-label">{link.label?.trim() || link.url}</span>
-                    <span className="a11y-only"> (opens in a new tab)</span>
-                  </a>
-                ))}
-              </div>}
             </header>
 
             <div className="project-content">
               <ProjectStory project={project} story={story} images={images} />
-              {(focusAreas.length > 0 || techStackItems.length > 0) && <footer className="project-notes">
+              {(focusAreas.length > 0 || techStackItems.length > 0 || links.length > 0) && <footer className="project-notes">
                 {focusAreas.length > 0 && <section className="project-inspector-section project-focus-panel"><h2>Focus areas</h2><ul className="project-focus-list" role="list">{focusAreas.map((area, index) => <li key={`${area}-${index}`}>{area}</li>)}</ul></section>}
                 {techStackItems.length > 0 && <section className="project-inspector-section project-tools-panel">
                   <h2>Tech & tools</h2>
                   <ul className="project-tool-list" role="list">{techStackItems.map(tool => <li key={tool} data-tone={getTechTone(tool)}>{tool}</li>)}</ul>
+                </section>}
+                {links.length > 0 && <section className="project-inspector-section project-sources-panel">
+                  <h2>Sources</h2>
+                  <div className="project-links" role="group" aria-label="Project links">
+                    {links.map((link, index) => (
+                      <a key={`${link.url}-${index}`} href={link.url} target="_blank" rel="noopener noreferrer" className="project-link">
+                        <svg className="project-link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                          <path d="M6.5 3.5H4A1.5 1.5 0 0 0 2.5 5v7A1.5 1.5 0 0 0 4 13.5h7a1.5 1.5 0 0 0 1.5-1.5V9.5M9 2.5h4.5V7M13 3 7.5 8.5" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <span className="project-link-label">{link.label?.trim() || link.url}</span>
+                        <span className="a11y-only"> (opens in a new tab)</span>
+                      </a>
+                    ))}
+                  </div>
                 </section>}
               </footer>}
             </div>

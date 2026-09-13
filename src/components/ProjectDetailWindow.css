@@ -174,7 +174,7 @@
 .project-detail-window .project-layout-split .project-title { font-size: clamp(2rem, 4.8cqw, 2.75rem); letter-spacing: -.035em; }
 .project-detail-window .project-role { margin: 12px 0 0; font-size: 14px; line-height: 1.55; color: var(--project-secondary); }
 .project-role>span { margin-right: 9px; color: var(--project-muted); font-size: 12px; }
-.project-detail-window .project-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+.project-detail-window .project-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .project-detail-window .project-link {
   display: inline-flex;
   align-items: center;
@@ -221,6 +221,8 @@
 .project-focus-panel h2 { color: var(--project-blue); }
 .project-tools-panel { padding-top: 20px; border-top: 1px solid var(--project-rule); }
 .project-tools-panel h2 { color: var(--project-green); }
+.project-sources-panel { padding-top: 20px; border-top: 1px solid var(--project-rule); }
+.project-sources-panel h2 { color: var(--project-link); }
 .project-focus-list {
   display: flex;
   flex-wrap: wrap;
