@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Desktop.css';
 import { focusWindow } from '../hooks/useWindowAccessibility';
 import CVWindow from './CVWindow';
@@ -13,7 +13,10 @@ import TestimonialsWindow from './TestimonialsWindow';
 import ChallengesWindow from './ChallengesWindow';
 import ChallengeDetailWindow from './ChallengeDetailWindow';
 import OthersWindow from './OthersWindow';
+import projects from '../data/projects';
 // import { getTodayHoliday } from '../data/holidays'; // Festive themes functionality disabled
+
+const jurassicAdProject = projects.find(project => project.name === 'Jurassic World: Chaos Theory');
 
 export default function Desktop() {
   const [isCVOpen, setIsCVOpen] = useState(false);
@@ -41,6 +44,7 @@ export default function Desktop() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isProjectDetailMaximized, setIsProjectDetailMaximized] = useState(false);
+  const jurassicVideoRef = useRef(null);
   const [theme, setTheme] = useState({
     id: 1,
     name: 'Earth Day',
@@ -380,6 +384,17 @@ export default function Desktop() {
     }
   };
 
+  const handleJurassicPreviewPlay = () => {
+    jurassicVideoRef.current?.play().catch(() => {});
+  };
+
+  const handleJurassicPreviewPause = () => {
+    const video = jurassicVideoRef.current;
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
+  };
+
   const handleProjectDetailClose = () => {
     setSelectedProject(null);
     setIsProjectDetailMaximized(false);
@@ -467,6 +482,35 @@ export default function Desktop() {
           </div>
         </div>
       </div>
+
+      {/* Desktop Icons - Left */}
+      {jurassicAdProject && (
+        <nav className="desktop-icons-left" aria-label="Featured project">
+          <button
+            type="button"
+            className="desktop-icon"
+            onClick={() => handleProjectClick(jurassicAdProject)}
+            onMouseEnter={handleJurassicPreviewPlay}
+            onMouseLeave={handleJurassicPreviewPause}
+            onFocus={handleJurassicPreviewPlay}
+            onBlur={handleJurassicPreviewPause}
+          >
+            <span className="icon-video-preview">
+              <video
+                ref={jurassicVideoRef}
+                src={jurassicAdProject.video?.url}
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+                className="icon-video"
+              />
+            </span>
+            <span className="icon-label">Jurassic World Japan AD</span>
+          </button>
+        </nav>
+      )}
 
       {/* Desktop Icons */}
       <nav className="desktop-icons" aria-label="Desktop folders">
