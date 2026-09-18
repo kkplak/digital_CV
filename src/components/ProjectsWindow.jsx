@@ -22,6 +22,12 @@ const portfolioCategories = [
     shortLabel: 'Specialist',
     color: '#9f89c7',
   },
+  {
+    id: 'ai',
+    label: 'AI-assisted Development',
+    shortLabel: 'AI',
+    color: '#79ae9f',
+  },
 ];
 
 function CollectionIcon({ all = false }) {
@@ -144,7 +150,7 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
                 {categories.map(category => {
                   const count = category.id === 'all' ? projects.length : projects.filter(project => getPortfolioCategories(project).includes(category.id)).length;
                   return <button key={category.id} type="button"
-                    className={`projects-collection ${activeCategory === category.id ? 'active' : ''}`}
+                    className={`projects-collection ${category.id === 'all' ? 'projects-collection-all' : 'projects-collection-child'} ${activeCategory === category.id ? 'active' : ''}`}
                     style={{ '--collection-color': category.color }}
                     aria-pressed={activeCategory === category.id}
                     aria-controls={filesId}

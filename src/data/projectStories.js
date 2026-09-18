@@ -51,12 +51,43 @@ export const projectStories = {
       paragraphs: ['My work combined frontend development with the campaign’s AR and VR elements, using a stack that included React and 8th Wall. I also worked on translating requirements, accessibility and quality assurance alongside the wider delivery team.'],
     }],
   },
-  'Platformer Game Concept': {
-    layout: 'split',
-    lead: 'I created this browser platformer as both its designer and developer, working on the game mechanics, level design and the code that makes them work.',
+  'Movie Nights': {
+    layout: 'report',
+    lead: 'I built Movie Nights with AI-assisted development to keep my movies, TV series and anime in one place. It brings together what I want to watch, where I left off and what I thought of each title.',
     sections: [{
-      heading: 'Designing and building the rules',
-      paragraphs: ['I worked with JavaScript, object-oriented programming and axis-aligned bounding boxes for collision detection. Design, requirements documentation and testing sat alongside the programming work.'],
+      heading: 'From a watchlist to a working system',
+      paragraphs: ['The app combines a personal library with viewing status, episode progress, ratings and notes. A release calendar helps me keep track of what is coming next, while the interface is designed for quick use on a phone.'],
+    }, {
+      heading: 'Connecting the data',
+      paragraphs: ['I integrated the TMDB API for title search, covers and film and series information, and Supabase for account access and saved library data. That connects the discovery side of the app with my own viewing history.'],
+    }, {
+      heading: 'Developing with AI',
+      paragraphs: ['I used AI to help turn the idea into a working product and iterate on the implementation. I guided the product and design decisions, reviewed the interface and tested the flows I use to add, organise and track titles.'],
+    }],
+  },
+  'Galactic Jumpers': {
+    layout: 'feature',
+    lead: 'I took my original platformer prototype and used AI-assisted development to turn it into Galactic Jumpers: a complete browser adventure with three playable characters and 18 story chapters.',
+    sections: [{
+      heading: 'The original foundation',
+      paragraphs: ['The 2024 prototype was a place to develop movement, collision detection and level design. I built it with JavaScript and object-oriented programming, using axis-aligned bounding boxes to work out how the player interacted with the world.'],
+    }, {
+      heading: 'From a prototype to a full game',
+      paragraphs: ['The new version builds a complete experience around those foundations. Three characters bring different abilities to their own worlds and stories, with collectibles, checkpoints and saved progress supporting the journey through 18 chapters. Touch controls make the adventure playable on mobile.'],
+    }, {
+      heading: 'Shaping the result with AI',
+      paragraphs: ['I used AI to help expand and rework the implementation, while directing the gameplay and visual design. I reviewed and playtested the iterations, refining controls, level flow and the way new mechanics are introduced. The result takes an early gameplay concept through to a finished, playable adventure; both versions are linked below.'],
+    }],
+  },
+  Codeline: {
+    layout: 'report',
+    lead: 'I used AI-assisted development to create Codeline’s company website and introduce my independent web and design practice: what I offer, the work behind it and how to get in touch.',
+    sections: [{
+      heading: 'A clear introduction to the business',
+      paragraphs: ['The site presents website development, digital campaign work and print design through concise service descriptions and selected projects. I shaped the content and visual direction around helping a potential client understand the offer and start a conversation.'],
+    }, {
+      heading: 'From direction to implementation',
+      paragraphs: ['I guided the product and design decisions, reviewed the generated implementation and tested the site as I refined its layout and copy. The project shows how I apply the same AI-assisted workflow to a focused business website as well as more complex personal apps and games.'],
     }],
   },
   'Warner Bros. MultiVersus': {

@@ -79,17 +79,11 @@ export default function ChallengesWindow({ onClose, onMinimize, onMaximize, isMa
                   className="challenge-row"
                   style={{ '--accent': item.accent || '#8a8a92' }}
                   onClick={() => onChallengeClick(item)}
-                  title={item.keyTakeaway}
                 >
-                  <div className="challenge-row-icon">{item.icon || '📌'}</div>
+                  <div className="challenge-row-icon" aria-hidden="true">{item.icon || '📌'}</div>
                   <div className="challenge-row-name">
                     <span className="challenge-row-title">{item.title}</span>
-                    {item.keyTakeaway && (
-                      <span className="challenge-row-subtitle">{item.keyTakeaway}</span>
-                    )}
                   </div>
-                  <div className="challenge-row-tag">{item.tag}</div>
-                  <div className="challenge-row-date">{item.date}</div>
                 </button>
               ))}
             </div>
