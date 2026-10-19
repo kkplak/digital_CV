@@ -25,7 +25,7 @@ const portfolioCategories = [
   {
     id: 'ai',
     label: 'AI-assisted Development',
-    shortLabel: 'AI',
+    shortLabel: 'Product',
     color: '#79ae9f',
   },
 ];

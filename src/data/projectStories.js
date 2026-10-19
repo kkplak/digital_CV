@@ -51,34 +51,53 @@ export const projectStories = {
       paragraphs: ['My work combined frontend development with the campaign’s AR and VR elements, using a stack that included React and 8th Wall. I also worked on translating requirements, accessibility and quality assurance alongside the wider delivery team.'],
     }],
   },
-  'Movie Nights': {
-    layout: 'report',
-    lead: 'I built Movie Nights with AI-assisted development to keep my movies, TV series and anime in one place. It brings together what I want to watch, where I left off and what I thought of each title.',
-    sections: [{
-      heading: 'From a watchlist to a working system',
-      paragraphs: ['The app combines a personal library with viewing status, episode progress, ratings and notes. A release calendar helps me keep track of what is coming next, while the interface is designed for quick use on a phone.'],
-    }, {
-      heading: 'Connecting the data',
-      paragraphs: ['I integrated the TMDB API for title search, covers and film and series information, and Supabase for account access and saved library data. That connects the discovery side of the app with my own viewing history.'],
-    }, {
-      heading: 'Developing with AI',
-      paragraphs: ['I used AI to help turn the idea into a working product and iterate on the implementation. I guided the product and design decisions, reviewed the interface and tested the flows I use to add, organise and track titles.'],
-    }],
-  },
-  'Galactic Jumpers': {
-    layout: 'feature',
-    lead: 'I took my original platformer prototype and used AI-assisted development to turn it into Galactic Jumpers: a complete browser adventure with three playable characters and 18 story chapters.',
-    sections: [{
-      heading: 'The original foundation',
-      paragraphs: ['The 2024 prototype was a place to develop movement, collision detection and level design. I built it with JavaScript and object-oriented programming, using axis-aligned bounding boxes to work out how the player interacted with the world.'],
-    }, {
-      heading: 'From a prototype to a full game',
-      paragraphs: ['The new version builds a complete experience around those foundations. Three characters bring different abilities to their own worlds and stories, with collectibles, checkpoints and saved progress supporting the journey through 18 chapters. Touch controls make the adventure playable on mobile.'],
-    }, {
-      heading: 'Shaping the result with AI',
-      paragraphs: ['I used AI to help expand and rework the implementation, while directing the gameplay and visual design. I reviewed and playtested the iterations, refining controls, level flow and the way new mechanics are introduced. The result takes an early gameplay concept through to a finished, playable adventure; both versions are linked below.'],
-    }],
-  },
+'Movie Nights': {
+  layout: 'report',
+  lead: 'Movie Nights started with a personal frustration: keeping track of films, series and anime across scattered notes was becoming difficult. I turned that problem into a full-stack web application designed around how I actually discover, watch and remember content.',
+  sections: [{
+    heading: 'Identifying the problem',
+    paragraphs: [
+      'My original tracking system lived in Apple Notes. It worked initially, but became difficult to maintain as my lists grew. I wanted a single place to manage what I was watching, track episode progress, save ratings and discover upcoming releases.',
+      'Rather than simply digitising my notes, I focused on making everyday interactions faster and more intuitive. I organised the experience around the actions I use most frequently, reducing unnecessary navigation and keeping the interface focused on the content.'
+    ],
+  }, {
+    heading: 'Designing and building the product',
+    paragraphs: [
+      'I built the application using React and TypeScript, integrating TMDB for title information, artwork and discovery, and Supabase for authentication and persistent data. Cloud synchronisation allows me to maintain the same library across devices.',
+      'The product evolved to include personalised watchlists, episode tracking, ratings, notes, a release calendar and richer media previews. I paid particular attention to mobile usability, visual hierarchy and making large amounts of information feel manageable.'
+    ],
+  }, {
+    heading: 'Iterating through real usage',
+    paragraphs: [
+      'Using the application regularly became an important part of the development process. I identified friction in navigation, reconsidered how viewing statuses were organised and simplified screens that had become unnecessarily complex.',
+      'AI-assisted development helped me prototype and implement changes quickly, while I remained responsible for defining requirements, evaluating solutions, testing workflows and deciding what improved the experience. The result is a product I continue to use and refine, rather than a one-off technical demo.'
+    ],
+  }],
+},
+
+'Galactic Jumpers': {
+  layout: 'feature',
+  lead: 'Galactic Jumpers began as a small JavaScript platformer prototype in 2024. I revisited the concept in 2026 with a bigger goal: turn the original mechanics into a complete, accessible browser adventure with distinct characters, meaningful progression and a consistent player experience.',
+  sections: [{
+    heading: 'Building the technical foundation',
+    paragraphs: [
+      'The original prototype was an opportunity to explore game mechanics through JavaScript and object-oriented programming. I implemented movement, collision detection using axis-aligned bounding boxes and the foundations of level design.',
+      'Revisiting the project meant thinking beyond individual mechanics. I needed to consider how the systems would work together, how players would learn new abilities and what would make the experience enjoyable from beginning to end.'
+    ],
+  }, {
+    heading: 'Turning a prototype into a product',
+    paragraphs: [
+      'I expanded the concept into an 18-chapter adventure featuring three playable characters, each with different movement abilities and gameplay interactions. I designed progression systems, checkpoints, collectibles and saved progress to create continuity across play sessions.',
+      'A major part of the work involved balancing functionality with usability. I refined controls for desktop and touch devices, adjusted level pacing, improved visual feedback and considered how to introduce mechanics without overwhelming the player.'
+    ],
+  }, {
+    heading: 'Development, testing and iteration',
+    paragraphs: [
+      'I used AI-assisted development to accelerate implementation and explore technical approaches, while taking ownership of the game direction, interaction design and overall experience.',
+      'Playtesting exposed issues with movement, collision behaviour, difficulty and level transitions. I worked through these problems iteratively, prioritising changes based on their impact on gameplay rather than simply adding more features. The project demonstrates how I approach evolving an early technical experiment into a complete interactive product, with both the original prototype and finished game available to explore.'
+    ],
+  }],
+},
   Codeline: {
     layout: 'report',
     lead: 'I used AI-assisted development to create Codeline’s company website and introduce my independent web and design practice: what I offer, the work behind it and how to get in touch.',
@@ -219,6 +238,29 @@ export const projectStories = {
       paragraphs: ['The portfolio has since gained keyboard-accessible desktop controls, a configurable Gamepad demo and a more editorial approach to project stories. I have kept the desktop metaphor at the centre of those changes.'],
     }],
   },
+  'The Sound Adventures of Roxie': {
+  layout: 'feature',
+  lead: 'The Sound Adventures of Roxie started with a simple idea: what if sound was the main reason to explore a game? Inspired by atmospheric pixel art and immersive ambient soundscapes, I set out to create a relaxing browser adventure where audio, environment and interaction work together to shape the experience.',
+  sections: [{
+    heading: 'Defining the experience',
+    paragraphs: [
+      'I wanted to explore a different approach to game design, one where atmosphere and curiosity matter more than traditional objectives or competition. The core product principle was to make sound an essential part of the experience rather than something added after the gameplay was built.',
+      'I developed the concept around Roxie, a character exploring distinct pixel-art environments, each with its own visual identity and soundscape. From peaceful everyday settings to mysterious woodlands, I focused on creating spaces that feel alive and encourage players to slow down, listen and discover.'
+    ],
+  }, {
+    heading: 'Designing around sound and interaction',
+    paragraphs: [
+      'Building an audio-first experience required thinking carefully about how users perceive and interact with their surroundings. I worked on environmental audio, sound placement, layered ambience and subtle visual feedback to make each location feel distinct and believable.',
+      'The challenge was balancing sound, visuals and gameplay without overwhelming the player. I refined how individual effects fit into the overall atmosphere, how the environment responds to exploration and how character movement and animations support the experience. Each design decision needed to reinforce the original product vision.'
+    ],
+  }, {
+    heading: 'Prototyping, testing and refinement',
+    paragraphs: [
+      'I used AI-assisted development to translate the concept into an interactive browser game, rapidly experimenting with environments, gameplay mechanics, animations and audio systems. My role involved defining the creative direction, making product decisions, evaluating implementations and identifying what needed improvement.',
+      'Much of the development became an iterative process of playing, listening and refining. I adjusted sound effects that felt out of place, improved environmental consistency and worked through interaction and animation issues discovered during testing. Rather than focusing on adding features, I prioritised the quality and coherence of the experience. Roxie demonstrates how I approach product development when the goal is not just functionality, but creating something people can genuinely enjoy using.'
+    ],
+  }],
+},
 };
 
 export function getProjectStory(project) {
