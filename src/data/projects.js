@@ -301,6 +301,7 @@ export const projects = [
     "TMDB API",
     "Vercel",
   ],
+   images: [{ url: "/mn1.png" }, { url: "/mn2.jpeg" },{ url: "/mn3.jpeg" },{ url: "/mn4.jpeg" },{ url: "/mn5.jpeg" }],
   links: [
     {
       label: "Explore Movie Nights",
