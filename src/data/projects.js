@@ -2,13 +2,14 @@ export const projects = [
   {
     id: 22,
     name: "Folio PDF Editor",
+    portfolioRank: 3,
     icon: "📄",
     iconImage: "/folio-logo.svg",
     description:
       "Built for a friend in insurance: a PDF workspace that replaces repeated typing with linked fields, reusable templates and configurable rules.",
     projectType: "Document Workflow Application",
     category: "personal",
-    portfolioCategories: ["engineering", "design", "AI"],
+    portfolioCategories: ["engineering", "design", "ai"],
     date: "2026",
     role: "Product Design & Engineering",
     details:
@@ -45,6 +46,7 @@ export const projects = [
   {
     id: 1,
     name: "Nintendo Super Mario Galaxy",
+    portfolioRank: 1,
     iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/960px-Mario_Series_Logo.svg.png",
     description: "Super Mario Galaxy collaboration with McDonald's.",
     projectType: "Digital Experience",
@@ -99,6 +101,7 @@ export const projects = [
   {
     id: 17,
     name: "Web Accessibility Research",
+    portfolioRank: 5,
     iconImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Accessibility.svg/960px-Accessibility.svg.png",
     description:
@@ -151,6 +154,7 @@ export const projects = [
   {
     id: 1,
     name: "TinyTAN BTS",
+    portfolioRank: 7,
     iconImage: "https://www.freepnglogos.com/uploads/bts-logo-png/bts-logo-pin-kuba-szczesiak-png-bts-bts-tattoos-0.png",
     description: "BTS TinyTAN collaboration with McDonald's.",
     projectType: "Web Mobile Game",
@@ -205,6 +209,7 @@ export const projects = [
   {
     id: 2,
     name: "Playmobil",
+    portfolioRank: 6,
     iconImage:
       "https://images.seeklogo.com/logo-png/21/2/playmobil-logo-png_seeklogo-214107.png",
     description: "Playmobil collaboration with McDonald's.",
@@ -259,6 +264,7 @@ export const projects = [
   {
     id: 3,
     name: "Jurassic World: Chaos Theory",
+    portfolioRank: 2,
     iconImage: "/jurassic-logo.webp",
     description: "Jurassic World: Chaos Theory Happy Meal promotion.",
     projectType: "Web Mobile Game",
@@ -314,6 +320,7 @@ export const projects = [
 {
   id: 19,
   name: "Movie Nights",
+  portfolioRank: 4,
   icon: "🎬",
   iconImage: "/ai-projects/movie-nights.svg",
   description:
@@ -355,6 +362,7 @@ export const projects = [
 {
   id: 4,
   name: "Galactic Jumpers",
+  portfolioRank: 9,
   icon: "👾",
   iconImage: "/ai-projects/galactic-jumpers.png",
   description:
@@ -407,6 +415,7 @@ export const projects = [
  {
   id: 21,
   name: "The Sound Adventures of Roxie",
+  portfolioRank: 17,
   iconImage: "/ai-projects/roxie.png",
   description:
     "Designed and built an audio-first browser game, turning a creative concept into an interactive product through rapid prototyping, UX decisions and iterative development.",
@@ -443,6 +452,7 @@ export const projects = [
   {
     id: 20,
     name: "Codeline",
+    portfolioRank: 21,
     icon: "💻",
     iconImage: "/ai-projects/codeline.svg",
     description: "A company website for my independent web and design practice, created with AI-assisted development.",
@@ -468,6 +478,7 @@ export const projects = [
   {
     id: 5,
     name: "Warner Bros. MultiVersus",
+    portfolioRank: 10,
     iconImage: "/multiversus-logo.svg",
     description: "Warner Bros. MultiVersus Happy Meal promotion.",
     projectType: "Web Mobile Game",
@@ -518,6 +529,7 @@ export const projects = [
   {
     id: 6,
     name: "Captain America: Brave New World",
+    portfolioRank: 12,
     iconImage: "https://www.pngall.com/wp-content/uploads/2016/05/Captain-America-PNG-HD.png",
     description:
       "McDonald's Happy Meal campaign featuring Captain America: Brave New World collectibles and digital experience.",
@@ -571,6 +583,7 @@ export const projects = [
   {
     id: 7,
     name: "MyHealth",
+    portfolioRank: 11,
     iconImage: "/myhealth-logo.png",
     description: "Website rebuild, brand collateral, and digital marketing materials for a health services business.",
     projectType: "Website & Digital Marketing",
@@ -611,6 +624,7 @@ export const projects = [
   {
     id: 8,
     name: "FAMA",
+    portfolioRank: 16,
     icon: "🎬",
     description: "Film and media arts production project.",
     projectType: "Website",
@@ -637,6 +651,7 @@ export const projects = [
   {
     id: 9,
     name: "Three.js Shaders Case Study",
+    portfolioRank: 19,
     icon: "🎨",
     description: "WebGL shader visualization case study.",
     projectType: "Creative WebGL Website",
@@ -669,6 +684,7 @@ export const projects = [
   {
     id: 10,
     name: "Disney Elemental",
+    portfolioRank: 15,
     iconImage: "/elemental-logo.png",
     description:
       "McDonald's Happy Meal campaign featuring Pixar's Elemental movie collectibles and digital experience.",
@@ -717,6 +733,7 @@ export const projects = [
   {
     id: 11,
     name: "Roblox Adopt Me!",
+    portfolioRank: 14,
     iconImage: "/adoptme-logo.png",
     description: "Adopt Me! partnership campaign with McDonald's Happy Meal.",
     projectType: "Web Mobile Game",
@@ -767,6 +784,7 @@ export const projects = [
   {
     id: 12,
     name: "Squishmallows",
+    portfolioRank: 13,
     iconImage: "/sq-3.png",
     description:
       "McDonald's Happy Meal campaign featuring Squishmallows collectibles and digital experience.",
@@ -823,6 +841,7 @@ export const projects = [
   {
     id: 13,
     name: "FICO",
+    portfolioRank: 8,
     iconImage: "/fico-logo.png",
     description: "Redesign and frontend development for FICO.com page.",
     projectType: "Company Website",
@@ -850,6 +869,7 @@ export const projects = [
   {
     id: 15,
     name: "Menusso",
+    portfolioRank: 18,
     iconImage: "/menusso-logo.png",
     description: "Menusso, the complete restaurant menu system.",
     projectType: "Company Website Platform",
@@ -876,6 +896,7 @@ export const projects = [
   {
     id: 14,
     name: "Sony Dreams™",
+    portfolioRank: 20,
     iconImage:
       "https://assetsio.gnwcdn.com/dreams-logo.png?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
     description:
@@ -913,6 +934,7 @@ export const projects = [
   {
     id: 16,
     name: "Zulkefly",
+    portfolioRank: 23,
     iconImage:
       "https://cdn.brandfetch.io/frontierdanceland.com/fallback/lettermark/theme/dark/h/256/w/256/icon?c=1bfwsmEH20zzEfSNTed",
     description:
@@ -942,6 +964,7 @@ export const projects = [
   {
     id: 18,
     name: "Konrad's Digital Space",
+    portfolioRank: 22,
     iconImage: "/codeline-logo.png",
     description:
       "Personal digital CV and portfolio website you are currently viewing, created using AI-assisted design and development workflows.",

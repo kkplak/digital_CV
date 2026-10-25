@@ -3,6 +3,10 @@ import { useId, useState, useRef } from 'react';
 import './ProjectsWindow.css';
 import projects from '../data/projects';
 
+// Curated for scope, ownership and delivery evidence; collection order stays independent.
+const rankedProjects = [...projects].sort((a, b) =>
+  (a.portfolioRank ?? Infinity) - (b.portfolioRank ?? Infinity));
+
 const portfolioCategories = [
   {
     id: 'engineering',
@@ -76,7 +80,7 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
   };
   const { windowProps, titleProps } = useWindowAccessibility({ windowRef, onClose, isMaximized, setPosition });
   const visibleProjects = activeCategory === 'all'
-    ? projects
+    ? rankedProjects
     : projects.filter((project) => getPortfolioCategories(project).includes(activeCategory));
 
   const handleMouseDown = (e) => {
