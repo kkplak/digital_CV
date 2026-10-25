@@ -1,5 +1,48 @@
 export const projects = [
   {
+    id: 22,
+    name: "Folio PDF Editor",
+    icon: "📄",
+    iconImage: "/folio-logo.svg",
+    description:
+      "Built for a friend in insurance: a PDF workspace that replaces repeated typing with linked fields, reusable templates and configurable rules.",
+    projectType: "Document Workflow Application",
+    category: "personal",
+    portfolioCategories: ["engineering", "design", "AI"],
+    date: "2026",
+    role: "Product Design & Engineering",
+    details:
+      "Created Folio after a friend working in insurance described the repetitive paperwork involved in every client meeting. Turned that frustration into a browser-based PDF workspace with reusable templates, linked variables and configurable conditional rules. A client name or address can be entered once and reused across pages, while one selection can update related greetings, values and checkboxes. Designed separate template-editing, document-filling and preview modes, with PDF export and a local workspace that requires no account.",
+    focusAreas: [
+      "Product Discovery & Problem Solving",
+      "End-to-End Product Ownership",
+      "Workflow Automation",
+      "UX & Interaction Design",
+      "Reusable PDF Templates",
+      "Linked Fields & Variables",
+      "Conditional Logic",
+    ],
+    techStack: ["PDF", "Vercel"],
+    images: [
+      {
+        url: "/folio-workspace.png",
+        caption:
+          "Folio's sample template: one client name and address, linked to four locations across the document. Fictional details shown.",
+      },
+      {
+        url: "/folio-rules.png",
+        caption:
+          "Configurable rules connect a salutation to greetings, translated values and checkboxes without writing code.",
+      },
+    ],
+    links: [
+      {
+        label: "Try Folio PDF Editor",
+        url: "https://pdfwebapp.vercel.app/",
+      },
+    ],
+  },
+  {
     id: 1,
     name: "Nintendo Super Mario Galaxy",
     iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/960px-Mario_Series_Logo.svg.png",

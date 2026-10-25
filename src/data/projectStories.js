@@ -1,6 +1,34 @@
 // Editorial copy grounded in each project's existing details, role and focus areas.
 // Use names as keys: the original project data contains duplicate numeric IDs.
 export const projectStories = {
+  'Folio PDF Editor': {
+    layout: 'report',
+    lead: 'Folio started with a conversation with a friend who works in insurance. Every client meeting meant typing the same information into PDFs again, then checking that related fields matched. I built a PDF workspace around a simple goal: enter a detail once, and let the document do the repetitive work.',
+    sections: [{
+      heading: 'A real workflow, a clear product problem',
+      paragraphs: [
+        'My friend described two frustrations: useful form features required paid software, and even those tools did not give him the flexibility he wanted. Repeating a name or address was only part of the problem. A choice in one field should also be able to determine what appears somewhere else.',
+        'That conversation shaped the product brief: make existing PDFs reusable, connect information that belongs together and let the person preparing a template define the logic for their own workflow.',
+      ],
+    }, {
+      heading: 'One input, every location',
+      paragraphs: [
+        'I built the experience around templates and shared variables. Multiple field locations can use the same variable, so entering a client name or address once fills every connected location across the document. The sample template makes this visible by linking each of those inputs to four places.',
+        'I separated editing a template from filling a client document. The setup work happens in Edit template; Fill document presents the inputs for the current meeting, with a PDF preview alongside them. The completed document can then be exported as a PDF.',
+      ],
+    }, {
+      heading: 'Making the document respond',
+      paragraphs: [
+        'The key product decision was to go beyond copying values. Smart rules let users define conditions and the actions they trigger through a visual editor. For example, selecting “Frau” in the sample automatically sets the greeting to “Sehr geehrte Frau”, fills the corresponding English and Polish values and updates the related checkboxes.',
+        'The rules can also show or hide fields and change whether an input is required. This turns a fixed form into a configurable workflow, with the relationships defined once in the template instead of managed manually during each meeting.',
+      ],
+    }, {
+      heading: 'Built around the client meeting',
+      paragraphs: [
+        'Folio brings template setup, linked inputs, conditional logic, preview and export into one local browser workspace, with no account needed. The aim is to reduce repetitive administration and help keep related information consistent, leaving more attention for the client conversation. The project shows how I turn a specific user frustration into product requirements, interaction design and a working application.',
+      ],
+    }],
+  },
   'Nintendo Super Mario Galaxy': {
     layout: 'feature',
     gallery: 'spread',
