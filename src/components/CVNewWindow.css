@@ -158,7 +158,7 @@
 }
 
 .cvnew-it-support .cvnew-header {
-  background: #24456d;
+  background: #1e3c3c;
 }
 
 @media (max-width: 768px) {
@@ -177,11 +177,19 @@
 }
 
 .cvnew-title-line {
-  font-size: 13px;
-  font-weight: 400;
-  margin: 0.1rem 0 0.45rem;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0.35rem 0 0.65rem;
   color: rgba(245, 248, 255, 0.92);
   line-height: 1.3;
+}
+
+.cvnew-summary {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0 0 0.75rem;
+  color: rgba(245, 248, 255, 0.92);
+  line-height: 1.45;
 }
 
 .cvnew-contact-line {
@@ -442,6 +450,7 @@
   }
 
   .cvnew-exp-bullets li,
+  .cvnew-summary,
   .cvnew-skill-row,
   .cvnew-soft-skills,
   .cvnew-languages,

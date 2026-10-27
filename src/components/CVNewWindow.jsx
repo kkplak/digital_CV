@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import './CVNewWindow.css';
 import cvNewData from '../data/cvNew';
 
-export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximized, theme, data = cvNewData, fileName = 'CV_Konrad_Plak.pdf', variant = '' }) {
+export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximized, theme, data = cvNewData, fileName = 'Konrad_Plak_CV_SE_10.26.pdf', variant = '' }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 80, y: 60 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -73,13 +73,8 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
             {/* Header */}
             <div className="cvnew-header">
               <h1 className="cvnew-name">{d.name}</h1>
-              {d.summary ? (
-                <p className="cvnew-title-line">{d.summary}</p>
-              ) : (
-                <p className="cvnew-title-line">
-                  {d.title} <span className="cvnew-separator">|</span> Experience: {d.experience}
-                </p>
-              )}
+              <p className="cvnew-title-line">{d.title}</p>
+              {d.summary && <p className="cvnew-summary">{d.summary}</p>}
               <p className="cvnew-contact-line">
                 {d.contact.location}
                 <span className="cvnew-separator"> | </span>
@@ -170,7 +165,7 @@ export default function CVNewWindow({ onClose, onMinimize, onMaximize, isMaximiz
                   <div className="cvnew-edu-header">
                     <div className="cvnew-edu-info">
                       <span className="cvnew-edu-degree">{edu.degree}</span>
-                      <span className="cvnew-edu-institution">{edu.institution}, {edu.location}</span>
+                      <span className="cvnew-edu-institution">{edu.institution}{edu.location && `, ${edu.location}`}</span>
                     </div>
                     <span className="cvnew-edu-period">{edu.period}</span>
                   </div>

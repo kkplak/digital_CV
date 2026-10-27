@@ -1,8 +1,8 @@
 export const cvItSupportData = {
   name: "Konrad Plak",
-  title: "IT Support / Technical Support Specialist",
+  title: "Digital & IT Specialist | Support, Delivery & Accessibility",
   experience: "5 years",
-  summary: "Technical professional with 5 years of experience in software development, troubleshooting, and digital project delivery. Recognised for problem solving, troubleshooting complex web and software issues, and collaborating with cross functional teams. Currently pursuing the ITIL® 4 Foundation certification to strengthen knowledge of IT service management principles and incident/request handling.",
+  summary: "Digital and IT professional with 5 years of experience across application troubleshooting, quality assurance and digital project delivery. Helps clients and teams clarify requirements, resolve issues, document systems and release accessible digital experiences. Combines a software development background with clear communication and coordination across business, creative and technical teams.",
 
   contact: {
     location: "Olten, Switzerland",
@@ -19,9 +19,9 @@ export const cvItSupportData = {
       title: "Software Engineer / Technical Delivery",
       company: "tms",
       companyFull: "tms - McDonald's Happy Meal Digital Team",
-      period: "03.2023 - present",
+      period: "03.2023 - 10.2026",
       bullets: [
-        "Delivered 8 web projects reaching total over 100 million views for: Nintendo (Super Mario Galaxy), Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)",
+        "Delivered 9 web projects reaching total over 100 million views for: Nintendo (Super Mario Galaxy), Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)",
         "Led technical delivery of small to mid-scale projects, coordinating requirements, troubleshooting issues, and ensuring successful releases.",
         "Improved application stability, performance, and maintainability through framework optimization and architectural improvements.",
         "Investigated and resolved complex application, browser, and device-specific issues across desktop and mobile platforms.",
@@ -32,12 +32,13 @@ export const cvItSupportData = {
     },
     {
       title: "Technical Consultant",
-      company: "Protegos / Fama Film",
-      companyFull: "Protegos / Fama Film, contract",
+      company: "Protegos / Fama Film / Lukasz Bergel / Alchimia",
+      companyFull: "Protegos / Fama Film / Lukasz Bergel / Alchimia, contracts",
       period: "07.2024 - 03.2026",
       bullets: [
-        "Delivered multilingual websites for an independent film production company and a Swiss insurance brokerage, translating business requirements into customer-facing digital solutions.",
-        "Served as the primary technical contact for clients, providing support, troubleshooting issues, and investigating bug reports."
+        "Worked directly with business owners to clarify website requirements, content needs and digital priorities.",
+        "Delivered multilingual websites for a Swiss insurance brokerage and an independent film production company.",
+        "Served as the primary technical contact for website issues, changes and ongoing support."
       ]
     },
     {
@@ -46,7 +47,7 @@ export const cvItSupportData = {
       companyFull: "Marotino",
       period: "01.2022 - 03.2023",
       bullets: [
-        "Developed and maintained web application components for the Menusso.com platform.",
+        "Developed and tested reusable React components for the Menusso.com platform.",
         "Seconded by Speednet to support technical delivery activities for a redesign project for US client FICO.",
         "Troubleshooted integration, browser, and platform-related issues within a Drupal-based environment.",
         "Managed development tasks and workflows in JIRA."
@@ -72,6 +73,10 @@ export const cvItSupportData = {
       items: "Troubleshooting, root cause analysis, incident investigation, application support, log analysis, REST APIs"
     },
     {
+      category: "Consulting & delivery",
+      items: "Requirements clarification, stakeholder communication, technical documentation, cross-functional coordination"
+    },
+    {
       category: "Platforms & Tools",
       items: "Windows, macOS, iOS, Android, Microsoft 365, JIRA, Confluence, Git, Jenkins, AWS, AI, A11y (WCAG)"
     },
@@ -82,6 +87,10 @@ export const cvItSupportData = {
     {
       category: "Methodologies",
       items: "ITIL 4 Foundation (in progress), Agile, Scrum, CI/CD"
+    },
+    {
+      category: "AI-assisted work",
+      items: "Debugging, refactoring and documentation with GitHub Copilot and Claude Code"
     },
     {
       category: "Languages",
@@ -97,9 +106,8 @@ export const cvItSupportData = {
       period: "2026"
     },
     {
-      degree: "Web Development - JavsScript, HTML5, CSS3 and Responsive Design",
+      degree: "Web Development - JavaScript, HTML5, CSS3 & Responsive Design",
       institution: "University of Michigan",
-      location: "Remote",
       period: "2021 - 2022"
     },
     {

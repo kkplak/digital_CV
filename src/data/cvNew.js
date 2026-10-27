@@ -1,8 +1,8 @@
 export const cvNewData = {
   name: "Konrad Plak",
-  title: "Front-end Developer",
+  title: "Software Engineer | Product Development & Accessibility",
   experience: "5 years",
-  summary: "Front-end developer with 5 years of experience building interactive and game-driven web experiences for global brands including McDonald's, Nintendo, Disney and Marvel. Specialized in React, TypeScript and WCAG 2.2 AA/AAA standards.",
+  summary: "Software engineer with 5 years of experience across web development and quality assurance. Builds interactive web applications and browser-based games, combining JavaScript, TypeScript and React with accessible interfaces, performance optimisation and technical ownership. Uses AI-assisted development to prototype, refactor, debug and iterate on working products.",
 
   contact: {
     location: "Olten, Switzerland",
@@ -16,12 +16,12 @@ export const cvNewData = {
 
   experience_items: [
     {
-      title: "Frontend Developer",
+      title: "Software Engineer | Web, A11y, Product",
       company: "tms",
       companyFull: "tms - McDonald's Happy Meal Digital Team",
-      period: "03.2023 - present",
+      period: "03.2023 - 10.2026",
       bullets: [
-        "Delivered 8 web experiences reaching over 100 million views for: Nintendo (Super Mario Galaxy), Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)",
+        "Delivered 9 web experiences reaching total over 100 million views for: Nintendo (Super Mario Galaxy), Squishmallows, Disney (Elemental), Marvel (Captain America), Universal Pictures (Jurassic World), Playmobil, TinyTAN (BTS), Roblox (Adopt Me!)",
         "Led technical delivery of small to mid-scale projects.",
         "Engineered Game-pad API integration enabling browser-based games to support physical controllers on mobile devices.",
         "Refactored a core video-driven web game engine, restructuring its architecture to improve performance, stability, and maintainability.",
@@ -29,19 +29,17 @@ export const cvNewData = {
         "Developed web game-play mechanic prototypes (POCs) to validate experimental browser-based mechanics for client projects.",
         "Produced technical documentation for internal frameworks, enabling Business Analysts and stakeholders to understand system capabilities and apply them in product planning.",
         "Mentored cross-functional teams (Content, Motion, QA, A11Y, Digital Production, Business Analysts) in preparing development-ready assets and workflows, including repository setup, QA deployments, PR reviews, asset validation, functional ticket definitions while working closely with the Technology Director."
-      ],
-      tech: "react, typescript, playcanvas, pixi.js, ar/vr/3d, zustand, vite, tone.js, json, framer, css, lottie, wcag, ios dev beta"
+      ]
     },
     {
       title: "Frontend Developer",
-      company: "Protegos",
-      companyFull: "Protegos, contract",
+      company: "Protegos / myhealth",
+      companyFull: "Protegos / myhealth, contracts",
       period: "07.2024 - 03.2026",
       bullets: [
         "Supported a Swiss insurance brokerage agents with branding, website, and content.",
         "Helped translate business strategy into structured customer-facing systems."
-      ],
-      tech: "react, javascript, vite, i18n, json, framer motion, css, wix, vercel"
+      ]
     },
     {
       title: "Frontend Developer",
@@ -51,8 +49,7 @@ export const cvNewData = {
       bullets: [
         "Co-defined digital strategy with business owners.",
         "Designed and built a multilingual website for a film production company."
-      ],
-      tech: "react, javascript, json, framer, css, aceternity ui, seohost, ngrok"
+      ]
     },
     {
       title: "Frontend Developer",
@@ -64,8 +61,7 @@ export const cvNewData = {
         "Seconded by Speednet to lead frontend template development for a redesign project for US client FICO.",
         "Responsible for structuring, troubleshooting, and creating new layouts for seamless integration with the Drupal environment.",
         "Accountable for frontend programming tasks, design solutions, and workflow management in JIRA, including time estimation."
-      ],
-      tech: "react, html, css, zustand, scss, clsx, next.js, strapi, drupal"
+      ]
     }
   ],
 
@@ -80,7 +76,7 @@ export const cvNewData = {
     },
     {
       category: "Design",
-      items: "Figma, Photoshop, Adobe After Effects, DaVinci Resolve, Illustrator"
+      items: "Figma, Photoshop, Adobe After Effects, Premiere Pro, DaVinci Resolve, Illustrator, Lightroom, Visual Design, UI/UX"
     },
     {
       category: "Workflow",
@@ -105,9 +101,8 @@ export const cvNewData = {
       period: "2026"
     },
     {
-      degree: "Web Development - JavaScript, HTML5, CSS3 and Responsive Design",
+      degree: "Web Development - JavaScript, HTML5, CSS3 & Responsive Design",
       institution: "University of Michigan",
-      location: "Remote",
       period: "2021 - 2022"
     },
     {

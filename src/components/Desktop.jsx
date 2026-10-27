@@ -569,8 +569,8 @@ export default function Desktop() {
           onMaximize={handleCVsMaximize}
           isMaximized={isCVsMaximized}
           items={[
-            { name: 'CV Frontend Dev.pdf', onOpen: handleCVNewDoubleClick },
-            { name: 'CV Technical Consultant', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
+            { name: 'CV Software Engineer.pdf', onOpen: handleCVNewDoubleClick },
+            { name: 'CV Digital & IT Specialist', type: 'folder', onOpen: handleITSupportCVsDoubleClick }
           ]}
           theme={theme}
         />
@@ -582,8 +582,8 @@ export default function Desktop() {
           onMinimize={handleITSupportCVsMinimize}
           onMaximize={handleITSupportCVsMaximize}
           isMaximized={isITSupportCVsMaximized}
-          title="CV Stretch - IT Support"
-          items={[{ name: 'CV_Konrad_Plak_IT_Support.pdf', onOpen: handleCVItSupportDoubleClick }]}
+          title="CV Digital & IT Specialist"
+          items={[{ name: 'Konrad_Plak_CV_TECH_10.26.pdf', onOpen: handleCVItSupportDoubleClick }]}
           theme={theme}
         />
       )}
@@ -607,7 +607,7 @@ export default function Desktop() {
           isMaximized={isCVItSupportMaximized}
           theme={theme}
           data={cvItSupportData}
-          fileName="CV_Konrad_Plak_IT_Support.pdf"
+          fileName="Konrad_Plak_CV_TECH_10.26.pdf"
           variant="cvnew-it-support"
         />
       )}
