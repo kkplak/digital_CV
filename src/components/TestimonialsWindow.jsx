@@ -2,8 +2,10 @@ import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './TestimonialsWindow.css';
 import testimonials from '../data/testimonials';
+import HighlightBadge from './HighlightBadge';
+import TestimonialAvatar from './TestimonialAvatar';
 
-export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, isMaximized, theme }) {
+export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, isMaximized, theme, entries = testimonials, title = 'Testimonials', heading = 'Testimonials', subtitle = 'What colleagues and clients say about my work', className = '' }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 320, y: 70 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -46,7 +48,7 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
       <div 
         ref={windowRef}
         {...windowProps}
-        className={`testimonials-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
+        className={`testimonials-window ${className} ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? {
           left: `${position.x}px`,
           top: `${position.y}px`
@@ -60,35 +62,29 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
           onMouseDown={handleMouseDown}
         >
           <div className="window-controls">
-            <button type="button" aria-label={"Close " + 'Testimonials'} title="Close" className="control-btn close" onClick={onClose}></button>
-            <button type="button" aria-label={"Minimize " + 'Testimonials'} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
-            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + 'Testimonials'} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
+            <button type="button" aria-label={"Close " + title} title="Close" className="control-btn close" onClick={onClose}></button>
+            <button type="button" aria-label={"Minimize " + title} title="Minimize" className="control-btn minimize" onClick={onMinimize}></button>
+            <button type="button" aria-label={(isMaximized ? "Restore size of " : "Maximize ") + title} title={isMaximized ? "Restore size" : "Maximize"} className="control-btn maximize" onClick={onMaximize}></button>
           </div>
-          <div {...titleProps} className="window-title">Testimonials</div>
+          <div {...titleProps} className="window-title">{title}</div>
           <div className="window-controls-spacer"></div>
         </div>
 
         {/* Window Content */}
         <div className="window-content">
           <div className="testimonials-header">
-            <h2>Recommendations</h2>
-            <p className="testimonials-subtitle">What colleagues and clients say about my work</p>
+            <h2>{heading}</h2>
+            <p className="testimonials-subtitle">{subtitle}</p>
           </div>
           <div className="testimonials-list">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="testimonial-card">
+            {entries.map((testimonial) => (
+              <article key={testimonial.id} className="testimonial-card" aria-label={`Recommendation from ${testimonial.name}`}>
                 <div className="testimonial-header">
-                  <div className="testimonial-avatar">
-                    {testimonial.profileImage ? (
-                      <img src={testimonial.profileImage} alt={testimonial.name} className="avatar-image" />
-                    ) : (
-                      <span className="avatar-initials">{testimonial.name.split(' ').map(n => n[0]).join('')}</span>
-                    )}
-                  </div>
+                  <TestimonialAvatar variant={testimonial.avatar} image={testimonial.profileImage} />
                   <div className="testimonial-info">
-                    <h3 className="testimonial-name">{testimonial.name}</h3>
+                    <h3 className="testimonial-name">{testimonial.name}{testimonial.highlight && <HighlightBadge />}</h3>
                     <p className="testimonial-title">{testimonial.title}</p>
-                    <p className="testimonial-company">{testimonial.company}</p>
+                    {(testimonial.company || testimonial.relationship) && <p className="testimonial-company">{testimonial.company || testimonial.relationship}</p>}
                   </div>
                   {testimonial.linkedIn && (
                     <a 
@@ -103,11 +99,11 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
                     </a>
                   )}
                 </div>
-                <blockquote className="testimonial-quote">
-                  "{testimonial.quote}"
+                <blockquote className={`testimonial-quote${testimonial.paragraphs ? ' testimonial-letter' : ''}`}>
+                  {(testimonial.paragraphs || [testimonial.quote]).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
                 </blockquote>
-                <div className="testimonial-date">{testimonial.date}</div>
-              </div>
+                {(testimonial.date || testimonial.sourceLabel) && <div className="testimonial-date">{[testimonial.sourceLabel, testimonial.date].filter(Boolean).join(' · ')}</div>}
+              </article>
             ))}
           </div>
         </div>

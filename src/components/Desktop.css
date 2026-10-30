@@ -291,6 +291,13 @@
   background: linear-gradient(135deg, rgba(228, 187, 145, 0.95) 0%, rgba(181, 124, 85, 0.95) 100%);
 }
 
+.icon-folder.recommendations,
+.icon-folder.recommendations::before,
+.dock-item.folder.recommendations,
+.dock-item.folder.recommendations::before {
+  background: linear-gradient(135deg, #aac4b7, #648978);
+}
+
 .icon-folder.projects::before {
  background: linear-gradient(135deg, rgba(228, 187, 145, 0.95) 0%, rgba(197, 131, 87, 0.95) 100%);
 }
@@ -321,6 +328,8 @@
   max-width: 100%;
   word-wrap: break-word;
 }
+
+.recommendations-icon .icon-label { max-width: none; white-space: nowrap; }
 
 .desktop.light .icon-label {
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);

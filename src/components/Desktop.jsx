@@ -3,6 +3,7 @@ import './Desktop.css';
 import { focusWindow } from '../hooks/useWindowAccessibility';
 import CVWindow from './CVWindow';
 import CVNewWindow from './CVNewWindow';
+import PDFWindow from './PDFWindow';
 import CVsWindow from './CVsWindow';
 import cvItSupportData from '../data/cvItSupport';
 import ProjectsWindow from './ProjectsWindow';
@@ -14,6 +15,7 @@ import ChallengesWindow from './ChallengesWindow';
 import ChallengeDetailWindow from './ChallengeDetailWindow';
 import OthersWindow from './OthersWindow';
 import projects from '../data/projects';
+import { jamesRecommendation } from '../data/testimonials';
 // import { getTodayHoliday } from '../data/holidays'; // Festive themes functionality disabled
 
 const jurassicAdProject = projects.find(project => project.name === 'Jurassic World: Chaos Theory');
@@ -24,6 +26,10 @@ export default function Desktop() {
   const [isCVItSupportOpen, setIsCVItSupportOpen] = useState(false);
   const [isCVsOpen, setIsCVsOpen] = useState(false);
   const [isITSupportCVsOpen, setIsITSupportCVsOpen] = useState(false);
+  const [isRecommendationsOpen, setIsRecommendationsOpen] = useState(false);
+  const [isRecommendationsMaximized, setIsRecommendationsMaximized] = useState(false);
+  const [selectedRecommendation, setSelectedRecommendation] = useState(null);
+  const [isRecommendationMaximized, setIsRecommendationMaximized] = useState(false);
   const [isCVsMaximized, setIsCVsMaximized] = useState(false);
   const [isITSupportCVsMaximized, setIsITSupportCVsMaximized] = useState(false);
   const [isCVNewMaximized, setIsCVNewMaximized] = useState(false);
@@ -111,6 +117,28 @@ export default function Desktop() {
     if (window.innerWidth <= 768) {
       setIsProjectsMaximized(true);
     }
+  };
+
+  const handleRecommendationsOpen = () => {
+    focusWindow('.recommendations-folder-window');
+    setIsRecommendationsOpen(true);
+    if (window.innerWidth <= 768) setIsRecommendationsMaximized(true);
+  };
+
+  const handleRecommendationsClose = () => {
+    setIsRecommendationsOpen(false);
+    setIsRecommendationsMaximized(false);
+  };
+
+  const handleRecommendationOpen = recommendation => {
+    focusWindow('.pdf-document-window');
+    setSelectedRecommendation(recommendation);
+    setIsRecommendationMaximized(window.innerWidth <= 768);
+  };
+
+  const handleRecommendationClose = () => {
+    setSelectedRecommendation(null);
+    setIsRecommendationMaximized(false);
   };
 
   const handleCVClose = () => {
@@ -216,7 +244,7 @@ export default function Desktop() {
 
 
   const handleTestimonialsClick = () => {
-    focusWindow('.testimonials-window');
+    focusWindow('.testimonials-collection-window');
     setIsTestimonialsOpen(true);
     // Auto-maximize on mobile
     if (window.innerWidth <= 768) {
@@ -529,6 +557,16 @@ export default function Desktop() {
             className="icon-label"
           >CV</span>
         </button>
+        <button type="button" className="desktop-icon recommendations-icon" onClick={handleRecommendationsOpen}>
+          <span
+            className="icon-folder recommendations"
+            style={activeColors ? {
+              background: activeColors.folder,
+              filter: 'brightness(1.1) saturate(1.2)'
+            } : {}}
+          />
+          <span className="icon-label">References</span>
+        </button>
         <button type="button" 
           className="desktop-icon"
           onClick={handleProjectsDoubleClick}
@@ -588,6 +626,23 @@ export default function Desktop() {
         />
       )}
 
+      {/* Recommendations folder */}
+      {isRecommendationsOpen && (
+        <CVsWindow
+          onClose={handleRecommendationsClose}
+          onMinimize={() => setIsRecommendationsOpen(false)}
+          onMaximize={() => setIsRecommendationsMaximized(!isRecommendationsMaximized)}
+          isMaximized={isRecommendationsMaximized}
+          title="References"
+          className="recommendations-folder-window"
+          items={[
+            { name: 'James Gambrell.pdf', type: 'pdf', highlight: jamesRecommendation.highlight, onOpen: () => handleRecommendationOpen(jamesRecommendation) },
+            { name: 'Testimonials', type: 'folder', onOpen: handleTestimonialsClick },
+          ]}
+          theme={theme}
+        />
+      )}
+
       {/* CV new Window */}
       {isCVNewOpen && (
         <CVNewWindow
@@ -643,7 +698,6 @@ export default function Desktop() {
           onMaximize={handleOthersMaximize}
           isMaximized={isOthersMaximized}
           onMemoriesClick={handleMemoriesClick}
-          onTestimonialsClick={handleTestimonialsClick}
           onChallengesClick={handleChallengesClick}
           theme={theme}
         />
@@ -667,6 +721,21 @@ export default function Desktop() {
           onMinimize={handleTestimonialsMinimize}
           onMaximize={handleTestimonialsMaximize}
           isMaximized={isTestimonialsMaximized}
+          theme={theme}
+          className="testimonials-collection-window"
+        />
+      )}
+
+      {selectedRecommendation && (
+        <PDFWindow
+          key={selectedRecommendation.id}
+          url={selectedRecommendation.pdfUrl}
+          fileName={selectedRecommendation.pdfFileName}
+          pages={selectedRecommendation.pdfPages}
+          onClose={handleRecommendationClose}
+          onMinimize={handleRecommendationClose}
+          onMaximize={() => setIsRecommendationMaximized(!isRecommendationMaximized)}
+          isMaximized={isRecommendationMaximized}
           theme={theme}
         />
       )}
@@ -750,6 +819,15 @@ export default function Desktop() {
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></button>
+          <button type="button"
+            className={`dock-item folder recommendations ${!isRecommendationsOpen ? 'minimized' : ''}`}
+            onClick={handleRecommendationsOpen}
+            aria-label="References" title="References"
+            style={activeColors ? {
+              background: activeColors.folder,
+              filter: 'brightness(1.1) saturate(1.2)'
+            } : {}}
+          />
           <button type="button" 
             className={`dock-item folder projects ${!isProjectsOpen ? 'minimized' : ''}`}
             onClick={handleProjectsRestore}

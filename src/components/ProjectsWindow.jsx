@@ -2,6 +2,7 @@ import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useId, useState, useRef } from 'react';
 import './ProjectsWindow.css';
 import projects from '../data/projects';
+import HighlightBadge from './HighlightBadge';
 
 // Curated for scope, ownership and delivery evidence; collection order stays independent.
 const rankedProjects = [...projects].sort((a, b) =>
@@ -180,6 +181,7 @@ export default function ProjectsWindow({ onClose, onMinimize, onMaximize, isMaxi
                     onClick={() => handleFileClick(project)}
                     title={project.description}
                   >
+                    {project.highlight && <HighlightBadge />}
                     <div className="file-icon">
                       {project.iconImage ? (
                         <img src={project.iconImage} alt="" />

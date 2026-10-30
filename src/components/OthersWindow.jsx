@@ -2,7 +2,7 @@ import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './OthersWindow.css';
 
-export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximized, onMemoriesClick, onTestimonialsClick, onChallengesClick, theme }) {
+export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximized, onMemoriesClick, onChallengesClick, theme }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 180, y: 110 });
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -76,13 +76,6 @@ export default function OthersWindow({ onClose, onMinimize, onMaximize, isMaximi
             >
               <span className="folder-icon memories"></span>
               <span className="folder-name">Memories</span>
-            </button>
-            <button type="button"
-              className="folder-item"
-              onClick={onTestimonialsClick}
-            >
-              <span className="folder-icon testimonials"></span>
-              <span className="folder-name">Testimonials</span>
             </button>
             <button type="button"
               className="folder-item"

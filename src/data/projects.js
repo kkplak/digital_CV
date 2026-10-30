@@ -46,6 +46,7 @@ export const projects = [
   {
     id: 1,
     name: "Nintendo Super Mario Galaxy",
+    highlight: true,
     portfolioRank: 1,
     iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/960px-Mario_Series_Logo.svg.png",
     description: "Super Mario Galaxy collaboration with McDonald's.",
@@ -101,6 +102,7 @@ export const projects = [
   {
     id: 17,
     name: "Web Accessibility Research",
+    highlight: true,
     portfolioRank: 5,
     iconImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Accessibility.svg/960px-Accessibility.svg.png",
@@ -154,8 +156,9 @@ export const projects = [
   {
     id: 1,
     name: "TinyTAN BTS",
+    highlight: true,
     portfolioRank: 7,
-    iconImage: "https://www.freepnglogos.com/uploads/bts-logo-png/bts-logo-pin-kuba-szczesiak-png-bts-bts-tattoos-0.png",
+    iconImage: "/tinytan-logo.png",
     description: "BTS TinyTAN collaboration with McDonald's.",
     projectType: "Web Mobile Game",
     date: "2025",
@@ -209,6 +212,7 @@ export const projects = [
   {
     id: 2,
     name: "Playmobil",
+    highlight: true,
     portfolioRank: 6,
     iconImage:
       "https://images.seeklogo.com/logo-png/21/2/playmobil-logo-png_seeklogo-214107.png",

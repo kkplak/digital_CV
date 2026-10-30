@@ -1,6 +1,7 @@
 import useWindowAccessibility from '../hooks/useWindowAccessibility';
 import { useState, useRef } from 'react';
 import './CVsWindow.css';
+import HighlightBadge from './HighlightBadge';
 
 export default function CVsWindow({
   onClose,
@@ -10,6 +11,7 @@ export default function CVsWindow({
   title = 'CV',
   items,
   theme,
+  className = '',
 }) {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 120, y: 80 });
@@ -53,7 +55,7 @@ export default function CVsWindow({
       <div
         ref={windowRef}
         {...windowProps}
-        className={`cvs-window ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
+        className={`cvs-window ${className} ${theme?.windowAppearance || 'dark'} ${isMaximized ? 'maximized' : ''}`}
         style={!isMaximized ? { left: `${position.x}px`, top: `${position.y}px` } : {}}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -76,8 +78,9 @@ export default function CVsWindow({
                 className="cvs-file-item"
                 onClick={item.onOpen}
               >
-                <span className={`cvs-file-icon ${item.type || 'pdf'}`}></span>
+                <span className={`cvs-file-icon ${item.type || 'pdf'}`} aria-hidden="true"></span>
                 <span className="cvs-file-name">{item.name}</span>
+                {item.highlight && <HighlightBadge />}
               </button>
             ))}
           </div>

@@ -1,0 +1,15 @@
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: #91723a;
+  vertical-align: middle;
+}
+.highlight-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+.dark .highlight-badge { color: #c9b17e; }
+@media (forced-colors: active) {
+  .highlight-badge { color: CanvasText; }
+}
