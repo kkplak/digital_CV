@@ -1,4 +1,4 @@
-# Pokémon 30 × Happy Meal assets
+# Pokémon 30 project assets
 
 Retrieved 30 October 2026 for the portfolio entry describing Konrad Plak's frontend development and technical delivery work.
 

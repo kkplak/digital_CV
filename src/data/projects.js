@@ -1,12 +1,12 @@
 export const projects = [
   {
     id: 23,
-    name: "Pokémon 30 × Happy Meal",
+    name: "Pokémon 30",
     portfolioRank: 2,
     iconImage: "/pokemon30/anniversary-mark.svg",
     description:
-      "Led frontend development and technical delivery for the Pokémon 30 Happy Meal digital game.",
-    projectType: "Happy Meal Digital Experience",
+      "Led frontend development and technical delivery for the Pokémon 30 collaboration with McDonald's Happy Meal.",
+    projectType: "Digital Experience",
     portfolioCategories: ["engineering"],
     date: "2026",
     role: "Lead Frontend Developer / Technical Delivery",

@@ -1,10 +1,10 @@
 // Editorial copy grounded in each project's existing details, role and focus areas.
 // Use names as keys: the original project data contains duplicate numeric IDs.
 export const projectStories = {
-  'Pokémon 30 × Happy Meal': {
+  'Pokémon 30': {
     layout: 'feature',
     gallery: 'portrait',
-    lead: "I led frontend development and technical delivery for the Pokémon 30 Happy Meal digital experience, connecting the physical campaign with an interactive browser game.",
+    lead: "I led frontend development and technical delivery for Pokémon 30, a digital game created for the McDonald's Happy Meal collaboration. The experience connects the physical campaign with an interactive browser game.",
     sections: [{
       heading: 'From Happy Meal box to Pokémon search',
       paragraphs: ["The campaign takes players from a QR code on their Happy Meal box into a digital search for 15 Pokémon toys hidden around a virtual classroom and playground. The game extends the collect-and-discover idea behind the physical collaboration into an interactive experience."],
