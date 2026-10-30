@@ -1,6 +1,21 @@
 // Editorial copy grounded in each project's existing details, role and focus areas.
 // Use names as keys: the original project data contains duplicate numeric IDs.
 export const projectStories = {
+  'Pokémon 30 × Happy Meal': {
+    layout: 'feature',
+    gallery: 'portrait',
+    lead: "I led frontend development and technical delivery for the Pokémon 30 Happy Meal digital experience, connecting the physical campaign with an interactive browser game.",
+    sections: [{
+      heading: 'From Happy Meal box to Pokémon search',
+      paragraphs: ["The campaign takes players from a QR code on their Happy Meal box into a digital search for 15 Pokémon toys hidden around a virtual classroom and playground. The game extends the collect-and-discover idea behind the physical collaboration into an interactive experience."],
+    }, {
+      heading: 'Leading the frontend and technical delivery',
+      paragraphs: ["My role combined leading the frontend implementation with technical delivery. I used the same core stack as the Super Mario Galaxy Happy Meal project: React and TypeScript, supported by Vite, Zustand, Framer Motion, Lottie and Tone.js."],
+    }, {
+      heading: 'Campaign announcement',
+      paragraphs: ["McDonald's announced the U.S. Happy Meal campaign for 10 November 2026, with the digital game reached by scanning the QR code on the packaging."],
+    }],
+  },
   'Folio PDF Editor': {
     layout: 'report',
     lead: 'Folio started with a conversation with a friend who works in insurance. Every client meeting meant typing the same information into PDFs again, then checking that related fields matched. I built a PDF workspace around a simple goal: enter a detail once, and let the document do the repetitive work.',
