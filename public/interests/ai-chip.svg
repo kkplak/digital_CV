@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="chip" x1="192" y1="175" x2="405" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#647067"/><stop offset="1" stop-color="#263c33"/></linearGradient>
+    <linearGradient id="metal" x1="180" y1="150" x2="420" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#f4efe2"/><stop offset="1" stop-color="#9b9d90"/></linearGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <path fill="#d8d7cc" d="M0 0h600v600H0z"/>
+  <ellipse cx="305" cy="404" rx="110" ry="25" fill="#263c33" opacity=".2" filter="url(#shadow)"/>
+  <g stroke="url(#metal)" stroke-width="12" stroke-linecap="square">
+    <path d="M235 157v41m32-41v41m33-41v41m33-41v41m32-41v41M235 402v41m32-41v41m33-41v41m33-41v41m32-41v41M157 235h41m-41 32h41m-41 33h41m-41 33h41m-41 32h41M402 235h41m-41 32h41m-41 33h41m-41 33h41m-41 32h41"/>
+  </g>
+  <rect x="187" y="187" width="226" height="226" rx="26" fill="url(#chip)" stroke="#eff0e6" stroke-opacity=".5" stroke-width="2"/>
+  <rect x="217" y="217" width="166" height="166" rx="13" stroke="#e2e4d3" stroke-opacity=".25"/>
+  <g stroke="#e7eadb" stroke-width="2" stroke-linecap="round">
+    <path d="m263 275 37 25 37-25M263 325l37-25 37 25M300 300v-50m0 50v50" opacity=".7"/>
+    <circle cx="300" cy="300" r="13" fill="#344c40"/>
+    <circle cx="263" cy="275" r="5" fill="#c5cdbb"/><circle cx="337" cy="275" r="5" fill="#c5cdbb"/><circle cx="263" cy="325" r="5" fill="#c5cdbb"/><circle cx="337" cy="325" r="5" fill="#c5cdbb"/><circle cx="300" cy="250" r="5" fill="#c5cdbb"/><circle cx="300" cy="350" r="5" fill="#c5cdbb"/>
+  </g>
+</svg>

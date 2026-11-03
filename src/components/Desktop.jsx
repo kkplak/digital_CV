@@ -10,9 +10,11 @@ import ProjectsWindow from './ProjectsWindow';
 import ProjectDetailWindow from './ProjectDetailWindow';
 import SettingsPopup from './SettingsPopup';
 import MemoriesWindow from './MemoriesWindow';
+import InterestsWindow from './InterestsWindow';
 import TestimonialsWindow from './TestimonialsWindow';
-import ChallengesWindow from './ChallengesWindow';
-import ChallengeDetailWindow from './ChallengeDetailWindow';
+// Challenges are retired; their components and data remain available in the source.
+// import ChallengesWindow from './ChallengesWindow';
+// import ChallengeDetailWindow from './ChallengeDetailWindow';
 import OthersWindow from './OthersWindow';
 import projects from '../data/projects';
 import { jamesRecommendation } from '../data/testimonials';
@@ -37,16 +39,18 @@ export default function Desktop() {
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
   const [isMemoriesOpen, setIsMemoriesOpen] = useState(false);
+  const [isInterestsOpen, setIsInterestsOpen] = useState(false);
   const [isTestimonialsOpen, setIsTestimonialsOpen] = useState(false);
-  const [isChallengesOpen, setIsChallengesOpen] = useState(false);
+  // const [isChallengesOpen, setIsChallengesOpen] = useState(false);
   const [isCVMaximized, setIsCVMaximized] = useState(false);
   const [isProjectsMaximized, setIsProjectsMaximized] = useState(false);
   const [isOthersMaximized, setIsOthersMaximized] = useState(false);
   const [isMemoriesMaximized, setIsMemoriesMaximized] = useState(false);
+  const [isInterestsMaximized, setIsInterestsMaximized] = useState(false);
   const [isTestimonialsMaximized, setIsTestimonialsMaximized] = useState(false);
-  const [isChallengesMaximized, setIsChallengesMaximized] = useState(false);
-  const [selectedChallenge, setSelectedChallenge] = useState(null);
-  const [isChallengeDetailMaximized, setIsChallengeDetailMaximized] = useState(false);
+  // const [isChallengesMaximized, setIsChallengesMaximized] = useState(false);
+  // const [selectedChallenge, setSelectedChallenge] = useState(null);
+  // const [isChallengeDetailMaximized, setIsChallengeDetailMaximized] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isProjectDetailMaximized, setIsProjectDetailMaximized] = useState(false);
@@ -266,6 +270,18 @@ export default function Desktop() {
   };
 
 
+  const handleInterestsClick = () => {
+    focusWindow('.interests-window');
+    setIsInterestsOpen(true);
+    if (window.innerWidth <= 768) setIsInterestsMaximized(true);
+  };
+
+  const handleInterestsClose = () => {
+    setIsInterestsOpen(false);
+    setIsInterestsMaximized(false);
+  };
+
+  /* Challenges disabled in favour of Interests.
   const handleChallengesClick = () => {
     focusWindow('.challenges-window');
     setIsChallengesOpen(true);
@@ -308,6 +324,7 @@ export default function Desktop() {
   const handleChallengeDetailMaximize = () => {
     setIsChallengeDetailMaximized(!isChallengeDetailMaximized);
   };
+  */
 
   const handleCVsRestore = () => {
     focusWindow('.cvs-window');
@@ -698,7 +715,7 @@ export default function Desktop() {
           onMaximize={handleOthersMaximize}
           isMaximized={isOthersMaximized}
           onMemoriesClick={handleMemoriesClick}
-          onChallengesClick={handleChallengesClick}
+          onInterestsClick={handleInterestsClick}
           theme={theme}
         />
       )}
@@ -710,6 +727,16 @@ export default function Desktop() {
           onMinimize={handleMemoriesMinimize}
           onMaximize={handleMemoriesMaximize}
           isMaximized={isMemoriesMaximized}
+          theme={theme}
+        />
+      )}
+
+      {isInterestsOpen && (
+        <InterestsWindow
+          onClose={handleInterestsClose}
+          onMinimize={() => setIsInterestsOpen(false)}
+          onMaximize={() => setIsInterestsMaximized(current => !current)}
+          isMaximized={isInterestsMaximized}
           theme={theme}
         />
       )}
@@ -740,7 +767,7 @@ export default function Desktop() {
         />
       )}
 
-      {/* Challenges Window */}
+      {/* Challenges disabled in favour of Interests.
       {isChallengesOpen && (
         <ChallengesWindow
           onClose={handleChallengesClose}
@@ -750,9 +777,9 @@ export default function Desktop() {
           onChallengeClick={handleChallengeClick}
           theme={theme}
         />
-      )}
+      )} */}
 
-      {/* Challenge Detail Window */}
+      {/* Challenge detail disabled.
       {selectedChallenge && (
         <ChallengeDetailWindow
           challenge={selectedChallenge}
@@ -762,7 +789,7 @@ export default function Desktop() {
           isMaximized={isChallengeDetailMaximized}
           theme={theme}
         />
-      )}
+      )} */}
 
       {/* Project Detail Window */}
       {selectedProject && (
@@ -846,7 +873,6 @@ export default function Desktop() {
               filter: 'brightness(1.1) saturate(1.2)'
             } : {}}
           ></button>
-   
         </div>
       </div>
     </div>

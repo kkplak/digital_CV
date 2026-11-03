@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs><radialGradient id="record"><stop stop-color="#45474a"/><stop offset=".38" stop-color="#20262a"/><stop offset="1" stop-color="#0f171c"/></radialGradient><linearGradient id="sleeve" x1="0" y1="0" x2="600" y2="600"><stop stop-color="#d9c5b8"/><stop offset="1" stop-color="#9a9ca8"/></linearGradient></defs>
+  <path fill="url(#sleeve)" d="M0 0h600v600H0z"/>
+  <ellipse cx="310" cy="407" rx="190" ry="24" fill="#303343" opacity=".12"/>
+  <circle cx="300" cy="292" r="185" fill="url(#record)"/>
+  <g stroke="#c9c8bf" stroke-opacity=".11"><circle cx="300" cy="292" r="172"/><circle cx="300" cy="292" r="160"/><circle cx="300" cy="292" r="148"/><circle cx="300" cy="292" r="136"/><circle cx="300" cy="292" r="124"/><circle cx="300" cy="292" r="112"/><circle cx="300" cy="292" r="100"/><circle cx="300" cy="292" r="88"/></g>
+  <circle cx="300" cy="292" r="57" fill="#a9b8af"/><circle cx="300" cy="292" r="7" fill="#e8ded4"/>
+  <path d="M263 280c16-18 41-18 74 0M263 292c16-10 41-10 74 0M263 304c16-2 41-2 74 0" stroke="#36554c" stroke-opacity=".55" stroke-width="1.6"/>
+</svg>

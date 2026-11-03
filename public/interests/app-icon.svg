@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6 6 52 52" fill="none">
+  <defs><path id="petal" d="M27.2 7.9C17.5 9.7 9.7 17.5 7.9 27.2c-.3 1.5.6 2.6 2.1 2.5 14.3-.6 19.1-5.4 19.7-19.7.1-1.5-1-2.4-2.5-2.1Z"/></defs>
+  <g fill="#272b27"><use href="#petal"/><use href="#petal" transform="rotate(90 32 32)"/><use href="#petal" transform="rotate(180 32 32)"/><use href="#petal" transform="rotate(270 32 32)"/></g>
+</svg>
+

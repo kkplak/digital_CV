@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs><linearGradient id="wave-ink" x1="140" y1="140" x2="470" y2="480" gradientUnits="userSpaceOnUse"><stop stop-color="#efe6ce"/><stop offset="1" stop-color="#7faaa1"/></linearGradient></defs>
+  <path fill="#243f39" d="M0 0h600v600H0z"/>
+  <g stroke="url(#wave-ink)" stroke-width="1.7" stroke-linecap="round">
+    <path d="M121 262c83-127 171-127 358 0M121 274c83-120 171-120 358 0M121 286c83-110 171-110 358 0M121 298c83-96 171-96 358 0M121 310c83-78 171-78 358 0M121 322c83-57 171-57 358 0M121 334c83-33 171-33 358 0M121 346c83-7 171-7 358 0M121 358c83 19 171 19 358 0M121 370c83 43 171 43 358 0M121 382c83 64 171 64 358 0M121 394c83 81 171 81 358 0"/>
+  </g>
+</svg>
