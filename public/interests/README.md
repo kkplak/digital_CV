@@ -25,6 +25,8 @@ Supporting stock photographs from Unsplash illustrate the subject and are not pr
 
 `anime-still.jpg` is [an official Spirited Away still](https://www.ghibli.jp/gallery/chihiro043.jpg), supplied through [Studio Ghibli's film gallery](https://www.ghibli.jp/works/chihiro/). © 2001 Hayao Miyazaki/Studio Ghibli, NDDTM. The Asian culture tile reuses the Bangkok photograph already present in the Memories collection.
 
+`visual-design.gif` is the animated artwork [supplied by Konrad](https://i.pinimg.com/originals/4a/31/78/4a3178c08a97e9f76549fb9f345c6be6.gif), stored locally for the Visual design tile with its original animation preserved. The original creator is not identified in the supplied link.
+
 Barlow Condensed Bold is distributed under the SIL Open Font License; see `FONT-LICENSE.txt`. `ai-chip.svg`, `creative-waves.svg`, `ambient.svg`, `scifi.svg`, `design-study.svg`, `accessibility-key.svg`, `new-technologies.svg` and `attention-to-detail.svg` are original SVG illustrations created for the Interests app.
 
 `app-icon.png` is a 256 × 256 transparent PNG of the custom geometric mark inspired by the [Icons8 reference supplied by Konrad](https://img.icons8.com/fluent-systems-filled/1200/yandex-zen.jpg). `app-icon.svg` retains the vector source. The launcher adapts the same transparent artwork to light and dark themes.
