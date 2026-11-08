@@ -45,12 +45,6 @@ export default function InterestsWindow({ onClose, onMinimize, onMaximize, isMax
 
         <div className="interests-app-content" onClick={event => { if (!event.target.closest('.interest-tile')) setActiveInterest(null); }}>
           <div className="interests-discovery-grid">
-            <div className="interest-manifesto">
-              <span className="interest-tile-index">00 / KONRAD</span>
-              <h1>MORE<br />THAN<br />CODE.</h1>
-              <p>The things that keep me curious.</p>
-              <span className="interest-manifesto-mark" aria-hidden="true">✳</span>
-            </div>
             {interests.map((interest, index) => {
               const isActive = activeInterest === interest.id;
               const imageFailed = failedImages.includes(interest.id);

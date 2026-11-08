@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="glass" x1="160" y1="150" x2="430" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#faf7ff" stop-opacity=".8"/><stop offset=".5" stop-color="#c1cbdc" stop-opacity=".5"/><stop offset="1" stop-color="#7f8da9" stop-opacity=".8"/></linearGradient>
+    <linearGradient id="edge" x1="145" y1="180" x2="455" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#fffcf5"/><stop offset="1" stop-color="#7d7d9b"/></linearGradient>
+    <radialGradient id="signal"><stop stop-color="#f7f9e9"/><stop offset=".4" stop-color="#d9e7c1"/><stop offset="1" stop-color="#a2b5ac"/></radialGradient>
+  </defs>
+  <path fill="#c1bdcf" d="M0 0h600v600H0z"/>
+  <ellipse cx="300" cy="435" rx="155" ry="20" fill="#3e425c" opacity=".13"/>
+  <path d="m146 345 154-82 154 82-154 83-154-83Z" fill="#747f98" stroke="url(#edge)" stroke-width="2"/>
+  <path d="m146 278 154-82 154 82-154 83-154-83Z" fill="url(#glass)" stroke="url(#edge)" stroke-width="2"/>
+  <path d="m146 211 154-82 154 82-154 83-154-83Z" fill="url(#glass)" stroke="url(#edge)" stroke-width="2"/>
+  <path d="M300 212v132" stroke="#ecf2dc" stroke-width="2" stroke-dasharray="4 7"/>
+  <ellipse cx="300" cy="211" rx="48" ry="26" stroke="#f3f5e8" stroke-opacity=".7"/>
+  <ellipse cx="300" cy="211" rx="28" ry="15" fill="url(#signal)"/>
+  <ellipse cx="300" cy="345" rx="12" ry="6" fill="#e3ebd3"/>
+  <path d="m183 343 35-18m164-93 35-18M300 104V80m-14 14h28" stroke="#5f687d" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+</svg>

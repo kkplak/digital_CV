@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="rim" x1="182" y1="163" x2="420" y2="412" gradientUnits="userSpaceOnUse"><stop stop-color="#fdfbf3"/><stop offset=".28" stop-color="#bfc1b6"/><stop offset=".47" stop-color="#5b6864"/><stop offset=".52" stop-color="#f4f2e8"/><stop offset="1" stop-color="#89978b"/></linearGradient>
+    <radialGradient id="face" cx=".35" cy=".3"><stop stop-color="#f5f1e5"/><stop offset="1" stop-color="#d3d5c8"/></radialGradient>
+  </defs>
+  <path fill="#ded2b6" d="M0 0h600v600H0z"/>
+  <g stroke="#746b51" stroke-opacity=".2" stroke-width="1">
+    <path d="M140 100v400m160-400v400m160-400v400M100 130h400M100 290h400M100 450h400"/>
+    <circle cx="300" cy="290" r="176" stroke-dasharray="3 7"/>
+  </g>
+  <ellipse cx="305" cy="437" rx="133" ry="17" fill="#414b3c" opacity=".14"/>
+  <circle cx="300" cy="297" r="139" fill="#7d897c"/>
+  <circle cx="300" cy="287" r="139" fill="url(#rim)"/>
+  <circle cx="300" cy="287" r="117" fill="url(#face)" stroke="#fffdf4" stroke-opacity=".6"/>
+  <circle cx="300" cy="287" r="102" stroke="#53635b" stroke-width="7" stroke-dasharray="1 9.681"/>
+  <path d="M300 194v14" stroke="#a56543" stroke-width="4" stroke-linecap="round"/>
+  <path d="M300 228v59l42 27" stroke="#516053" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="300" cy="287" r="7" fill="url(#rim)" stroke="#667668"/>
+  <path d="M140 100h20m-20 0v20m320-20h-20m20 0v20M140 480h20m-20 0v-20m320 20h-20m20 0v-20" stroke="#746b51" stroke-opacity=".5" stroke-width="2"/>
+</svg>

@@ -17,10 +17,14 @@ Supporting stock photographs from Unsplash illustrate the subject and are not pr
 - [Game controller](https://images.unsplash.com/photo-1606144042614-b2417e99c4e3)
 - [Cinema projector](https://images.unsplash.com/photo-1478720568477-152d9b164e26)
 - [Wood and stainless steel interior](https://unsplash.com/photos/a-modern-kitchen-showcases-wood-paneling-and-stainless-steel-5kdlUEHlMXo) — Caroline Badran
+- [Plants](https://unsplash.com/photos/green-plant-on-white-ceramic-pot-MPfS0DmCFFE) — Pawel Czerwinski
 - [Dusk horizon](https://unsplash.com/photos/horizon-at-dusk-with-gradient-sky-8e1SvMYb6os) — Fabio Sasso
+- [Body movement](https://unsplash.com/photos/a-blurry-dancer-with-arms-raised-against-dark-background-i-CtAvbwQAs) — Vitaliy Shevchenko. Illustrative stock photography, not a photograph of Konrad.
+- [Quiet luxuries](https://unsplash.com/photos/stack-of-linen-napkins-and-ceramic-cups-on-table-IIXtlWowNpQ) — Eric Human
+- [Nature documentaries](https://unsplash.com/photos/a-deer-standing-in-a-forest-next-to-some-trees-fsos3DjPvI4) — Tim Schmidbauer
 
 `anime-still.jpg` is [an official Spirited Away still](https://www.ghibli.jp/gallery/chihiro043.jpg), supplied through [Studio Ghibli's film gallery](https://www.ghibli.jp/works/chihiro/). © 2001 Hayao Miyazaki/Studio Ghibli, NDDTM. The Asian culture tile reuses the Bangkok photograph already present in the Memories collection.
 
-Barlow Condensed Bold is distributed under the SIL Open Font License; see `FONT-LICENSE.txt`. `ai-chip.svg`, `creative-waves.svg`, `ambient.svg`, `scifi.svg`, `design-study.svg` and `accessibility-key.svg` are original SVG illustrations created for the Interests app.
+Barlow Condensed Bold is distributed under the SIL Open Font License; see `FONT-LICENSE.txt`. `ai-chip.svg`, `creative-waves.svg`, `ambient.svg`, `scifi.svg`, `design-study.svg`, `accessibility-key.svg`, `new-technologies.svg` and `attention-to-detail.svg` are original SVG illustrations created for the Interests app.
 
 `app-icon.png` is a 256 × 256 transparent PNG of the custom geometric mark inspired by the [Icons8 reference supplied by Konrad](https://img.icons8.com/fluent-systems-filled/1200/yandex-zen.jpg). `app-icon.svg` retains the vector source. The launcher adapts the same transparent artwork to light and dark themes.
