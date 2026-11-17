@@ -533,6 +533,16 @@ export const projects = [
       "Business Communication",
     ],
     techStack: ["Next.js", "React", "CSS", "Vercel"],
+    images: [
+      {
+        url: "/codeline-google.png",
+        caption: "Codeline homepage introducing the web, digital and print practice.",
+      },
+      {
+        url: "/codeline-google2.png",
+        caption: "Codeline services: websites and digital campaign work.",
+      },
+    ],
     links: [
       { label: "Visit Codeline", url: "https://codeline-digital.vercel.app/" },
     ],
