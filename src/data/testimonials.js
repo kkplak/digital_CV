@@ -28,7 +28,33 @@ export const jamesRecommendation = {
   ],
 };
 
+// Letter from Callum King, dated 9 November 2026.
+export const callumRecommendation = {
+  id: 11,
+  name: "Callum King",
+  title: "Senior Digital Accessibility Analyst",
+  company: "tms",
+  highlight: false,
+  sourceLabel: "Letter of recommendation",
+  date: "November 9, 2026",
+  pdfUrl: "/recommendations/Callum_King_Recommendation.pdf",
+  pdfFileName: "Callum_King_Recommendation.pdf",
+  pdfPages: recommendationPages.callum,
+};
+
 export const testimonials = [
+  {
+    id: 12,
+    name: "Eric Wolinsky",
+    avatar: "male",
+    title: "Tech Lead",
+    relationship: "Worked with Konrad on the same team",
+    date: "November 11, 2026",
+    paragraphs: [
+      "Beyond being a skilled developer, Konrad has an excellent understanding of creative and product processes. He has a keen ability to turn open requirements into a wide range of solutions – UI, game mechanics, technical strategy, performant code – at a scale that has delivered experiences for millions of users a month.",
+      "Konrad is a valuable asset for any dynamic team, and is able to accelerate the work of artists and technicians alike. This is a rare type of engineer!",
+    ],
+  },
   {
     id: 9,
     name: "Rodrigo Zanatta",

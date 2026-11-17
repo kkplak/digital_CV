@@ -17,7 +17,7 @@ import TestimonialsWindow from './TestimonialsWindow';
 // import ChallengeDetailWindow from './ChallengeDetailWindow';
 import OthersWindow from './OthersWindow';
 import projects from '../data/projects';
-import { jamesRecommendation } from '../data/testimonials';
+import { jamesRecommendation, callumRecommendation } from '../data/testimonials';
 // import { getTodayHoliday } from '../data/holidays'; // Festive themes functionality disabled
 
 const jurassicAdProject = projects.find(project => project.name === 'Jurassic World: Chaos Theory');
@@ -654,6 +654,7 @@ export default function Desktop() {
           className="recommendations-folder-window"
           items={[
             { name: 'James Gambrell.pdf', type: 'pdf', highlight: jamesRecommendation.highlight, onOpen: () => handleRecommendationOpen(jamesRecommendation) },
+            { name: 'Callum King.pdf', type: 'pdf', highlight: callumRecommendation.highlight, onOpen: () => handleRecommendationOpen(callumRecommendation) },
             { name: 'Testimonials', type: 'folder', onOpen: handleTestimonialsClick },
           ]}
           theme={theme}

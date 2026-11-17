@@ -84,7 +84,7 @@ export default function TestimonialsWindow({ onClose, onMinimize, onMaximize, is
                   <div className="testimonial-info">
                     <h3 className="testimonial-name">{testimonial.name}{testimonial.highlight && <HighlightBadge />}</h3>
                     <p className="testimonial-title">{testimonial.title}</p>
-                    {(testimonial.company || testimonial.relationship) && <p className="testimonial-company">{testimonial.company || testimonial.relationship}</p>}
+                    {(testimonial.company || testimonial.relationship) && <p className="testimonial-company">{[testimonial.company, testimonial.relationship].filter(Boolean).join(' · ')}</p>}
                   </div>
                   {testimonial.linkedIn && (
                     <a 
