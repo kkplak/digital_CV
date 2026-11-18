@@ -15,13 +15,13 @@ function SoundOffIcon() {
 }
 
 // Autoplays muted (like the memory clips) but lets the user opt into sound.
-export function ProjectVideo({ src, caption, projectName }) {
+export function ProjectVideo({ src, caption, projectName, poster }) {
   const video = useRef(null);
   const [muted, setMuted] = useState(true);
   if (!src) return null;
   return (
     <figure className="project-flow-video">
-      <video ref={video} src={src} autoPlay loop muted={muted} playsInline aria-label={caption || `${projectName} video`} className="project-video" />
+      <video ref={video} src={src} poster={poster} preload="metadata" autoPlay loop muted={muted} playsInline aria-label={caption || `${projectName} video`} className="project-video" />
       <button
         type="button"
         className={`project-video-toggle ${!muted ? 'is-unmuted' : ''}`}
@@ -35,14 +35,32 @@ export function ProjectVideo({ src, caption, projectName }) {
   );
 }
 
-// Images sit at their natural size, on their own row — never sharing a line with text.
+function GalleryImage({ item, alt }) {
+  const image = <ProjectImage src={item.url} alt={alt} className="project-flow-image" loading={item.crop ? 'eager' : 'lazy'} />;
+  if (!item.crop) return image;
+
+  // Display a region of the original sheet without modifying the source artwork.
+  const { x, y, width, height, sourceWidth } = item.crop;
+  return (
+    <span className="project-flow-crop" style={{
+      aspectRatio: `${width} / ${height}`,
+      '--crop-image-width': `${sourceWidth / width * 100}%`,
+      '--crop-image-left': `${-x / width * 100}%`,
+      '--crop-image-top': `${-y / height * 100}%`,
+    }}>
+      {image}
+    </span>
+  );
+}
+
+// Images sit on their own row — never sharing a line with text.
 export function FlowingImages({ images, projectName, startIndex = 0 }) {
   if (!images.length) return null;
   return (
     <div className="project-flow-gallery">
       {images.map((item, index) => (
-        <figure key={`${item.url}-${index}`} className={`project-flow-figure ${item.isVertical ? 'is-vertical' : ''}`}>
-          <ProjectImage src={item.url} alt={item.caption || `${projectName}, image ${startIndex + index + 1}`} className="project-flow-image" />
+        <figure key={`${item.url}-${index}`} className={`project-flow-figure${item.isVertical ? ' is-vertical' : ''}${item.crop ? ' has-crop' : ''}${item.isWide ? ' is-wide' : ''}`}>
+          <GalleryImage item={item} alt={item.caption || `${projectName}, image ${startIndex + index + 1}`} />
           {item.caption && <figcaption>{item.caption}</figcaption>}
         </figure>
       ))}

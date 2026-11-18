@@ -147,6 +147,40 @@
   filter: blur(48px) saturate(1.6);
   opacity: var(--project-header-colour-opacity);
 }
+.project-detail-window.has-project-theme {
+  --project-accent: var(--project-brand-light);
+  --project-link: var(--project-accent);
+}
+.project-detail-window.has-project-theme.dark { --project-accent: var(--project-brand-dark); }
+.project-detail-window.has-project-theme .window-titlebar {
+  background: color-mix(in srgb, var(--project-page) 93%, var(--project-accent) 7%);
+  border-bottom: 1px solid color-mix(in srgb, var(--project-accent) 26%, var(--project-rule));
+}
+.project-detail-window.has-project-theme .project-header {
+  background: color-mix(in srgb, var(--project-page) 94%, var(--project-accent) 6%);
+  border-bottom-color: color-mix(in srgb, var(--project-accent) 28%, var(--project-rule));
+}
+.project-detail-window.has-project-theme .project-header::before {
+  inset: -24px;
+  background-image: var(--project-header-art, none);
+  background-position: var(--project-header-art-position, center);
+  background-size: cover;
+  filter: blur(18px) saturate(.9);
+  opacity: 1;
+}
+.project-detail-window.has-project-theme .project-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--project-page) 93%, transparent) 0%, color-mix(in srgb, var(--project-page) 85%, transparent) 50%, color-mix(in srgb, var(--project-page) 62%, transparent) 100%);
+}
+.project-detail-window.has-project-theme .project-icon-large {
+  border-color: color-mix(in srgb, var(--project-accent) 35%, var(--project-rule));
+}
+.project-detail-window.has-project-theme .project-focus-panel h2,
+.project-detail-window.has-project-theme .project-focus-list li { color: var(--project-accent); }
 .desktop .project-detail-window .project-header :focus-visible { outline-color: var(--project-header-focus); }
 .project-identity { display: flex; align-items: flex-start; gap: 24px; }
 .project-detail-window .project-icon-large {
@@ -174,7 +208,6 @@
 .project-detail-window .project-layout-split .project-title { font-size: clamp(2rem, 4.8cqw, 2.75rem); letter-spacing: -.035em; }
 .project-detail-window .project-role { margin: 12px 0 0; font-size: 14px; line-height: 1.55; color: var(--project-secondary); }
 .project-role>span { margin-right: 9px; color: var(--project-muted); font-size: 12px; }
-.project-detail-window .project-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .project-detail-window .project-link {
   display: inline-flex;
   align-items: center;
@@ -221,8 +254,18 @@
 .project-focus-panel h2 { color: var(--project-blue); }
 .project-tools-panel { padding-top: 20px; border-top: 1px solid var(--project-rule); }
 .project-tools-panel h2 { color: var(--project-green); }
-.project-sources-panel { padding-top: 20px; border-top: 1px solid var(--project-rule); }
-.project-sources-panel h2 { color: var(--project-link); }
+.project-links-panel { padding-top: 20px; border-top: 1px solid var(--project-rule); }
+.project-links-panel h2 { color: var(--project-link); }
+.project-links { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.project-links li { min-width: 0; max-width: 100%; }
+.project-sources-panel { padding-top: 16px; border-top: 1px solid var(--project-rule); color: var(--project-muted); }
+.project-sources-panel h2 { color: var(--project-muted); font-size: 10.5px; letter-spacing: .04em; }
+.project-source-list { display: grid; gap: 10px; min-width: 0; margin: 0; padding: 0; list-style: none; font-size: 11.5px; line-height: 1.6; }
+.project-source-list li { min-width: 0; }
+.project-source-link { color: var(--project-muted); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); overflow-wrap: anywhere; }
+.project-source-link:hover { color: var(--project-secondary); text-decoration-color: currentColor; }
+.project-source-credit, .project-source-uses { margin: 3px 0 0; color: var(--project-muted); font-size: 11.5px; line-height: 1.6; overflow-wrap: anywhere; }
+.project-source-uses { font-size: 11px; }
 .project-focus-list {
   display: flex;
   flex-wrap: wrap;
@@ -276,9 +319,14 @@
 .project-flow-figure:only-child { max-width: min(100%, 800px); }
 .project-flow-figure.is-vertical { max-width: min(36%, 420px); }
 .project-flow-figure.is-vertical:only-child { max-width: min(60%, 520px); }
+.project-flow-figure.has-crop { width: 100%; }
+.project-flow-figure.is-wide { max-width: min(100%, 800px); }
 .project-flow-image { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--project-image-stage); }
 .project-flow-figure figcaption { margin-top: 6px; font-size: 12px; line-height: 1.4; color: var(--project-muted); }
 .project-flow-figure .project-image-fallback { aspect-ratio: 4 / 3; width: 100%; border-radius: 6px; background: var(--project-image-stage); }
+.project-flow-crop { position: relative; display: block; overflow: hidden; border-radius: 6px; background: var(--project-image-stage); }
+.project-flow-crop > img { position: absolute; width: var(--crop-image-width); max-width: none; left: var(--crop-image-left); top: var(--crop-image-top); border-radius: 0; }
+.project-flow-crop > .project-image-fallback { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
 .project-image-fallback { display: grid!important; place-items: center; min-width: 0; font-size: 12px; color: var(--project-muted); }
 .project-icon-large .project-image-fallback { font: inherit; }
 .project-flow-video { position: relative; margin: 0 0 24px; border-radius: 6px; overflow: hidden; background: var(--project-image-stage); }
@@ -337,5 +385,8 @@
 @media (forced-colors: active) {
   .project-link,.project-notes,.project-flow-gallery { border: 1px solid CanvasText; }
   .project-detail-window .project-header::before { display: none; }
+  .project-detail-window.has-project-theme .project-header::after { display: none; }
+  .project-detail-window.has-project-theme .window-titlebar,
+  .project-detail-window.has-project-theme .project-header { background: Canvas; }
   .desktop .project-detail-window .project-header :focus-visible { outline-color: Highlight; }
 }

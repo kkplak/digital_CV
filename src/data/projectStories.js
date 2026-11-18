@@ -12,8 +12,8 @@ export const projectStories = {
       heading: 'Leading the frontend and technical delivery',
       paragraphs: ["My role combined leading the frontend implementation with technical delivery. I used the same core stack as the Super Mario Galaxy Happy Meal project: React and TypeScript, supported by Vite, Zustand, Framer Motion, Lottie and Tone.js."],
     }, {
-      heading: 'Campaign announcement',
-      paragraphs: ["McDonald's announced the U.S. Happy Meal campaign for 10 November 2026, with the digital game reached by scanning the QR code on the packaging."],
+      heading: 'Public release',
+      paragraphs: ["The U.S. Happy Meal campaign launched on 10 November 2026. The browser game is listed on IGDB as Pokémon Happy Meal Digital Experience, and launch coverage describes the digital search activity reached through the QR code on the packaging."],
     }],
   },
   'Folio PDF Editor': {

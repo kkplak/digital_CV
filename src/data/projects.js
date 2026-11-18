@@ -2,6 +2,14 @@ export const projects = [
   {
     id: 23,
     name: "Pokémon 30",
+    windowTheme: {
+      image: "/pokemon30/level-select-sheet.png",
+      position: "center 12%",
+      accent: "#bd243a",
+      accentDark: "#ff9bad",
+      credit: "Nintendo / The Pokémon Company / McDonald's · archived by DogToon64",
+      sourceUrl: "https://www.spriters-resource.com/browser_games/pokemonhappymealdigitalexperience/asset/635479/",
+    },
     portfolioRank: 2,
     iconImage: "/pokemon30/anniversary-mark.svg",
     description:
@@ -11,7 +19,7 @@ export const projects = [
     date: "2026",
     role: "Lead Frontend Developer / Technical Delivery",
     details:
-      "Led frontend development and technical delivery for the Pokémon 30 collaboration with McDonald's Happy Meal. The campaign connects the physical Happy Meal to a QR-code digital game, where players search a virtual classroom and playground for 15 Pokémon toys.\n\nBuilt with the React and TypeScript stack also used for the Super Mario Galaxy Happy Meal experience. McDonald's announced the U.S. campaign for 10 November 2026.",
+      "Led frontend development and technical delivery for the Pokémon 30 collaboration with McDonald's Happy Meal. The campaign connects the physical Happy Meal to a QR-code digital game, where players search a virtual classroom and playground for 15 Pokémon toys.\n\nBuilt with the React and TypeScript stack also used for the Super Mario Galaxy Happy Meal experience. The U.S. campaign launched on 10 November 2026.",
     focusAreas: [
       "Frontend Leadership",
       "Technical Delivery",
@@ -40,16 +48,65 @@ export const projects = [
     ],
     images: [
       {
+        url: "/pokemon30/title-screen-sheet.png",
+        isWide: true,
+        crop: { x: 1, y: 1, width: 1800, height: 1200, sourceWidth: 1836 },
+        caption: "Pokémon Happy Meal Digital Experience — title-screen artwork.",
+        credit: "Artwork: Nintendo, The Pokémon Company and McDonald's. Archived by DogToon64.",
+        sourceLabel: "The Spriters Resource — Title Screen",
+        sourceUrl: "https://www.spriters-resource.com/browser_games/pokemonhappymealdigitalexperience/asset/635485/",
+      },
+      {
+        url: "/pokemon30/level-select-sheet.png",
+        crop: { x: 2, y: 3604, width: 312, height: 134, sourceWidth: 3604 },
+        caption: "Classroom scene-selection artwork featuring Bulbasaur.",
+        credit: "Artwork: Nintendo, The Pokémon Company and McDonald's. Archived by DogToon64.",
+        sourceLabel: "The Spriters Resource — Level Select",
+        sourceUrl: "https://www.spriters-resource.com/browser_games/pokemonhappymealdigitalexperience/asset/635479/",
+      },
+      {
+        url: "/pokemon30/level-select-sheet.png",
+        crop: { x: 316, y: 3604, width: 312, height: 134, sourceWidth: 3604 },
+        caption: "Playground scene-selection artwork featuring Squirtle.",
+        credit: "Artwork: Nintendo, The Pokémon Company and McDonald's. Archived by DogToon64.",
+        sourceLabel: "The Spriters Resource — Level Select",
+        sourceUrl: "https://www.spriters-resource.com/browser_games/pokemonhappymealdigitalexperience/asset/635479/",
+      },
+      {
+        url: "/pokemon30/level-select-sheet.png",
+        crop: { x: 630, y: 3604, width: 312, height: 134, sourceWidth: 3604 },
+        caption: "Art-room scene-selection artwork featuring Charmander.",
+        credit: "Artwork: Nintendo, The Pokémon Company and McDonald's. Archived by DogToon64.",
+        sourceLabel: "The Spriters Resource — Level Select",
+        sourceUrl: "https://www.spriters-resource.com/browser_games/pokemonhappymealdigitalexperience/asset/635479/",
+      },
+      {
         url: "/pokemon30/happy-meal-campaign.jpg",
         isVertical: true,
         caption:
           "Official Pokémon Happy Meal campaign artwork from McDonald's.",
+        credit: "Campaign artwork supplied by McDonald's.",
+        sourceLabel: "McDonald's campaign announcement",
+        sourceUrl: "https://corporate.mcdonalds.com/corpmcd/our-stories/article/USmenuspotter.html",
       },
     ],
     links: [
       {
         label: "McDonald's campaign announcement",
         url: "https://corporate.mcdonalds.com/corpmcd/our-stories/article/USmenuspotter.html",
+      },
+      {
+        label: "Game listing on IGDB",
+        url: "https://www.igdb.com/games/pokemon-happy-meal-digital-experience",
+      },
+      {
+        label: "Public game artwork collection",
+        url: "https://www.spriters-resource.com/browser_games/pokemonhappymealdigitalexperience/",
+        attributionOnly: true,
+      },
+      {
+        label: "Launch coverage — Good Morning America",
+        url: "https://www.goodmorningamerica.com/food/story/mcdonalds-brings-back-pokemon-happy-meals-138022291",
       },
       {
         label: "Pokémon 30th anniversary",
@@ -102,8 +159,16 @@ export const projects = [
     ],
   },
   {
+    video: {
+      "url": "/project-assets/mario-game-intro.mp4",
+      "caption": "Opening animation from the Super Mario Galaxy Movie Happy Meal digital experience.",
+      "credit": "Nintendo / Illumination / Universal and McDonald's. Public Happy Meal Digital intro clip.",
+      "sourceLabel": "Happy Meal Digital — original intro video",
+      "sourceUrl": "https://media.happymealdigital.com/supermario/project_santa_intro_branded_v004.mp4"
+    },
     id: 1,
     name: "Nintendo Super Mario Galaxy",
+    windowTheme: { accent: "#2264b4", accentDark: "#9bc9ff", position: "center 35%" },
     highlight: true,
     portfolioRank: 1,
     iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/960px-Mario_Series_Logo.svg.png",
@@ -144,17 +209,29 @@ export const projects = [
     ],
     links: [
       {
-        label: "Offical movie trailer",
-        url: "https://www.youtube.com/watch?v=SA9ohTuGl4Q",
+        "label": "Official movie trailer",
+        "url": "https://www.youtube.com/watch?v=SA9ohTuGl4Q"
       },
+      {
+        "label": "Public Happy Meal game playthrough",
+        "url": "https://www.youtube.com/watch?v=tAsOy2nwmBc"
+      }
     ],
     images: [
       {
-        url: "https://www.nintendo.co.jp/corporate/release/en/2026/img_260125/mv.webp",
+        "url": "https://www.nintendo.co.jp/corporate/release/en/2026/img_260125/mv.webp",
+        "caption": "Official Super Mario Galaxy Movie promotional artwork.",
+        "credit": "Nintendo / Illumination / Universal. Happy Meal campaign: McDonald's.",
+        "sourceLabel": "Nintendo — original promotional image",
+        "sourceUrl": "https://www.nintendo.co.jp/corporate/release/en/2026/img_260125/mv.webp"
       },
       {
-        url: "https://nintenduo.com/wp-content/uploads/2026/03/Happy-Meal-Mario-Galaxy-Pelicula-Espana.avif",
-      },
+        "url": "https://nintenduo.com/wp-content/uploads/2026/03/Happy-Meal-Mario-Galaxy-Pelicula-Espana.avif",
+        "caption": "The Super Mario Galaxy Movie Happy Meal campaign.",
+        "credit": "Nintendo / Illumination / Universal. Happy Meal campaign: McDonald's.",
+        "sourceLabel": "Nintenduo — campaign image",
+        "sourceUrl": "https://nintenduo.com/wp-content/uploads/2026/03/Happy-Meal-Mario-Galaxy-Pelicula-Espana.avif"
+      }
     ],
   },
   {
@@ -214,6 +291,7 @@ export const projects = [
   {
     id: 1,
     name: "TinyTAN BTS",
+    windowTheme: { accent: "#7850ac", accentDark: "#d2b0ff", position: "center 40%" },
     highlight: true,
     portfolioRank: 8,
     iconImage: "/tinytan-logo.png",
@@ -253,23 +331,29 @@ export const projects = [
     ],
     links: [
       {
-        label: "Play through of BTS TinyTAN McDonald's collaboration game",
-        url: "https://www.youtube.com/watch?v=oqWq9o5YpL0",
+        "label": "TinyTAN campaign and digital game coverage",
+        "url": "https://thepopinsider.com/mcdonalds-tinytan-happy-meal-news/"
       },
+      {
+        "label": "McDonald's Swiss TinyTAN activity sheet (PDF)",
+        "url": "https://www.mcdonalds.com/content/dam/sites/ch/nfl/pdf/mcdonalds_happymeal_BTS.pdf"
+      }
     ],
     images: [
       {
-        url: "https://thepopinsider.com/wp-content/uploads/sites/6/2025/08/MCDONALDS_TinyTANHappyMealsZoom.jpg",
-      },
-      {
-        url: "https://i.ytimg.com/vi/oqWq9o5YpL0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHOBYAC1gmKAgwIABABGDQgEyh_MA8=&rs=AOn4CLBu_WPJPRC4JPMBXQMcuzqZL1658g",
-      },
+        "url": "https://thepopinsider.com/wp-content/uploads/sites/6/2025/08/MCDONALDS_TinyTANHappyMealsZoom.jpg",
+        "caption": "TinyTAN Happy Meal campaign artwork.",
+        "credit": "BIGHIT MUSIC / HYBE and McDonald's. Campaign artwork supplied by McDonald's.",
+        "sourceLabel": "The Pop Insider — TinyTAN launch coverage",
+        "sourceUrl": "https://thepopinsider.com/mcdonalds-tinytan-happy-meal-news/"
+      }
     ],
   },
 
   {
     id: 2,
     name: "Playmobil",
+    windowTheme: { accent: "#0873a9", accentDark: "#83d6ff", position: "center 40%" },
     highlight: true,
     portfolioRank: 7,
     iconImage:
@@ -310,22 +394,31 @@ export const projects = [
     ],
     links: [
       {
-        label: "Play through of Playmobil McDonald's collaboration game",
+        label: "Public game playthrough",
         url: "https://youtu.be/jK16_pGzknw?t=87",
       },
     ],
     images: [
       {
-        url: "https://mcdonalds.bg/wp-content/uploads/2025/11/mcd_hm_playmobile_gma_envg_1200x1200-1-1024x1024.jpg",
+        "url": "https://mcdonalds.bg/wp-content/uploads/2025/11/mcd_hm_playmobile_gma_envg_1200x1200-1-1024x1024.jpg",
+        "caption": "Official Playmobil Happy Meal campaign artwork.",
+        "credit": "PLAYMOBIL and McDonald's. Public campaign artwork.",
+        "sourceLabel": "McDonald's Bulgaria — campaign image",
+        "sourceUrl": "https://mcdonalds.bg/wp-content/uploads/2025/11/mcd_hm_playmobile_gma_envg_1200x1200-1-1024x1024.jpg"
       },
       {
-        url: "https://cdn.singpromos.com/wp-content/uploads/2025/06/McDonalds-8-singpromos.com-12-Jun-2025.jpg",
-      },
+        "url": "https://cdn.singpromos.com/wp-content/uploads/2025/06/McDonalds-8-singpromos.com-12-Jun-2025.jpg",
+        "caption": "Playmobil Happy Meal collectible characters.",
+        "credit": "PLAYMOBIL and McDonald's. Public campaign artwork.",
+        "sourceLabel": "SingPromos — campaign image",
+        "sourceUrl": "https://cdn.singpromos.com/wp-content/uploads/2025/06/McDonalds-8-singpromos.com-12-Jun-2025.jpg"
+      }
     ],
   },
   {
     id: 3,
     name: "Jurassic World: Chaos Theory",
+    windowTheme: { accent: "#22754e", accentDark: "#94ddb2", position: "center 35%" },
     portfolioRank: 3,
     iconImage: "/jurassic-logo.webp",
     description: "Jurassic World: Chaos Theory Happy Meal promotion.",
@@ -365,18 +458,37 @@ export const projects = [
     ],
     links: [
       {
-        label:
-          "Jurassic World Chaos Theory McDonalds Happy Meal Digital Experience Consumer Review",
-        url: "https://youtu.be/bxCB2pJf9RA?t=399",
+        "label": "Public digital experience playthrough",
+        "url": "https://youtu.be/bxCB2pJf9RA?t=399"
       },
+      {
+        "label": "8th Wall WebAR project showcase",
+        "url": "https://info.nianticspatial.com/blog/5-brands-show-how-3d/ar-experiences-drive-customer-engagement"
+      }
     ],
     images: [
       {
-        url: "https://www.gulliversretailpark.ie/wp-content/uploads/wwwgulliversretailpark.ie-Mcdonalds.png",
+        "url": "/project-assets/jurassic-8thwall-original.png",
+        "caption": "Title screen, dinosaur encounter and completion screen from the Jurassic World: Chaos Theory digital experience.",
+        "credit": "Jurassic World ©2024 Universal City Studios LLC and Amblin Entertainment, Inc. TV series ©2024 DreamWorks Animation LLC. Published by 8th Wall / Niantic Spatial.",
+        "sourceLabel": "8th Wall — WebAR showcase",
+        "sourceUrl": "https://info.nianticspatial.com/blog/5-brands-show-how-3d/ar-experiences-drive-customer-engagement",
+        "isWide": true
       },
       {
-        url: "https://m.blog.hu/jp/jphungary/image/mobile1.jpg",
+        "url": "https://www.gulliversretailpark.ie/wp-content/uploads/wwwgulliversretailpark.ie-Mcdonalds.png",
+        "caption": "Jurassic World: Chaos Theory Happy Meal campaign artwork.",
+        "credit": "Jurassic World / Universal / DreamWorks and McDonald's. Public campaign imagery.",
+        "sourceLabel": "Gullivers Retail Park — campaign image",
+        "sourceUrl": "https://www.gulliversretailpark.ie/wp-content/uploads/wwwgulliversretailpark.ie-Mcdonalds.png"
       },
+      {
+        "url": "https://m.blog.hu/jp/jphungary/image/mobile1.jpg",
+        "caption": "Publicly shared mobile view of the Jurassic World Happy Meal experience.",
+        "credit": "Jurassic World / Universal / DreamWorks and McDonald's. Public campaign imagery.",
+        "sourceLabel": "Jurassic Park Hungary — mobile image",
+        "sourceUrl": "https://m.blog.hu/jp/jphungary/image/mobile1.jpg"
+      }
     ],
   },
 {
@@ -424,6 +536,7 @@ export const projects = [
 {
   id: 4,
   name: "Galactic Jumpers",
+  windowTheme: { accent: "#7145b5", accentDark: "#c9a7ff", position: "center 40%" },
   portfolioRank: 10,
   icon: "👾",
   iconImage: "/ai-projects/galactic-jumpers.png",
@@ -586,16 +699,53 @@ export const projects = [
     ],
     links: [
       {
-        label:
-          'MultiVersus Wiki on collaboration with McDonald\'s Happy Meal featuring the mini game under "Happy Meal Digital website minigame" section',
-        url: "https://multiversus.wiki.gg/wiki/McDonald%27s",
+        "label": "Campaign and digital game overview",
+        "url": "https://multiversus.wiki.gg/wiki/McDonald%27s"
       },
+      {
+        "label": "tms campaign case study",
+        "url": "https://www.tmsw.com/trending/tms-and-mcdonalds-joined-forces-with-warner-bros-discovery-global-consumer-products-for-multiversus-happy-meal/"
+      }
     ],
     images: [
-      { url: "https://www.tmsw.com/wp-content/uploads/hero_update.jpg" },
       {
-        url: "https://popculturewonders.com/wp-content/uploads/multiversus-happy-meal-toys.webp",
+        "url": "/project-assets/multiversus-splash.png",
+        "caption": "The MultiVersus Happy Meal digital experience — title screen.",
+        "credit": "Warner Bros. Discovery and McDonald's. Digital experience imagery published by tms.",
+        "sourceLabel": "tms — MultiVersus case study",
+        "sourceUrl": "https://www.tmsw.com/trending/tms-and-mcdonalds-joined-forces-with-warner-bros-discovery-global-consumer-products-for-multiversus-happy-meal/",
+        "isVertical": true
       },
+      {
+        "url": "https://www.tmsw.com/wp-content/uploads/hero_update.jpg",
+        "caption": "MultiVersus Happy Meal campaign artwork.",
+        "credit": "Warner Bros. Discovery and McDonald's. Campaign artwork.",
+        "sourceLabel": "tms — MultiVersus case study",
+        "sourceUrl": "https://www.tmsw.com/trending/tms-and-mcdonalds-joined-forces-with-warner-bros-discovery-global-consumer-products-for-multiversus-happy-meal/"
+      },
+      {
+        "url": "https://popculturewonders.com/wp-content/uploads/multiversus-happy-meal-toys.webp",
+        "caption": "Happy Meal collectible tins and campaign artwork.",
+        "credit": "Warner Bros. Discovery and McDonald's. Campaign artwork.",
+        "sourceLabel": "Pop Culture Wonders — campaign image",
+        "sourceUrl": "https://popculturewonders.com/wp-content/uploads/multiversus-happy-meal-toys.webp"
+      },
+      {
+        "url": "/project-assets/multiversus-transition.png",
+        "caption": "Character duo reveal in the digital experience.",
+        "credit": "Warner Bros. Discovery and McDonald's. Digital experience imagery published by tms.",
+        "sourceLabel": "tms — MultiVersus case study",
+        "sourceUrl": "https://www.tmsw.com/trending/tms-and-mcdonalds-joined-forces-with-warner-bros-discovery-global-consumer-products-for-multiversus-happy-meal/",
+        "isVertical": true
+      },
+      {
+        "url": "/project-assets/multiversus-completion.png",
+        "caption": "Completion screen from the MultiVersus digital experience.",
+        "credit": "Warner Bros. Discovery and McDonald's. Digital experience imagery published by tms.",
+        "sourceLabel": "tms — MultiVersus case study",
+        "sourceUrl": "https://www.tmsw.com/trending/tms-and-mcdonalds-joined-forces-with-warner-bros-discovery-global-consumer-products-for-multiversus-happy-meal/",
+        "isVertical": true
+      }
     ],
   },
   {
@@ -637,19 +787,38 @@ export const projects = [
     ],
     links: [
       {
-        label:
-          "McDonald's Happy Meal | Captain America: Brave New World Commercial (2024)",
-        url: "https://www.youtube.com/watch?v=WbdujKzxBPc",
+        "label": "Happy Meal campaign commercial (2024)",
+        "url": "https://www.youtube.com/watch?v=WbdujKzxBPc"
       },
+      {
+        "label": "Digital experience review",
+        "url": "https://noscoopsclub.com/2024/05/04/captain-america-brave-new-world-happy-meal-red-hulk/"
+      }
     ],
     images: [
       {
-        url: "https://noscoopsclub.com/wp-content/uploads/2024/05/mg-floats-2.png", isVertical: true,
+        "url": "https://noscoopsclub.com/wp-content/uploads/2024/05/mg-floats-2.png",
+        "isVertical": true,
+        "caption": "A flying sequence in the Captain America Happy Meal digital experience.",
+        "credit": "Marvel and McDonald's. Screenshots published by Ian Grimm / No Scoops Club.",
+        "sourceLabel": "No Scoops Club — digital experience review",
+        "sourceUrl": "https://noscoopsclub.com/2024/05/04/captain-america-brave-new-world-happy-meal-red-hulk/"
       },
       {
-        url: "https://noscoopsclub.com/wp-content/uploads/2024/05/mg-home-screen-2.png",
-        isVertical: true,
+        "url": "https://noscoopsclub.com/wp-content/uploads/2024/05/mg-home-screen-2.png",
+        "isVertical": true,
+        "caption": "Captain America Happy Meal digital experience — home screen.",
+        "credit": "Marvel and McDonald's. Screenshots published by Ian Grimm / No Scoops Club.",
+        "sourceLabel": "No Scoops Club — digital experience review",
+        "sourceUrl": "https://noscoopsclub.com/2024/05/04/captain-america-brave-new-world-happy-meal-red-hulk/"
       },
+      {
+        "url": "/project-assets/captain-red-hulk.webp",
+        "caption": "Captain America and Falcon stop Red Hulk in the digital experience.",
+        "credit": "Marvel and McDonald's. Screenshot published by Comic Book Club.",
+        "sourceLabel": "Comic Book Club — digital experience coverage",
+        "sourceUrl": "https://comicbookclublive.com/2024/04/29/mcdonalds-happy-meal-new-falcon-costume-red-hulk/"
+      }
     ],
   },
   {
@@ -791,15 +960,39 @@ export const projects = [
     ],
     links: [
       {
-        label: "Elemental Happy Meal Toys Commercial",
-        url: "https://www.youtube.com/watch?v=lVokK1dKIRg",
+        "label": "Elemental Happy Meal Toys Commercial",
+        "url": "https://www.youtube.com/watch?v=lVokK1dKIRg"
       },
+      {
+        "label": "Digital experience case study",
+        "url": "https://www.icantdrawhands.com/work/elemental"
+      }
     ],
     images: [
-   
-      { url: "https://images.squarespace-cdn.com/content/v1/65184db1bc72ea7f9287a8e2/09db01dd-4113-4e72-91b5-69127f297485/2023-10-13+15+40+54.png", isVertical: true },   {
-        url: "https://images.squarespace-cdn.com/content/v1/65184db1bc72ea7f9287a8e2/3f0d847c-0ff1-4265-b40d-c9bc4caf1da0/elemental_frame-03.png", isVertical: true, 
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/65184db1bc72ea7f9287a8e2/09db01dd-4113-4e72-91b5-69127f297485/2023-10-13+15+40+54.png",
+        "isVertical": true,
+        "caption": "Elemental digital experience — mobile interface.",
+        "credit": "Disney/Pixar and McDonald's. Digital experience imagery published by icantdrawhands.",
+        "sourceLabel": "icantdrawhands — Elemental case study",
+        "sourceUrl": "https://www.icantdrawhands.com/work/elemental"
       },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/65184db1bc72ea7f9287a8e2/3f0d847c-0ff1-4265-b40d-c9bc4caf1da0/elemental_frame-03.png",
+        "isVertical": true,
+        "caption": "Elemental digital experience — interactive world view.",
+        "credit": "Disney/Pixar and McDonald's. Digital experience imagery published by icantdrawhands.",
+        "sourceLabel": "icantdrawhands — Elemental case study",
+        "sourceUrl": "https://www.icantdrawhands.com/work/elemental"
+      },
+      {
+        "url": "/project-assets/elemental-menu.png",
+        "caption": "Explore A Place menu, with the Happy Meal toy placed on the phone.",
+        "credit": "Disney/Pixar and McDonald's. Digital experience imagery published by icantdrawhands.",
+        "sourceLabel": "icantdrawhands — Elemental case study",
+        "sourceUrl": "https://www.icantdrawhands.com/work/elemental",
+        "isVertical": true
+      }
     ],
   },
   {
@@ -839,17 +1032,25 @@ export const projects = [
     ],
     links: [
       {
-        label: "Official McDonald’s product launch article",
-        url: "https://www.mcdonalds.com.my/promotion/collect-cute-new-friends-with-adopt-me",
-      },
+        "label": "Official McDonald’s product launch article",
+        "url": "https://www.mcdonalds.com.my/en/promotion/collect-cute-new-friends-with-adopt-me"
+      }
     ],
     images: [
       {
-        url: "https://i.ytimg.com/vi/BTSfdI2IcOI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSig2MA8=&rs=AOn4CLCWgkjUpmXwZRQbOUpWdRxZEZHFTg",
+        "url": "https://i.ytimg.com/vi/BTSfdI2IcOI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSig2MA8=&rs=AOn4CLCWgkjUpmXwZRQbOUpWdRxZEZHFTg",
+        "caption": "Public video thumbnail for the Adopt Me! Happy Meal collaboration.",
+        "credit": "Adopt Me! / Uplift Games and McDonald's. Public campaign imagery.",
+        "sourceLabel": "YouTube — campaign video thumbnail",
+        "sourceUrl": "https://i.ytimg.com/vi/BTSfdI2IcOI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgSig2MA8=&rs=AOn4CLCWgkjUpmXwZRQbOUpWdRxZEZHFTg"
       },
       {
-        url: "https://sg.everydayonsales.com/wp-content/uploads/2023/09/McDonalds-Adopt-Me-Happy-Meal-Toys-1.jpg",
-      },
+        "url": "https://sg.everydayonsales.com/wp-content/uploads/2023/09/McDonalds-Adopt-Me-Happy-Meal-Toys-1.jpg",
+        "caption": "Adopt Me! Happy Meal campaign and collectible characters.",
+        "credit": "Adopt Me! / Uplift Games and McDonald's. Public campaign imagery.",
+        "sourceLabel": "EverydayOnSales — campaign image",
+        "sourceUrl": "https://sg.everydayonsales.com/wp-content/uploads/2023/09/McDonalds-Adopt-Me-Happy-Meal-Toys-1.jpg"
+      }
     ],
   },
 
@@ -888,25 +1089,53 @@ export const projects = [
     ],
     links: [
       {
-        label: "Official McDonald’s product launch article",
-        url: "https://corporate.mcdonalds.com/corpmcd/our-stories/article/mcdonalds-launches-squishmallows-happymeal-inthe-us.html",
+        "label": "Official McDonald’s product launch article",
+        "url": "https://corporate.mcdonalds.com/corpmcd/our-stories/article/mcdonalds-launches-squishmallows-happymeal-inthe-us.html"
       },
       {
-        label: "Squishmallows Happy Meal Toys Commercial",
-        url: "https://www.youtube.com/watch?v=fvxpmNhW8aw",
+        "label": "Happy Meal campaign commercial",
+        "url": "https://www.youtube.com/watch?v=fvxpmNhW8aw"
       },
       {
-        label: "Digital Experience – User Playthrough",
-        url: "https://youtu.be/AmDucFhXLHE?t=907",
+        "label": "Digital experience playthrough",
+        "url": "https://youtu.be/AmDucFhXLHE?t=907"
       },
+      {
+        "label": "tms digital experience case study",
+        "url": "https://www.tmsw.com/trending/squishmallows-happy-meal-continued-its-musical-adventure-at-mcdonalds-us/"
+      }
     ],
     images: [
       {
-        url: "https://s7d1.scene7.com/is/image/mcdonalds/HMSquishPRHero%202336x1040:hero-desktop?resmode=sharp2",
+        "url": "/project-assets/squish-entry.jpg",
+        "caption": "Get Ready screen from the original Squishmallows Happy Meal digital experience.",
+        "credit": "Squishmallows / Jazwares and McDonald's. Digital experience imagery published by tms.",
+        "sourceLabel": "tms — Squishmallows musical adventure",
+        "sourceUrl": "https://www.tmsw.com/trending/squishmallows-happy-meal-continued-its-musical-adventure-at-mcdonalds-us/",
+        "isVertical": true
       },
       {
-        url: "https://www.licensingmagazine.com/wp-content/uploads/2023/06/Jazwares-has-announced-a-new-collaboration-with-McDonalds-to-bring-its-popular-Squishmallows-plush-figures-to-Happy-Meals-around-the-world..jpg",
+        "url": "/project-assets/squish-playlist.jpg",
+        "caption": "Grimace's character playlist in the Happy Meal digital experience.",
+        "credit": "Squishmallows / Jazwares and McDonald's. Digital experience imagery published by tms.",
+        "sourceLabel": "tms — Squishmallows musical adventure",
+        "sourceUrl": "https://www.tmsw.com/trending/squishmallows-happy-meal-continued-its-musical-adventure-at-mcdonalds-us/",
+        "isVertical": true
       },
+      {
+        "url": "https://s7d1.scene7.com/is/image/mcdonalds/HMSquishPRHero%202336x1040:hero-desktop?resmode=sharp2",
+        "caption": "Official U.S. Squishmallows Happy Meal campaign artwork.",
+        "credit": "Squishmallows / Jazwares and McDonald's. Campaign artwork.",
+        "sourceLabel": "McDonald's — campaign announcement",
+        "sourceUrl": "https://corporate.mcdonalds.com/corpmcd/our-stories/article/mcdonalds-launches-squishmallows-happymeal-inthe-us.html"
+      },
+      {
+        "url": "https://www.licensingmagazine.com/wp-content/uploads/2023/06/Jazwares-has-announced-a-new-collaboration-with-McDonalds-to-bring-its-popular-Squishmallows-plush-figures-to-Happy-Meals-around-the-world..jpg",
+        "caption": "Global Squishmallows Happy Meal campaign artwork.",
+        "credit": "Squishmallows / Jazwares and McDonald's. Campaign artwork.",
+        "sourceLabel": "Licensing Magazine — campaign image",
+        "sourceUrl": "https://www.licensingmagazine.com/wp-content/uploads/2023/06/Jazwares-has-announced-a-new-collaboration-with-McDonalds-to-bring-its-popular-Squishmallows-plush-figures-to-Happy-Meals-around-the-world..jpg"
+      }
     ],
   },
 
@@ -958,11 +1187,21 @@ export const projects = [
     links: [{ label: "Menusso Website", url: "https://menusso.com" }],
     images: [
       {
-        url: "https://static.wixstatic.com/media/e89c40_43cde4442754415da4743458bd952d6e~mv2.png/v1/fill/w_324,h_179,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Group%201000003528.png",
+        "url": "/project-assets/menusso-onboarding.png",
+        "caption": "Menusso onboarding screens — the original public image at full resolution.",
+        "credit": "Menusso / Marotino. Public product imagery.",
+        "sourceLabel": "Menusso — original onboarding artwork",
+        "sourceUrl": "https://static.wixstatic.com/media/e89c40_43cde4442754415da4743458bd952d6e~mv2.png",
+        "isWide": true
       },
       {
-        url: "https://product-list.sfo3.digitaloceanspaces.com/products/menusso/images/1ef48afa-bdac-4386-b6ae-3715d9c965db.jpeg",
-      },
+        "url": "/project-assets/menusso-overview.jpeg",
+        "caption": "Public Menusso product overview.",
+        "credit": "Menusso / Marotino. Public product imagery.",
+        "sourceLabel": "Menusso — original product overview",
+        "sourceUrl": "https://product-list.sfo3.digitaloceanspaces.com/products/menusso/images/1ef48afa-bdac-4386-b6ae-3715d9c965db.jpeg",
+        "isWide": true
+      }
     ],
   },
   {
@@ -998,9 +1237,21 @@ export const projects = [
     ],
     images: [
       {
-        url: "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/42286.png.webp",
+        "url": "/project-assets/dreams-02.jpg",
+        "caption": "Dream Shaping creation tools — official PlayStation screenshot.",
+        "credit": "Sony Interactive Entertainment / Media Molecule. Official PlayStation imagery.",
+        "sourceLabel": "PlayStation — Dreams media gallery",
+        "sourceUrl": "https://www.playstation.com/en-us/games/dreams/",
+        "isWide": true
       },
-      { url: "https://i.insider.com/5c59cfe3bde70f124021c7f1?width=700" },
+      {
+        "url": "/project-assets/dreams-gameplay.jpg",
+        "caption": "An official Dreams gameplay screenshot from the PlayStation media gallery.",
+        "credit": "Sony Interactive Entertainment / Media Molecule. Official PlayStation imagery.",
+        "sourceLabel": "PlayStation — Dreams media gallery",
+        "sourceUrl": "https://www.playstation.com/en-us/games/dreams/",
+        "isWide": true
+      }
     ],
   },
   {
@@ -1027,9 +1278,13 @@ export const projects = [
     techStack: ["Adobe Premiere Pro", "Adobe After Effects", "DaVinci Resolve", "Photoshop"],
     links: [
       {
-        label: "Movie review by Critic & Reviewer @BAKCHORMEEBOY",
-        url: "https://www.frontierdanceland.com/wp-content/uploads/2022/07/20200915_Dancers-Locker-2020_Media-Review_Dance-With-Me_Dancers-Locker-2020-by-Frontier-Danceland-Rreview-by-Bakchormeeboy.pdf",
+        "label": "Movie review by Critic & Reviewer @BAKCHORMEEBOY",
+        "url": "https://www.frontierdanceland.com/wp-content/uploads/2022/07/20200915_Dancers-Locker-2020_Media-Review_Dance-With-Me_Dancers-Locker-2020-by-Frontier-Danceland-Rreview-by-Bakchormeeboy.pdf"
       },
+      {
+        "label": "Read the original performance and film review",
+        "url": "https://bakchormeeboy.com/2020/09/15/dance-with-me-dancers-locker-2020-by-frontier-danceland-review/"
+      }
     ],
     images: [{ url: "/zulkefly.png", isVertical: true }],
   },

@@ -19,7 +19,7 @@ export default function ProjectStory({ project, story, images }) {
   const [primaryImage, ...restImages] = images;
   return (
     <div className="project-story-flow">
-      {project.video?.url && <ProjectVideo src={project.video.url} caption={project.video.caption} projectName={project.name} />}
+      {project.video?.url && <ProjectVideo src={project.video.url} poster={project.video.poster} caption={project.video.caption} projectName={project.name} />}
       {lead}
       {primaryImage && <FlowingImages images={[primaryImage]} projectName={project.name} />}
       <StorySections sections={story.sections} />
